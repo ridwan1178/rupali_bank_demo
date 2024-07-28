@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
+import 'package:rupali_bank_demo/signin/signin_page.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
@@ -94,13 +95,27 @@ class _OnboardingState extends State<Onboarding> {
               ),
               child: Row(
                 children: [
-                  isLastPage ? const SizedBox() : ElevatedButton(
-                      onPressed: previousFunction,
-                      child: const Text("Skip")),
+                  isLastPage
+                      ? const SizedBox()
+                      : ElevatedButton(
+                          onPressed: previousFunction,
+                          child: const Text("Skip")),
                   const Expanded(child: SizedBox()),
                   //const Spacer(),
-                  ElevatedButton(
-                      onPressed: nextFunction, child: const Text("next")),
+
+                  isLastPage
+                      ? ElevatedButton(
+                          onPressed: () => {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            SigninPage()),
+                                    (route) => false)
+                              },
+                          child: const Text("sign in"))
+                      : ElevatedButton(
+                          onPressed: nextFunction, child: const Text("next")),
                 ],
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_locale.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/splash/splash_page.dart';
 
 void main() {
@@ -14,20 +15,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      
       title: 'Localizations Sample App',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('bn'), // bangla
       ],
       locale: AppLocale.eng,
-      home: SplashPage(),
+      theme: AppTheme.lightTheme,
+      home: const SplashPage(),
       debugShowCheckedModeBanner: false,
     );
   }
