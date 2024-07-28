@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: AppLocale.eng,
       home: SplashPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

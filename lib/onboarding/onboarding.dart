@@ -94,9 +94,9 @@ class _OnboardingState extends State<Onboarding> {
               ),
               child: Row(
                 children: [
-                  ElevatedButton(
+                  isLastPage ? const SizedBox() : ElevatedButton(
                       onPressed: previousFunction,
-                      child: const Text("previous")),
+                      child: const Text("Skip")),
                   const Expanded(child: SizedBox()),
                   //const Spacer(),
                   ElevatedButton(
@@ -128,7 +128,7 @@ class _OnboardingState extends State<Onboarding> {
           ),
           const Text(
               "Transfer your money to anywhere you want. Be it our bank account, other bank account, wallet etc."),
-          DotsIndicatorWidget(currentIndex: currentIndex),
+          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
         ],
       ),
     );
@@ -152,7 +152,7 @@ class _OnboardingState extends State<Onboarding> {
           ),
           const Text(
               "Pay anything to anybody you want. We support from top-up to marchant payments."),
-          DotsIndicatorWidget(currentIndex: currentIndex),
+          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
         ],
       ),
     );
@@ -176,7 +176,7 @@ class _OnboardingState extends State<Onboarding> {
           ),
           const Text(
               "Manage your accounts including loans, RDs, checque books, cards everything from a signle point!"),
-          DotsIndicatorWidget(currentIndex: currentIndex),
+          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
         ],
       ),
     );
@@ -184,17 +184,16 @@ class _OnboardingState extends State<Onboarding> {
 }
 
 class DotsIndicatorWidget extends StatelessWidget {
-  const DotsIndicatorWidget({
-    super.key,
-    required this.currentIndex,
-  });
+  const DotsIndicatorWidget(
+      {super.key, required this.currentIndex, required this.pageCount});
 
   final int currentIndex;
+  final int pageCount;
 
   @override
   Widget build(BuildContext context) {
     return DotsIndicator(
-      dotsCount: 3,
+      dotsCount: pageCount,
       position: currentIndex,
       decorator: DotsDecorator(
         size: const Size.square(9.0),
