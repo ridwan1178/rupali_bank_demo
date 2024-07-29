@@ -3,10 +3,17 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_locale.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_theme.dart';
+import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:rupali_bank_demo/splash/splash_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      MultiProvider(providers: [
+        ChangeNotifierProvider(create: (context) => AppLangProvider()),
+      ],
+      child: const MyApp()),
+      );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,9 +34,9 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English
         Locale('bn'), // bangla
       ],
-      locale: AppLocale.ban,
       theme: AppTheme.lightTheme,
       home: const SplashPage(),
+      locale: context.watch<AppLangProvider>().appLocale,
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
+import 'package:rupali_bank_demo/homepage/homepage.dart';
+import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:rupali_bank_demo/signin/input_decoration_theme.dart';
+import 'package:provider/provider.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
@@ -21,9 +24,15 @@ class SigninPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            TextButton(onPressed: () => {}, child: const Text("english")),
+            TextButton(
+                onPressed: () =>
+                    {context.read<AppLangProvider>().changeLocaleToEng()},
+                child: const Text("english")),
             const Text(" . "),
-            TextButton(onPressed: () => {}, child: const Text("বাংলা")),
+            TextButton(
+                onPressed: () =>
+                    {context.read<AppLangProvider>().changeLocaleToBn()},
+                child: const Text("বাংলা")),
           ],
         ),
         leading: null,
@@ -40,7 +49,15 @@ class SigninPage extends StatelessWidget {
             const SizedBox(
               height: 235,
             ),
-            ElevatedButton(onPressed: () => {}, child:  Text(AppLocalizations.of(context)!.signin))
+            ElevatedButton(
+                onPressed: () => {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => Homepage()),
+                          (route) => false)
+                    },
+                child: Text(AppLocalizations.of(context)!.signin))
           ],
         ),
       ),
@@ -77,15 +94,17 @@ class SigninPage extends StatelessWidget {
   Widget _emailField(context) {
     return TextField(
       controller: _email,
-      decoration:
-           InputDecorationThemeSignin(hintText: AppLocalizations.of(context)!.email).inputDecoration(),
+      decoration: InputDecorationThemeSignin(
+              hintText: AppLocalizations.of(context)!.email)
+          .inputDecoration(),
     );
   }
 
   Widget _passField(context) {
     return TextField(
       controller: _pass,
-      decoration:  InputDecorationThemeSignin(hintText: AppLocalizations.of(context)!.pass)
+      decoration: InputDecorationThemeSignin(
+              hintText: AppLocalizations.of(context)!.pass)
           .inputDecoration(),
     );
   }

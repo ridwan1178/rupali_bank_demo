@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/signin/signin_page.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
-import 'package:dots_indicator/dots_indicator.dart';
+
+import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -14,7 +15,7 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding> {
   int currentIndex = 0;
   final int pageCount = 3;
-  static const _kDuration = const Duration(milliseconds: 300);
+  static const _kDuration =  Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
 
   final PageController _pageController = PageController();
@@ -143,7 +144,8 @@ class _OnboardingState extends State<Onboarding> {
           ),
           const Text(
               "Transfer your money to anywhere you want. Be it our bank account, other bank account, wallet etc."),
-          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
+          // DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
+          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount)
         ],
       ),
     );
@@ -198,24 +200,24 @@ class _OnboardingState extends State<Onboarding> {
   }
 }
 
-class DotsIndicatorWidget extends StatelessWidget {
-  const DotsIndicatorWidget(
-      {super.key, required this.currentIndex, required this.pageCount});
+// class DotsIndicatorWidget extends StatelessWidget {
+//   const DotsIndicatorWidget(
+//       {super.key, required this.currentIndex, required this.pageCount});
 
-  final int currentIndex;
-  final int pageCount;
+//   final int currentIndex;
+//   final int pageCount;
 
-  @override
-  Widget build(BuildContext context) {
-    return DotsIndicator(
-      dotsCount: pageCount,
-      position: currentIndex,
-      decorator: DotsDecorator(
-        size: const Size.square(9.0),
-        activeSize: const Size(18.0, 9.0),
-        activeShape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return DotsIndicator(
+//       dotsCount: pageCount,
+//       position: currentIndex,
+//       decorator: DotsDecorator(
+//         size: const Size.square(9.0),
+//         activeSize: const Size(18.0, 9.0),
+//         activeShape:
+//             RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+//       ),
+//     );
+//   }
+// }
