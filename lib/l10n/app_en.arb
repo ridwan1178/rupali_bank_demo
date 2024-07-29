@@ -6,6 +6,9 @@
     "lang" : "English",
     "@lang": {
       "description": "language setting"
-    }
+    },
+    "signin": "Sign In",
+    "email": "Email",
+    "pass": "Password"
     
   }

@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      
+    return MaterialApp(
       title: 'Localizations Sample App',
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         Locale('en'), // English
         Locale('bn'), // bangla
       ],
-      locale: AppLocale.eng,
+      locale: AppLocale.ban,
       theme: AppTheme.lightTheme,
       home: const SplashPage(),
       debugShowCheckedModeBanner: false,

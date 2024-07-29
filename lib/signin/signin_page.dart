@@ -36,11 +36,11 @@ class SigninPage extends StatelessWidget {
             const SizedBox(
               height: 19,
             ),
-            _fieldBody(),
+            _fieldBody(context),
             const SizedBox(
               height: 235,
             ),
-            ElevatedButton(onPressed: () => {}, child: const Text("Sign In"))
+            ElevatedButton(onPressed: () => {}, child:  Text(AppLocalizations.of(context)!.signin))
           ],
         ),
       ),
@@ -74,34 +74,34 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _emailField() {
+  Widget _emailField(context) {
     return TextField(
       controller: _email,
       decoration:
-          const InputDecorationThemeSignin(hintText: "Email").inputDecoration(),
+           InputDecorationThemeSignin(hintText: AppLocalizations.of(context)!.email).inputDecoration(),
     );
   }
 
-  Widget _passField() {
+  Widget _passField(context) {
     return TextField(
       controller: _pass,
-      decoration: const InputDecorationThemeSignin(hintText: "Password")
+      decoration:  InputDecorationThemeSignin(hintText: AppLocalizations.of(context)!.pass)
           .inputDecoration(),
     );
   }
 
-  Widget _fieldBody() {
+  Widget _fieldBody(context) {
     return SizedBox(
       width: 330,
       child: Column(
         children: [
-          _textFieldText("Email"),
-          _emailField(),
+          _textFieldText(AppLocalizations.of(context)!.email),
+          _emailField(context),
           const SizedBox(
             height: 20,
           ),
-          _textFieldText("Password"),
-          _passField(),
+          _textFieldText(AppLocalizations.of(context)!.pass),
+          _passField(context),
         ],
       ),
     );
