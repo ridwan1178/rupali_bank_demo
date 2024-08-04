@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 
-class CircleDoneIcon extends StatelessWidget {
+class StatusIcon extends StatelessWidget {
   final double height;
   final double width;
   final Color containerColor;
   final Color borderColor;
   final Icon icon;
 
-   const CircleDoneIcon({
+   const StatusIcon({
     super.key,
     required this.borderColor,
     required this.containerColor,

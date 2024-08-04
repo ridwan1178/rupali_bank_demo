@@ -9,6 +9,7 @@
     },
     "signin": "Sign In",
     "email": "Email",
-    "pass": "Password"
+    "pass": "Password",
+    "accBalance": "Account Balance"
     
   }
