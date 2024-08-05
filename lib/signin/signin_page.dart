@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/homepage/homepage.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
+import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/signin/input_decoration_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -54,7 +55,12 @@ class SigninPage extends StatelessWidget {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => Homepage()),
+                              builder: (BuildContext context) =>
+                                  ChangeNotifierProvider(
+                                    create: (context) =>
+                                        HomepageAccountStatementProvider(),
+                                    child: Homepage(),
+                                  )),
                           (route) => false)
                     },
                 child: Text(AppLocalizations.of(context)!.signin))

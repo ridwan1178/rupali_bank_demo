@@ -7,40 +7,37 @@ import 'package:rupali_bank_demo/homepage/card/top_left.dart';
 import 'package:rupali_bank_demo/homepage/card/top_right.dart';
 
 class CardBody extends StatelessWidget {
-  const CardBody({super.key});
+  final Color? color;
+  const CardBody({super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          color: AppColors.primary,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  TopLeft(icon: AppIcons.tickMark),
-                  Spacer(),
-                  TopRight(
-                    context: context,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  BottomLeft(),
-                  Spacer(),
-                  BottomRight()
-                ],
-              )
-            ],
-          ),
+    return SizedBox(
+      height: 180,
+      width: 610,
+      child: Card(
+        color: color,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                TopLeft(icon: AppIcons.tickMark),
+                Spacer(),
+                TopRight(
+                  context: context,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [BottomLeft(), Spacer(), BottomRight()],
+            )
+          ],
         ),
-        //DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount)
-      ],
+      ),
     );
+    //DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount)
   }
 }
