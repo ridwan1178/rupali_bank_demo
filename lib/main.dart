@@ -6,14 +6,14 @@ import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:rupali_bank_demo/splash/splash_page.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() {
   runApp(
-      MultiProvider(providers: [
-        ChangeNotifierProvider(create: (context) => AppLangProvider()),
-      ],
-      child: const MyApp()),
-      );
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => AppLangProvider()),
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       home: const SplashPage(),
       locale: context.watch<AppLangProvider>().appLocale,
       debugShowCheckedModeBanner: false,
+      builder: EasyLoading.init(),
     );
   }
 }

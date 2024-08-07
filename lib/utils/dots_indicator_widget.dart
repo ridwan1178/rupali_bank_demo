@@ -8,6 +8,7 @@ class DotsIndicatorWidget extends StatelessWidget {
   final int currentIndex;
   final int pageCount;
 
+
   @override
   Widget build(BuildContext context) {
     return DotsIndicator(
