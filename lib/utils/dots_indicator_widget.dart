@@ -8,9 +8,14 @@ class DotsIndicatorWidget extends StatelessWidget {
   final int currentIndex;
   final int pageCount;
 
+  void initState(){
+    
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    
     return DotsIndicator(
       dotsCount: pageCount,
       position: currentIndex,

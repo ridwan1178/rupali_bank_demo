@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rupali_bank_demo/homepage/account_statement_scroller.dart';
+import 'package:rupali_bank_demo/homepage/account_statement_options.dart';
+
 import 'package:rupali_bank_demo/homepage/card/card_body.dart';
-import 'package:rupali_bank_demo/homepage/cards.dart';
+
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,8 @@ class _HomepageState extends State<Homepage> {
     keepPage: false,
   );
   int currentIndex = 0;
-  Key _refreshKey = UniqueKey();
+
+  //Key _refreshKey = UniqueKey();
   // final int pageCount = 4;
   static const _kDuration = Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
@@ -35,6 +37,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     context.read<HomepageAccountStatementProvider>().selectedDefault();
+    
     super.initState();
   }
 
@@ -63,6 +66,7 @@ class _HomepageState extends State<Homepage> {
     //List<TextButton> options = AccountStatementScroller(context).addOptions();
 
     return SafeArea(
+    //  key: context.watch<HomepageAccountStatementProvider>().refreshKey,
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
         body: Column(
@@ -73,9 +77,11 @@ class _HomepageState extends State<Homepage> {
                 context,
                 context.watch<HomepageAccountStatementProvider>().cards,
                 context.watch<HomepageAccountStatementProvider>().refreshKey),
-
-            _dotsRebuilder(),
-            _accountStatementOptions(),
+            _dotsForCards(context,
+                context.watch<HomepageAccountStatementProvider>().cards.length),
+            //_dotsRebuilder(),
+            const AccountStatementOptions(),
+            //_accountStatementOptions(),
             //WidgetScroller(options: options, showDots: false, value: value),
             const Row(
               children: [Placeholder()],
@@ -88,9 +94,14 @@ class _HomepageState extends State<Homepage> {
 
 //cards
   Widget _cards(BuildContext context, List<CardBody> cards, Key refreshKey) {
-    // if (hasCardsUpdated) {
-    //   _pageController.jumpToPage(1);
+    // bool hasChanged = context.watch<HomepageAccountStatementProvider>().flag;
+    // if (hasChanged) {
+    //   setState(() {
+    //     currentIndex = 0;
+    //     hasChanged = false;
+    //   });
     // }
+    
     return SizedBox(
       key: refreshKey,
       height: 180,
@@ -100,14 +111,6 @@ class _HomepageState extends State<Homepage> {
           onPageChanged: (index) => {
                 setState(() {
                   currentIndex = index;
-                 // hasCardsUpdated = true;
-
-                  // if (hasCardsUpdated == false) {
-                  //   currentIndex = index;
-                  // } else if (hasCardsUpdated == true) {
-                  //   currentIndex = 0;
-                  //   hasCardsUpdated = false;
-                  // }
                 })
               },
           pageSnapping: false,
@@ -154,13 +157,13 @@ class _HomepageState extends State<Homepage> {
   }
 
   //account statement options
-  Widget _accountStatementOptions() {
-    return SizedBox(
-      height: 33,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: AccountStatementScroller(context).addOptions(),
-      ),
-    );
-  }
+  // Widget _accountStatementOptions() {
+  //   return SizedBox(
+  //     height: 33,
+  //     child: ListView(
+  //       scrollDirection: Axis.horizontal,
+  //       children: AccountStatementScroller(context).addOptions(),
+  //     ),
+  //   );
+  // }
 }
