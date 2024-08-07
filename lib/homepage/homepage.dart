@@ -71,8 +71,8 @@ class _HomepageState extends State<Homepage> {
             // _cardsRebuilder(),
             _cards(
                 context,
-                context.read<HomepageAccountStatementProvider>().cards,
-                context.read<HomepageAccountStatementProvider>().refreshKey),
+                context.watch<HomepageAccountStatementProvider>().cards,
+                context.watch<HomepageAccountStatementProvider>().refreshKey),
 
             _dotsRebuilder(),
             _accountStatementOptions(),
