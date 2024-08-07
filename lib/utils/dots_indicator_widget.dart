@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
 class DotsIndicatorWidget extends StatelessWidget {
-  const DotsIndicatorWidget(
+   DotsIndicatorWidget(
       {super.key, required this.currentIndex, required this.pageCount});
 
-  final int currentIndex;
+   int currentIndex;
   final int pageCount;
 
-  void initState(){
-    
-  }
-
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
-    
+    //band aid fix
+    if (currentIndex > pageCount) {
+      currentIndex = 0;
+    }
+
     return DotsIndicator(
       dotsCount: pageCount,
       position: currentIndex,
