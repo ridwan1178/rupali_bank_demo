@@ -3,14 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/homepage/account_statement_options.dart';
-
 import 'package:rupali_bank_demo/homepage/card/card_body.dart';
-
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -31,8 +28,6 @@ class _HomepageState extends State<Homepage> {
   );
   int currentIndex = 0;
 
-  //Key _refreshKey = UniqueKey();
-  // final int pageCount = 4;
   static const _kDuration = Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
   bool hasCardsUpdated = false;
@@ -66,31 +61,22 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    //List<TextButton> options = AccountStatementScroller(context).addOptions();
-
     return SafeArea(
-      //  key: context.watch<HomepageAccountStatementProvider>().refreshKey,
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
         body: Column(
-          //key: context.read<HomepageAccountStatementProvider>().refreshKey,
           children: [
-            // _cardsRebuilder(),
             _cards(
                 context,
                 context.watch<HomepageAccountStatementProvider>().cards,
                 context.watch<HomepageAccountStatementProvider>().refreshKey),
             _dotsForCards(context,
                 context.watch<HomepageAccountStatementProvider>().cards.length),
-            //_dotsRebuilder(),
             const AccountStatementOptions(),
-            //_accountStatementOptions(),
-            //WidgetScroller(options: options, showDots: false, value: value),
             const Row(
               children: [
                 Text("Higlights"),
                 Spacer(),
-                // TextButton(onPressed: () => {}, child: Text("View Details")),
               ],
             )
           ],
@@ -101,13 +87,6 @@ class _HomepageState extends State<Homepage> {
 
 //cards
   Widget _cards(BuildContext context, List<CardBody> cards, Key refreshKey) {
-    // bool hasChanged = context.watch<HomepageAccountStatementProvider>().flag;
-    // if (hasChanged) {
-    //   setState(() {
-    //     currentIndex = 0;
-    //     hasChanged = false;
-    //   });
-    // }
     return SizedBox(
       key: refreshKey,
       height: 180,
@@ -126,18 +105,6 @@ class _HomepageState extends State<Homepage> {
     );
   }
 
-  //cards re builder
-  // Widget _cardsRebuilder() {
-  //   return Consumer<HomepageAccountStatementProvider>(builder:
-  //       (BuildContext context, HomepageAccountStatementProvider obj,
-  //           Widget? child) {
-  //     List<CardBody> cards = obj.cards;
-  //     //dispose();
-  //     hasCardsUpdated = true;
-  //     return _cards(context, cards);
-  //   });
-  // }
-
   //dots indicator for cards
   SizedBox _dotsForCards(BuildContext context, int pageCount) {
     if (context.read<HomepageAccountStatementProvider>().updateFlag) {
@@ -155,27 +122,4 @@ class _HomepageState extends State<Homepage> {
       return const SizedBox();
     }
   }
-
-//dots indicator widget rebuilder
-  Widget _dotsRebuilder() {
-    return Consumer<HomepageAccountStatementProvider>(
-      builder: (BuildContext context, HomepageAccountStatementProvider obj,
-          Widget? child) {
-        int pageCount = obj.cards.length;
-
-        return _dotsForCards(context, pageCount);
-      },
-    );
-  }
-
-  //account statement options
-  // Widget _accountStatementOptions() {
-  //   return SizedBox(
-  //     height: 33,
-  //     child: ListView(
-  //       scrollDirection: Axis.horizontal,
-  //       children: AccountStatementScroller(context).addOptions(),
-  //     ),
-  //   );
-  // }
 }

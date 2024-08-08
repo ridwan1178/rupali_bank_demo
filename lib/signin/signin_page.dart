@@ -56,17 +56,8 @@ class SigninPage extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () => {
-                  context.goNamed(Homepage.namedRoute)
-                      // Navigator.pushAndRemoveUntil(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (BuildContext context) =>
-                      //             ChangeNotifierProvider(
-                      //               create: (context) =>
-                      //                   HomepageAccountStatementProvider(),
-                      //               child: Homepage(),
-                      //             )),
-                      //     (route) => false)
+                  context.pushReplacementNamed(Homepage.namedRoute)
+                      
                     },
                 child: Text(AppLocalizations.of(context)!.signin))
           ],

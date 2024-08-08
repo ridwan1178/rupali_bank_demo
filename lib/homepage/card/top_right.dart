@@ -33,7 +33,7 @@ class _TopRightState extends State<TopRight> {
           Text(AppLocalizations.of(context)!.accBalance),
           AnimatedCrossFade(
               firstChild: TextButton(
-                  style: ButtonStyle(
+                  style: const ButtonStyle(
                       backgroundColor:
                           WidgetStatePropertyAll<Color>(AppColors.background),
                       shape:
@@ -43,17 +43,17 @@ class _TopRightState extends State<TopRight> {
                           hide = false;
                         })
                       },
-                  child: Text("Tap to reveal balance")),
+                  child: const Text("Tap to reveal balance")),
               secondChild: TextButton(
                   onPressed: () => {
                         setState(() {
                           hide = true;
                         })
                       },
-                  child: Text("BDT 69420")),
+                  child: const Text("BDT 69420")),
               crossFadeState:
                   hide ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-              duration: Duration(milliseconds: 1000)),
+              duration: const Duration(milliseconds: 1000)),
         ],
       ),
     );

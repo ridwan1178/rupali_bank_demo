@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:rupali_bank_demo/core/configs/app_locale.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_router_config.dart';
 import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
-import 'package:rupali_bank_demo/splash/splash_page.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 

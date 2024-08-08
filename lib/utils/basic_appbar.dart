@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
@@ -14,14 +15,11 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         centerTitle: true,
         title: title,
-        //automaticallyImplyLeading: false,
         leading: hideBackButton
             ? null
             : IconButton(
                 onPressed: () {
-                  route ?? Navigator.pop(context);
-                  // Navigator.pop(context,
-                  //     MaterialPageRoute(builder: (context) => route));
+                  route ?? context.pop();
                 },
                 icon: const Icon(Icons.arrow_back)));
   }

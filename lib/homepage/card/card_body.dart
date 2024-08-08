@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/homepage/card/bottom_left.dart';
 import 'package:rupali_bank_demo/homepage/card/bottom_right.dart';
@@ -21,17 +20,17 @@ class CardBody extends StatelessWidget {
           children: [
             Row(
               children: [
-                TopLeft(icon: AppIcons.tickMark),
-                Spacer(),
+                const TopLeft(icon: AppIcons.tickMark),
+                const Spacer(),
                 TopRight(
                   context: context,
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Row(
+            const Row(
               children: [BottomLeft(), Spacer(), BottomRight()],
             )
           ],

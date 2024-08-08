@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/onboarding/onboarding.dart';
@@ -35,9 +34,6 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> redirect() async {
     await Future.delayed(const Duration(seconds: 2));
     context.pushReplacementNamed(Onboarding.namedRoute);
-    // Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(
-    //         builder: (BuildContext context) => const Onboarding()));
+    
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/signin/signin_page.dart';
-import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 
@@ -17,6 +16,7 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding> {
   int currentIndex = 0;
   final int pageCount = 3;
+  final double pages = 3;
   static const _kDuration = Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
 
@@ -46,6 +46,15 @@ class _OnboardingState extends State<Onboarding> {
         }
       }
     });
+  }
+
+  void setLastPage() {
+    isLastPage = true;
+    isFirstPage = false;
+    setState(() {
+      currentIndex = pageCount - 1;
+    });
+    _pageController.jumpToPage(currentIndex);
   }
 
   @override
@@ -81,13 +90,15 @@ class _OnboardingState extends State<Onboarding> {
                     },
                     icon: const Icon(Icons.arrow_back))),
         body: Stack(children: [
-          PageView(
-            controller: _pageController,
-            children: [
-              _page1(),
-              _page2(),
-              _page3(),
-            ],
+          IgnorePointer(
+            child: PageView(
+              controller: _pageController,
+              children: [
+                _page1(),
+                _page2(),
+                _page3(),
+              ],
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -101,21 +112,14 @@ class _OnboardingState extends State<Onboarding> {
                   isLastPage
                       ? const SizedBox()
                       : ElevatedButton(
-                          onPressed: previousFunction,
+                          onPressed: () => {setLastPage()},
                           child: const Text("Skip")),
                   const Expanded(child: SizedBox()),
-                  //const Spacer(),
-
                   isLastPage
                       ? ElevatedButton(
                           onPressed: () => {
-                            context.pushReplacementNamed(SigninPage.namedRoute)
-                                // Navigator.pushAndRemoveUntil(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (BuildContext context) =>
-                                //             SigninPage()),
-                                //     (route) => false)
+                                context
+                                    .pushReplacementNamed(SigninPage.namedRoute)
                               },
                           child: const Text("sign in"))
                       : ElevatedButton(
@@ -147,7 +151,6 @@ class _OnboardingState extends State<Onboarding> {
           ),
           const Text(
               "Transfer your money to anywhere you want. Be it our bank account, other bank account, wallet etc."),
-          // DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
           DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount)
         ],
       ),
@@ -202,25 +205,3 @@ class _OnboardingState extends State<Onboarding> {
     );
   }
 }
-
-// class DotsIndicatorWidget extends StatelessWidget {
-//   const DotsIndicatorWidget(
-//       {super.key, required this.currentIndex, required this.pageCount});
-
-//   final int currentIndex;
-//   final int pageCount;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return DotsIndicator(
-//       dotsCount: pageCount,
-//       position: currentIndex,
-//       decorator: DotsDecorator(
-//         size: const Size.square(9.0),
-//         activeSize: const Size(18.0, 9.0),
-//         activeShape:
-//             RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-//       ),
-//     );
-//   }
-// }
