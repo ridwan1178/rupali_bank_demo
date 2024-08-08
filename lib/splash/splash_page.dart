@@ -1,10 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/onboarding/onboarding.dart';
+import 'package:go_router/go_router.dart';
+
 //import 'package:rupali_bank_demo/onboarding/onboarding_1.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
+  static const path = "/";
+  static const namedRoute = "splash";
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -13,8 +19,9 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    super.initState();
     redirect();
+
+    super.initState();
   }
 
   @override
@@ -27,10 +34,10 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> redirect() async {
     await Future.delayed(const Duration(seconds: 2));
-
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => const Onboarding()));
+    context.pushReplacementNamed(Onboarding.namedRoute);
+    // Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(
+    //         builder: (BuildContext context) => const Onboarding()));
   }
 }

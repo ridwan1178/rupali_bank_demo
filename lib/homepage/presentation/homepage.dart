@@ -15,6 +15,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
+  static const String path = "/homepage";
+  static const String namedRoute = 'homepage';
+
   @override
   State<Homepage> createState() => _HomepageState();
 }
@@ -84,7 +87,11 @@ class _HomepageState extends State<Homepage> {
             //_accountStatementOptions(),
             //WidgetScroller(options: options, showDots: false, value: value),
             const Row(
-              children: [Placeholder()],
+              children: [
+                Text("Higlights"),
+                Spacer(),
+                // TextButton(onPressed: () => {}, child: Text("View Details")),
+              ],
             )
           ],
         ),
@@ -133,10 +140,10 @@ class _HomepageState extends State<Homepage> {
 
   //dots indicator for cards
   SizedBox _dotsForCards(BuildContext context, int pageCount) {
-    if (context.read<HomepageAccountStatementProvider>().flag) {
+    if (context.read<HomepageAccountStatementProvider>().updateFlag) {
       _pageController.jumpTo(0);
       currentIndex = 0;
-      context.read<HomepageAccountStatementProvider>().clearFlag();
+      context.read<HomepageAccountStatementProvider>().clearUpdateFlag();
     }
 
     try {

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
-import 'package:rupali_bank_demo/homepage/homepage.dart';
+import 'package:rupali_bank_demo/homepage/presentation/homepage.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
-import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
+
 import 'package:rupali_bank_demo/signin/input_decoration_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
+
+  static const path = "/signin";
+  static const namedRoute = "signin";
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _pass = TextEditingController();
@@ -52,16 +56,17 @@ class SigninPage extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () => {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  ChangeNotifierProvider(
-                                    create: (context) =>
-                                        HomepageAccountStatementProvider(),
-                                    child: Homepage(),
-                                  )),
-                          (route) => false)
+                  context.goNamed(Homepage.namedRoute)
+                      // Navigator.pushAndRemoveUntil(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (BuildContext context) =>
+                      //             ChangeNotifierProvider(
+                      //               create: (context) =>
+                      //                   HomepageAccountStatementProvider(),
+                      //               child: Homepage(),
+                      //             )),
+                      //     (route) => false)
                     },
                 child: Text(AppLocalizations.of(context)!.signin))
           ],

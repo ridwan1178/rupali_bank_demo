@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/signin/signin_page.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
-
+import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
+  static const namedRoute = "onboarding";
+  static const path = "/onboarding";
 
   @override
   State<Onboarding> createState() => _OnboardingState();
@@ -15,7 +17,7 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding> {
   int currentIndex = 0;
   final int pageCount = 3;
-  static const _kDuration =  Duration(milliseconds: 300);
+  static const _kDuration = Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
 
   final PageController _pageController = PageController();
@@ -107,12 +109,13 @@ class _OnboardingState extends State<Onboarding> {
                   isLastPage
                       ? ElevatedButton(
                           onPressed: () => {
-                                Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            SigninPage()),
-                                    (route) => false)
+                            context.pushReplacementNamed(SigninPage.namedRoute)
+                                // Navigator.pushAndRemoveUntil(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (BuildContext context) =>
+                                //             SigninPage()),
+                                //     (route) => false)
                               },
                           child: const Text("sign in"))
                       : ElevatedButton(

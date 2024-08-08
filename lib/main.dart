@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_locale.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:rupali_bank_demo/core/configs/app_router_config.dart';
 import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:rupali_bank_demo/splash/splash_page.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Localizations Sample App',
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         Locale('bn'), // bangla
       ],
       theme: AppTheme.lightTheme,
-      home: const SplashPage(),
+      routerConfig: AppRouterConfig.router,
       locale: context.watch<AppLangProvider>().appLocale,
       debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
