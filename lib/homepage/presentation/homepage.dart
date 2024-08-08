@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/homepage/account_statement_options.dart';
 import 'package:rupali_bank_demo/homepage/card/card_body.dart';
+import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -73,10 +75,15 @@ class _HomepageState extends State<Homepage> {
             _dotsForCards(context,
                 context.watch<HomepageAccountStatementProvider>().cards.length),
             const AccountStatementOptions(),
-            const Row(
+            Row(
               children: [
                 Text("Higlights"),
                 Spacer(),
+                TextButton(
+                    onPressed: () {
+                      context.goNamed(AccountDetailsPage.namedRoute);
+                    },
+                    child: Text("View details"))
               ],
             )
           ],
