@@ -13,7 +13,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
   void _addCard(int pageCount, Color color) {
     _cards.clear();
     _refreshKey = UniqueKey();
-    _flag = true;
+
     for (var i = 0; i < pageCount; i++) {
       cards.add(CardBody(
         color: color,
@@ -21,33 +21,42 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     }
   }
 
+  void clearFlag() {
+    _flag = false;
+  }
+
 //savings without listener
   void selectedDefault() {
-    // _flag = false;
+    _flag = false;
     _addCard(1, Colors.red);
   }
 
   void selectedSavings() {
+    _flag = true;
     _addCard(1, Colors.red);
     notifyListeners();
   }
 
   void selectedFD() {
+    _flag = true;
     _addCard(2, Colors.blue);
     notifyListeners();
   }
 
   void selectedDPS() {
+    _flag = true;
     _addCard(3, Colors.yellow);
     notifyListeners();
   }
 
   void selectedLoan() {
+    _flag = true;
     _addCard(4, Colors.purple);
     notifyListeners();
   }
 
   void selectedCards() {
+    _flag = true;
     _addCard(5, Colors.cyan);
     notifyListeners();
   }

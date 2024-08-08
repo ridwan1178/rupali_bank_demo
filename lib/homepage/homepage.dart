@@ -37,7 +37,7 @@ class _HomepageState extends State<Homepage> {
   @override
   void initState() {
     context.read<HomepageAccountStatementProvider>().selectedDefault();
-    
+
     super.initState();
   }
 
@@ -66,7 +66,7 @@ class _HomepageState extends State<Homepage> {
     //List<TextButton> options = AccountStatementScroller(context).addOptions();
 
     return SafeArea(
-    //  key: context.watch<HomepageAccountStatementProvider>().refreshKey,
+      //  key: context.watch<HomepageAccountStatementProvider>().refreshKey,
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
         body: Column(
@@ -101,7 +101,6 @@ class _HomepageState extends State<Homepage> {
     //     hasChanged = false;
     //   });
     // }
-    
     return SizedBox(
       key: refreshKey,
       height: 180,
@@ -134,6 +133,12 @@ class _HomepageState extends State<Homepage> {
 
   //dots indicator for cards
   SizedBox _dotsForCards(BuildContext context, int pageCount) {
+    if (context.read<HomepageAccountStatementProvider>().flag) {
+      _pageController.jumpTo(0);
+      currentIndex = 0;
+      context.read<HomepageAccountStatementProvider>().clearFlag();
+    }
+
     try {
       return SizedBox(
         child: DotsIndicatorWidget(
