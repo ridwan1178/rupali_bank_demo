@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/homepage/card/card_body.dart';
 import 'package:rupali_bank_demo/core/configs/app_attribute_constants.dart';
+import 'package:rupali_bank_demo/homepage/highlights/cards_highlights.dart';
+import 'package:rupali_bank_demo/homepage/highlights/dps_highlights.dart';
+import 'package:rupali_bank_demo/homepage/highlights/fixed_deposit_highlights.dart';
+import 'package:rupali_bank_demo/homepage/highlights/general_savings_highlights.dart';
+import 'package:rupali_bank_demo/homepage/highlights/loans_highlights.dart';
 
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
   List<CardBody> _cards = [];
   List<dynamic> _details = [];
+  Widget _highlights = SizedBox.shrink();
   Key _refreshKey = UniqueKey();
   bool _updateFlag = false;
   String _detailsFlag = "";
@@ -20,6 +27,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
   String get detailsFlag =>
       _detailsFlag; //how the account details page should look
   String get error => _error;
+  Widget get highlights => _highlights;
 
 //internal methods
   void _addCard(int pageCount, Color color) {
@@ -75,6 +83,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(false);
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
+    _highlights = GeneralSavingsHighlights();
     _addCard(1, Colors.red);
   }
 
@@ -85,6 +94,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
     _addCard(1, Colors.red);
+    _highlights = GeneralSavingsHighlights();
     notifyListeners();
   }
 
@@ -93,30 +103,34 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setOptionsFlag(1);
     setDetailsFlag(AppAttributeConstants.fixedDeposit);
     _addCard(2, Colors.blue);
+    _highlights = FixedDepositHighlights();
     notifyListeners();
   }
 
   void selectedDPS() {
     setUpdateFlag(true);
     setOptionsFlag(2);
-    setDetailsFlag(AppAttributeConstants.common);
+    setDetailsFlag(AppAttributeConstants.dps);
     _addCard(3, Colors.yellow);
+    _highlights = DpsHighlights();
     notifyListeners();
   }
 
   void selectedLoan() {
     setUpdateFlag(true);
     setOptionsFlag(3);
-    setDetailsFlag(AppAttributeConstants.common);
+    setDetailsFlag(AppAttributeConstants.loan);
     _addCard(4, Colors.purple);
+    _highlights = LoansHighlights();
     notifyListeners();
   }
 
   void selectedCards() {
     setUpdateFlag(true);
     setOptionsFlag(4);
-    setDetailsFlag(AppAttributeConstants.common);
+    setDetailsFlag(AppAttributeConstants.cards);
     _addCard(5, Colors.cyan);
+    _highlights = CardsHighlights();
     notifyListeners();
   }
 
