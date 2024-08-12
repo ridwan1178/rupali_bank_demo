@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
 
-
-class CardsHighlights extends StatelessWidget {
+class CardsHighlights extends StatefulWidget {
   //final  List<dynamic> data;
   const CardsHighlights({super.key});
 
+  @override
+  State<CardsHighlights> createState() => _CardsHighlightsState();
+}
+
+class _CardsHighlightsState extends State<CardsHighlights> {
+  bool animate = true;
   @override
   Widget build(BuildContext context) {
     return highlights();
@@ -14,42 +20,53 @@ class CardsHighlights extends StatelessWidget {
   Widget highlights() {
     return Expanded(
       child: SizedBox(
-        height: 305,
+        height: 350,
         width: 333,
         child: DefaultTabController(
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              flexibleSpace: const  ColoredBox(
+              flexibleSpace: ColoredBox(
                 color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    
-                      TabBar(
-                        labelColor: Colors.white,
-                        unselectedLabelColor: Colors.green,
-                        indicator: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.all(Radius.circular(10))),
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        // padding: EdgeInsets.all(4),
-                        dividerColor: Colors.transparent,
-                        //indicatorColor: Colors.transparent,
-                        
-                        tabs: [
-                          Tab(text: "BDT",),
-                          Tab(text: "USD",),
-                          
-                        ],
-                      ),
-                    
-                  ],
+                child: TabBar(
+                      onTap: (index) {
+                        setState(() {
+                          animate = false;
+                        });
+                      },
+                      labelColor: Colors.white,
+                      unselectedLabelColor: Colors.green,
+                      indicator: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      // padding: EdgeInsets.all(4),
+                      dividerColor: Colors.transparent,
+                      //indicatorColor: Colors.transparent,
+
+                      tabs: [
+                        Tab(
+                          text: "BDT",
+                        ),
+                        Tab(
+                          text: "USD",
+                        ),
+                      ],
+                   
                 ),
               ),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: TabBarView(
-                children: [gridView(4), gridView(4)],
+                children: [
+                  AccountDetailsPage(
+                    selector: animate,
+                  ),
+                  const AccountDetailsPage(
+                    selector: false,
+                  )
+                ],
               ),
             ),
           ),
@@ -75,11 +92,11 @@ class CardsHighlights extends StatelessWidget {
       ));
     }
     return GridView.count(
-      childAspectRatio: 1.5, //1.81,
-      crossAxisCount: 2,
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      children: items
+        childAspectRatio: 1.5, //1.81,
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        children: items
         // Container(
         //   height: 45,
         //   width: 75,
@@ -110,7 +127,7 @@ class CardsHighlights extends StatelessWidget {
         //   width: 75,
         //   color: Colors.blueGrey,
         // )
-      
-    );
+
+        );
   }
 }

@@ -21,7 +21,7 @@ class CardBody extends StatelessWidget {
             Row(
               children: [
                 const TopLeft(icon: AppIcons.tickMark),
-                const Spacer(),
+                const Expanded(child: SizedBox()),
                 TopRight(
                   context: context,
                 )
@@ -31,7 +31,7 @@ class CardBody extends StatelessWidget {
               height: 20,
             ),
             const Row(
-              children: [BottomLeft(), Spacer(), BottomRight()],
+              children: [BottomLeft(),  Expanded(child: SizedBox()), BottomRight()],
             )
           ],
         ),
