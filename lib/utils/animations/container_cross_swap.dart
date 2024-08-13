@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 
+class ContainerCrossSwap extends StatefulWidget {
+  const ContainerCrossSwap({
+    super.key,
+    this.selector, required this.fixPosition,
+  });
 
-class DpsHighlights extends StatefulWidget {
-  //final  List<dynamic> data;
-  const DpsHighlights({super.key});
+  final bool? selector;
+  final bool fixPosition;
 
   @override
-  State<DpsHighlights> createState() => _DpsHighlightsState();
+  State<ContainerCrossSwap> createState() => _ContainerCrossSwapState();
 }
 
-class _DpsHighlightsState extends State<DpsHighlights> {
-  bool fade = true;
+class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
+  bool fade = false;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-        fade = false;
-        selected = true;
+        selected = widget.selector ?? true;
+        fade = true;
       });
       print(' widget binding : $selected');
     });
@@ -39,75 +44,14 @@ class _DpsHighlightsState extends State<DpsHighlights> {
       width: 333,
       child: Stack(
         children: <Widget>[
-          fadetransitionContainer(0, left),
-          fadetransitionContainer(0, 0),
+          fadetransitionContainer(top, left),
+          fadetransitionContainer(top, 0),
           //1st type
           AnimatedPositioned(
             width: width,
             height: height,
-            top: selected ? top : top * 2,
-            left: selected ? left : 0,
-            
-            duration: duration,
-            curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              
-            ),
-          ),
-          //2nd type
-          AnimatedPositioned(
-            width: width,
-            height: height,
-            top: selected ? top * 2 : top,
-            left: selected ? left : 0,
-            
-            duration: duration,
-            curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              
-            ),
-          ),
-          //1st type
-          AnimatedPositioned(
-            width: width,
-            height: height,
-            //top: selected ?50.0 : 0.0,
-            top: selected ? top * 2 : top,
-            left: selected ? 0 : left,
-            // left: selected ? 0 : 100,
-            duration: duration,
-            curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('Tap me')),
-              // ),
-            ),
-          ),
-          //2nd type
-          AnimatedPositioned(
-            width: width,
-            height: height,
-            top: testTop(selected, top),
-            left: selected ? 0 : left,
+            top: widget.fixPosition ? (selected ? top : top * 2) : top,
+            left: widget.fixPosition ? (selected ? left : 0) : left,
             //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
@@ -124,6 +68,59 @@ class _DpsHighlightsState extends State<DpsHighlights> {
               // ),
             ),
           ),
+          //2nd type
+          AnimatedPositioned(
+            width: width,
+            height: height,
+            top: 0,
+            left: 0,
+            //right: selected ? 0 : 100,
+            duration: duration,
+            curve: curve,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = !selected;
+                });
+              },
+              child: item(),
+            ),
+          ),
+          //1st type
+          AnimatedPositioned(
+            width: width,
+            height: height,
+            top: 0,
+            left: left,
+            duration: duration,
+            curve: curve,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = !selected;
+                });
+              },
+              child: item(),
+            ),
+          ),
+
+          //2nd type
+          AnimatedPositioned(
+            width: width,
+            height: height,
+            top: widget.fixPosition ? (selected ? top : top * 2) : top,
+            left: widget.fixPosition ? (selected ? 0 : left) : 0,
+            duration: duration,
+            curve: curve,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = !selected;
+                });
+              },
+              child: item(),
+            ),
+          ),
         ],
       ),
     );
@@ -135,8 +132,8 @@ class _DpsHighlightsState extends State<DpsHighlights> {
 
   Widget item() {
     return Container(
-      height: 45,
-      width: 75,
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         color: const Color.fromARGB(15, 46, 156, 220),
         borderRadius: BorderRadius.circular(10),
@@ -155,7 +152,7 @@ class _DpsHighlightsState extends State<DpsHighlights> {
         top: top,
         left: left,
         child: AnimatedOpacity(
-          opacity: fade ? 0.0 : 1.0,
+          opacity: widget.fixPosition ? (fade ? 0.0 : 1.0) : 0,
           duration: duration,
           child: item(),
         ));

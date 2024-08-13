@@ -1,19 +1,37 @@
 import 'package:flutter/material.dart';
 
 
-class GeneralSavingsHighlights extends StatelessWidget {
+class GeneralSavingsHighlights extends StatefulWidget {
   //final  List<dynamic> data;
   const GeneralSavingsHighlights({super.key});
 
   @override
+  State<GeneralSavingsHighlights> createState() => _GeneralSavingsHighlightsState();
+}
+
+class _GeneralSavingsHighlightsState extends State<GeneralSavingsHighlights> {
+    bool fade = true;
+
+@override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        fade = false;
+        
+      });
+    });
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    return highlights();
+    return AnimatedOpacity(
+      opacity: fade ? 0.0: 1.0, duration: const  Duration(milliseconds: 500), child:  highlights());
   }
 
   Widget highlights() {
     return Expanded(
       child: SizedBox(
-        height: 305,
+        height: 350,
         width: 333,
         child: DefaultTabController(
           length: 3,
@@ -25,7 +43,7 @@ class GeneralSavingsHighlights extends StatelessWidget {
                   TabBar(
                     labelColor: Colors.green,
                     unselectedLabelColor: Colors.grey,
-                    // padding: EdgeInsets.all(4),
+                    
                     dividerColor: Colors.transparent,
                     indicatorColor: Colors.transparent,
                     indicatorSize: null,
@@ -72,36 +90,7 @@ class GeneralSavingsHighlights extends StatelessWidget {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       children: items
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   decoration: BoxDecoration(
-        //     color: const Color.fromARGB(15, 46, 156, 220),
-        //     borderRadius: BorderRadius.circular(10),
-        //   ),
-        //   child: const Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [Text("Total withdrawal"), Text("420k")],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 45,
-        //   width: 90,
-        //   child: ColoredBox(color: Colors.blueGrey),
-        // ),
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   color: Colors.blueGrey,
-        // ),
-        // Container(
-        //   color: Colors.blueGrey,
-        // ),
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   color: Colors.blueGrey,
-        // )
+
       
     );
   }

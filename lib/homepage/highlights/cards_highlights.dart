@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
+
+import 'package:rupali_bank_demo/utils/animations/container_cross_swap.dart';
 
 class CardsHighlights extends StatefulWidget {
   //final  List<dynamic> data;
@@ -12,6 +12,20 @@ class CardsHighlights extends StatefulWidget {
 
 class _CardsHighlightsState extends State<CardsHighlights> {
   bool animate = true;
+  bool fadeIn = true;
+  bool fixPosition = true;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        fadeIn = false;
+      });
+      print(' widget binding : $fadeIn');
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return highlights();
@@ -28,31 +42,36 @@ class _CardsHighlightsState extends State<CardsHighlights> {
             appBar: AppBar(
               flexibleSpace: ColoredBox(
                 color: Colors.white,
-                child: TabBar(
-                      onTap: (index) {
-                        setState(() {
-                          animate = false;
-                        });
-                      },
-                      labelColor: Colors.white,
-                      unselectedLabelColor: Colors.green,
-                      indicator: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      // padding: EdgeInsets.all(4),
-                      dividerColor: Colors.transparent,
-                      //indicatorColor: Colors.transparent,
-
-                      tabs: [
-                        Tab(
-                          text: "BDT",
-                        ),
-                        Tab(
-                          text: "USD",
-                        ),
-                      ],
-                   
+                child: AnimatedCrossFade(
+                  duration: const Duration(milliseconds: 300),
+                  crossFadeState: fadeIn
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  firstChild: const SizedBox.shrink(),
+                  secondChild: TabBar(
+                    onTap: (index) {
+                      setState(() {
+                        animate = false;
+                        fixPosition = false;
+                      });
+                    },
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.green,
+                    indicator: const BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    dividerColor: Colors.transparent,
+                    dividerHeight: null,
+                    tabs: const [
+                      Tab(
+                        text: "BDT",
+                      ),
+                      Tab(
+                        text: "USD",
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -60,11 +79,13 @@ class _CardsHighlightsState extends State<CardsHighlights> {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: TabBarView(
                 children: [
-                  AccountDetailsPage(
+                  ContainerCrossSwap(
                     selector: animate,
+                    fixPosition: fixPosition,
                   ),
-                  const AccountDetailsPage(
+                   const ContainerCrossSwap(
                     selector: false,
+                    fixPosition: false,
                   )
                 ],
               ),
@@ -96,38 +117,6 @@ class _CardsHighlightsState extends State<CardsHighlights> {
         crossAxisCount: 2,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        children: items
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   decoration: BoxDecoration(
-        //     color: const Color.fromARGB(15, 46, 156, 220),
-        //     borderRadius: BorderRadius.circular(10),
-        //   ),
-        //   child: const Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [Text("Total withdrawal"), Text("420k")],
-        //   ),
-        // ),
-        // SizedBox(
-        //   height: 45,
-        //   width: 90,
-        //   child: ColoredBox(color: Colors.blueGrey),
-        // ),
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   color: Colors.blueGrey,
-        // ),
-        // Container(
-        //   color: Colors.blueGrey,
-        // ),
-        // Container(
-        //   height: 45,
-        //   width: 75,
-        //   color: Colors.blueGrey,
-        // )
-
-        );
+        children: items);
   }
 }

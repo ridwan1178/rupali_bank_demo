@@ -52,9 +52,9 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                       }),
                       context
                           .read<HomepageAccountStatementProvider>()
-                          .selectedFD()
+                          .selectedLoan()
                     },
-                child: const Text("FD")),
+                child: const Text("Loans")),
             TextButton(
                 style: TextButton.styleFrom(
                     backgroundColor: index == 2 ? enabled : disabled,
@@ -78,9 +78,10 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                       }),
                       context
                           .read<HomepageAccountStatementProvider>()
-                          .selectedLoan()
+                          .selectedFD()
+                      
                     },
-                child: const Text("Loans")),
+                child: const Text("FD")),
             TextButton(
                 style: TextButton.styleFrom(
                     backgroundColor: index == 4 ? enabled : disabled,

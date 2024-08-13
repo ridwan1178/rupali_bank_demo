@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
+
 
 class FixedDepositHighlights extends StatefulWidget {
   //final  List<dynamic> data;
@@ -10,10 +10,12 @@ class FixedDepositHighlights extends StatefulWidget {
 }
 
 class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
+  bool fade = true;
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
+        fade = false;
         selected = true;
       });
       print(' widget binding : $selected');
@@ -37,6 +39,8 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
       width: 333,
       child: Stack(
         children: <Widget>[
+          fadetransitionContainer(0, left),
+          fadetransitionContainer(0, 0),
           //1st type
           AnimatedPositioned(
             width: width,
@@ -53,10 +57,7 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
                 });
               },
               child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('hold me')),
-              // ),
+              
             ),
           ),
           //2nd type
@@ -75,10 +76,7 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
                 });
               },
               child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('hold me')),
-              // ),
+              
             ),
           ),
           //1st type
@@ -120,10 +118,7 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
                 });
               },
               child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('hold me')),
-              // ),
+              
             ),
           ),
         ],
@@ -148,5 +143,18 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
         children: [Text("Total withdrawal"), Text("420k")],
       ),
     );
+  }
+
+  Widget fadetransitionContainer(double top, double left) {
+    return Positioned(
+        height: height,
+        width: width,
+        top: top,
+        left: left,
+        child: AnimatedOpacity(
+          opacity: fade ? 0.0 : 1.0,
+          duration: duration,
+          child: item(),
+        ));
   }
 }
