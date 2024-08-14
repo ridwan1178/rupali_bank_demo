@@ -4,11 +4,11 @@ class ContainerCrossSwap extends StatefulWidget {
   const ContainerCrossSwap({
     super.key,
     this.selector,
-    required this.fixPosition,
+    required this.unFixPosition,
   });
 
   final bool? selector;
-  final bool fixPosition;
+  final bool unFixPosition;
 
   @override
   State<ContainerCrossSwap> createState() => _ContainerCrossSwapState();
@@ -51,8 +51,8 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
           AnimatedPositioned(
             width: width,
             height: height,
-            top: widget.fixPosition ? (selected ? top : top * 2) : top,
-            left: widget.fixPosition ? (selected ? left : 0) : left,
+            top: widget.unFixPosition ? (selected ? top : top * 2) : top,
+            left: widget.unFixPosition ? (selected ? left : 0) : left,
             duration: duration,
             curve: curve,
             child: item(),
@@ -82,8 +82,8 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
           AnimatedPositioned(
             width: width,
             height: height,
-            top: widget.fixPosition ? (selected ? top : top * 2) : top,
-            left: widget.fixPosition ? (selected ? 0 : left) : 0,
+            top: widget.unFixPosition ? (selected ? top : top * 2) : top,
+            left: widget.unFixPosition ? (selected ? 0 : left) : 0,
             duration: duration,
             curve: curve,
             child: item(),
@@ -120,7 +120,7 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
         top: top,
         left: left,
         child: AnimatedOpacity(
-          opacity: widget.fixPosition ? (fade ? 0.0 : 1.0) : 0,
+          opacity: widget.unFixPosition ? (fade ? 0.0 : 1.0) : 0,
           duration: duration,
           child: item(),
         ));

@@ -13,7 +13,7 @@ class CardsHighlights extends StatefulWidget {
 class _CardsHighlightsState extends State<CardsHighlights> {
   bool animate = true;
   bool fadeIn = true;
-  bool fixPosition = true;
+  bool unFixPosition = true;
 
   @override
   void initState() {
@@ -52,7 +52,7 @@ class _CardsHighlightsState extends State<CardsHighlights> {
                     onTap: (index) {
                       setState(() {
                         animate = false;
-                        fixPosition = false;
+                        unFixPosition = false;
                       });
                     },
                     labelColor: Colors.white,
@@ -81,11 +81,11 @@ class _CardsHighlightsState extends State<CardsHighlights> {
                 children: [
                   ContainerCrossSwap(
                     selector: animate,
-                    fixPosition: fixPosition,
+                    unFixPosition: unFixPosition,
                   ),
                    const ContainerCrossSwap(
                     selector: false,
-                    fixPosition: false,
+                    unFixPosition: false,
                   )
                 ],
               ),
