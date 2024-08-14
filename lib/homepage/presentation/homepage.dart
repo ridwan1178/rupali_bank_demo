@@ -10,6 +10,7 @@ import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
+import 'package:rupali_bank_demo/utils/basic_bottom_navbar.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 import 'package:go_router/go_router.dart';
 
@@ -68,9 +69,10 @@ class _HomepageState extends State<Homepage> {
     return SafeArea(
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
-        bottomNavigationBar: const BottomAppBar(
-          color: Colors.grey,
-        ),
+        bottomNavigationBar: const SizedBox(height: 68 ,child: BasicBottomNavbar()),
+        // const BottomAppBar(
+        //   color: Colors.grey,
+        // ),
         body: Column(
           children: [
             _cards(
