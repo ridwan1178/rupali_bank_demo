@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ContainerCrossSwap extends StatefulWidget {
   const ContainerCrossSwap({
     super.key,
-    this.selector, required this.fixPosition,
+    this.selector,
+    required this.fixPosition,
   });
 
   final bool? selector;
@@ -52,21 +53,9 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             height: height,
             top: widget.fixPosition ? (selected ? top : top * 2) : top,
             left: widget.fixPosition ? (selected ? left : 0) : left,
-            //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('hold me')),
-              // ),
-            ),
+            child: item(),
           ),
           //2nd type
           AnimatedPositioned(
@@ -74,17 +63,9 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             height: height,
             top: 0,
             left: 0,
-            //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-            ),
+            child: item(),
           ),
           //1st type
           AnimatedPositioned(
@@ -94,14 +75,7 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             left: left,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-            ),
+            child: item(),
           ),
 
           //2nd type
@@ -112,20 +86,14 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             left: widget.fixPosition ? (selected ? 0 : left) : 0,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-            ),
+            child: item(),
           ),
         ],
       ),
     );
   }
 
+// set top for animation position
   double testTop(bool test, double top) {
     return test ? top : top * 2;
   }

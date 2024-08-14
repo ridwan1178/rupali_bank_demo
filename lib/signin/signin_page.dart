@@ -42,25 +42,27 @@ class SigninPage extends StatelessWidget {
         ),
         leading: null,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            _logo1(),
-            _signinText(),
-            const SizedBox(
-              height: 19,
-            ),
-            _fieldBody(context),
-            const SizedBox(
-              height: 235,
-            ),
-            ElevatedButton(
-                onPressed: () => {
-                  context.pushReplacementNamed(Homepage.namedRoute)
-                      
-                    },
-                child: Text(AppLocalizations.of(context)!.signin))
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              _logo1(),
+              _signinText(),
+              const SizedBox(
+                height: 19,
+              ),
+              _fieldBody(context),
+              const SizedBox(
+                height: 235,
+              ),
+              ElevatedButton(
+                  onPressed: () => {
+                    context.pushReplacementNamed(Homepage.namedRoute)
+                        
+                      },
+                  child: Text(AppLocalizations.of(context)!.signin))
+            ],
+          ),
         ),
       ),
     ));

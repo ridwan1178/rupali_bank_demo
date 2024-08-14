@@ -47,18 +47,12 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             height: height,
             top: selected ? top : top * 2,
             left: selected ? left : 0,
-            //right: selected ? 0 : 100,
+            
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
+            child: item(),
               
-            ),
+            
           ),
           //2nd type
           AnimatedPositioned(
@@ -69,15 +63,9 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
+            child: item(),
               
-            ),
+            
           ),
           //1st type
           AnimatedPositioned(
@@ -89,18 +77,12 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             // left: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
+            child: item(),
               // const ColoredBox(
               //   color: Colors.blue,
               //   child: Center(child: Text('Tap me')),
               // ),
-            ),
+            
           ),
           //2nd type
           AnimatedPositioned(

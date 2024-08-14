@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/homepage/card/card_body.dart';
@@ -7,6 +9,7 @@ import 'package:rupali_bank_demo/homepage/highlights/dps_highlights.dart';
 import 'package:rupali_bank_demo/homepage/highlights/fixed_deposit_highlights.dart';
 import 'package:rupali_bank_demo/homepage/highlights/general_savings_highlights.dart';
 import 'package:rupali_bank_demo/homepage/highlights/loans_highlights.dart';
+
 
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
@@ -36,7 +39,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
 
     for (var i = 0; i < pageCount; i++) {
       cards.add(CardBody(
-        color: color,
+        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
       ));
     }
   }

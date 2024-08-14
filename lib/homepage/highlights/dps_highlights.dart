@@ -50,15 +50,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
+            child:item(),
               
-            ),
+            
           ),
           //2nd type
           AnimatedPositioned(
@@ -69,15 +63,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
+            child: item(),
               
-            ),
+            
           ),
           //1st type
           AnimatedPositioned(
@@ -89,18 +77,8 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             // left: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('Tap me')),
-              // ),
-            ),
+            child:item(),
+              
           ),
           //2nd type
           AnimatedPositioned(
@@ -111,18 +89,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-              // const ColoredBox(
-              //   color: Colors.blue,
-              //   child: Center(child: Text('hold me')),
-              // ),
-            ),
+            child: item(),
+              
+            
           ),
         ],
       ),
