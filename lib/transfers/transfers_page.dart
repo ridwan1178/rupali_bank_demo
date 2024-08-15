@@ -11,7 +11,7 @@ class TransfersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppbar(hideBackButton: false),
+      appBar:const BasicAppbar(hideBackButton: false, ),
       body: Center(child: AppIcons.transferActive,));
   }
 }

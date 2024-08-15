@@ -8,6 +8,7 @@ import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/home_page/presentation/account_details_page.dart';
 
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
+import 'package:rupali_bank_demo/utils/appbar_widgets/user_profile.dart';
 
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
@@ -57,11 +58,9 @@ class _HomepageState extends State<Homepage> {
     currentIndex = 0;
   }
 
-  
-
   nextFunction() {
     currentIndex++;
-    
+
     _pageController.nextPage(duration: _kDuration, curve: _kCurve);
   }
 
@@ -74,11 +73,12 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const BasicAppbar(hideBackButton: true),
-       
-        body: home(context)
-       
-      ),
+          appBar: BasicAppbar(
+            hideBackButton: true,
+            title: UserProfileButton().user,
+            profilePic: UserProfileButton().userProfileButton,
+          ),
+          body: home(context)),
     );
   }
 
@@ -154,8 +154,4 @@ class _HomepageState extends State<Homepage> {
       return const SizedBox();
     }
   }
-
-
-
-
 }
