@@ -9,7 +9,7 @@ import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 import 'package:rupali_bank_demo/payments/payments_page.dart';
 import 'package:rupali_bank_demo/services_page/services_page.dart';
-import 'package:rupali_bank_demo/transfers/transfers_page.dart';
+import 'package:rupali_bank_demo/transfers/presentation/transfers_page.dart';
 
 class BasicBottomNavbar extends StatefulWidget {
   BasicBottomNavbar({super.key, required this.pageController, this.pageIndex});

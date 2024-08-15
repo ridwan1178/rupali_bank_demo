@@ -8,7 +8,7 @@ import 'package:rupali_bank_demo/home_page/presentation/home_page.dart';
 import 'package:rupali_bank_demo/payments/payments_page.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/services_page/services_page.dart';
-import 'package:rupali_bank_demo/transfers/transfers_page.dart';
+import 'package:rupali_bank_demo/transfers/presentation/transfers_page.dart';
 
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/utils/basic_bottom_navbar.dart';
