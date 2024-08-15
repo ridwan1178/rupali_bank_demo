@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:rupali_bank_demo/core/configs/app_global_themes/app_input_decoration_theme.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/homepage/presentation/homepage.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
-
-import 'package:rupali_bank_demo/signin/input_decoration_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,6 +20,7 @@ class SigninPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
+        //inputDecorationTheme: InputDecorationThemeSignin().inputDecoration(),
         textButtonTheme:const  TextButtonThemeData(style: 
            ButtonStyle(padding:  WidgetStatePropertyAll<EdgeInsetsGeometry>(
                   EdgeInsets.zero),
@@ -108,18 +108,20 @@ class SigninPage extends StatelessWidget {
   Widget _emailField(context) {
     return TextField(
       controller: _email,
-      decoration: InputDecorationThemeSignin(
-              hintText: AppLocalizations.of(context)!.email)
-          .inputDecoration(),
+      decoration: InputDecoration(hintText: AppLocalizations.of(context)!.email).applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
+      //  InputDecorationThemeSignin(
+      //         hintText: AppLocalizations.of(context)!.email)
+      //     .inputDecoration(),
     );
   }
 
   Widget _passField(context) {
     return TextField(
       controller: _pass,
-      decoration: InputDecorationThemeSignin(
-              hintText: AppLocalizations.of(context)!.pass)
-          .inputDecoration(),
+      decoration: InputDecoration(hintText: AppLocalizations.of(context)!.pass).applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
+      // InputDecorationThemeSignin(
+      //         hintText: AppLocalizations.of(context)!.pass)
+      //     .inputDecoration(),
     );
   }
 

@@ -1,14 +1,11 @@
+
+
 import 'package:flutter/material.dart';
 
-class InputDecorationThemeSignin extends InputDecoration {
-  @override
-  final String hintText;
+class AppInputDecorationTheme{
 
-  const InputDecorationThemeSignin({required this.hintText});
-
-  InputDecoration inputDecoration() {
-    return InputDecoration(
-        hintText: hintText,
+  InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
+        //hintText: hintText,
         filled: true,
         fillColor: Colors.transparent,
         contentPadding: const EdgeInsets.all(20),
@@ -26,10 +23,6 @@ class InputDecorationThemeSignin extends InputDecoration {
             borderRadius: BorderRadius.circular(15),
             borderSide: const BorderSide(
               color: Colors.black,
-              width: 0.4,
+              width: 1,
             )));
-  }
 }
-
-
-
