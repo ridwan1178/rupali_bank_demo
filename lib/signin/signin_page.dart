@@ -20,7 +20,7 @@ class SigninPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
-        //inputDecorationTheme: InputDecorationThemeSignin().inputDecoration(),
+        
         textButtonTheme: const TextButtonThemeData(style: 
            ButtonStyle(padding:  WidgetStatePropertyAll<EdgeInsetsGeometry>(
                   EdgeInsets.zero),
@@ -109,9 +109,7 @@ class SigninPage extends StatelessWidget {
     return TextField(
       controller: _email,
       decoration: InputDecoration(hintText: AppLocalizations.of(context)!.email).applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
-      //  InputDecorationThemeSignin(
-      //         hintText: AppLocalizations.of(context)!.email)
-      //     .inputDecoration(),
+      
     );
   }
 

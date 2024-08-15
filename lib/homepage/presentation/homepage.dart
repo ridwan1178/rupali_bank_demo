@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/homepage/home_components/account_statement_options.dart';
 import 'package:rupali_bank_demo/homepage/home_components/card/card_body.dart';
-import 'package:rupali_bank_demo/homepage/home_components/highlights/cards_highlights.dart';
-import 'package:rupali_bank_demo/homepage/home_components/highlights/general_savings_highlights.dart';
 import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
@@ -70,9 +68,7 @@ class _HomepageState extends State<Homepage> {
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
         bottomNavigationBar: const SizedBox(height: 68 ,child: BasicBottomNavbar()),
-        // const BottomAppBar(
-        //   color: Colors.grey,
-        // ),
+        
         body: Column(
           children: [
             _cards(
@@ -89,10 +85,13 @@ class _HomepageState extends State<Homepage> {
                   const Text("Higlights"),
                   const Spacer(),
                   TextButton(
+                    style: const ButtonStyle(
+                      padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+                      fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))),
                       onPressed: () {
                         context.goNamed(AccountDetailsPage.namedRoute);
                       },
-                      child: const Text("View details"))
+                      child: const Text("View details",style: TextStyle(fontSize: 13),))
                 ],
               ),
             ),
@@ -208,7 +207,7 @@ class _HomepageState extends State<Homepage> {
             ],
           ),
         ),
-        SizedBox(
+       const SizedBox(
           height: 45,
           width: 90,
           child: ColoredBox(color: Colors.blueGrey),

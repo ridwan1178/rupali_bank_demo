@@ -37,18 +37,10 @@ class AppRouterConfig {
       SigninRoutes.signinPage,
       HomepageRoutes.homepage,
       PaymentRoutes.paymentPage,
-        TransferRoutes.transfersPage,
-        CardsRoutes.cardsPage,
-        ServicesRoutes.servicesPage,
-      // ShellRoute(
-      //   navigatorKey: AppRouterConfig().shellNavigatorKey,
-      //   routes: [
-      //   //HomepageRoutes.homepage,
-      //   PaymentRoutes.paymentPage,
-      //   TransferRoutes.transfersPage,
-      //   CardsRoutes.cardsPage,
-      //   ServicesRoutes.servicesPage
-      // ])
+      TransferRoutes.transfersPage,
+      CardsRoutes.cardsPage,
+      ServicesRoutes.servicesPage,
+      
     ]);
   }
 }
