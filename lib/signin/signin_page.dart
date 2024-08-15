@@ -19,53 +19,63 @@ class SigninPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            TextButton(
-                onPressed: () =>
-                    {context.read<AppLangProvider>().changeLocaleToEng()},
-                child: const Text("english")),
-            const Text(" . "),
-            TextButton(
-                onPressed: () =>
-                    {context.read<AppLangProvider>().changeLocaleToBn()},
-                child: const Text("বাংলা")),
-          ],
-        ),
-        leading: null,
+    return Theme(
+      data: ThemeData(
+        textButtonTheme:const  TextButtonThemeData(style: 
+           ButtonStyle(padding:  WidgetStatePropertyAll<EdgeInsetsGeometry>(
+                  EdgeInsets.zero),
+                  fixedSize: WidgetStatePropertyAll<Size>(Size(50,20)))
+        )
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
+      child: SafeArea(
+          child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              _logo1(),
-              _signinText(),
-              const SizedBox(
-                height: 19,
-              ),
-              _fieldBody(context),
-              const SizedBox(
-                height: 235,
-              ),
-              ElevatedButton(
-                  onPressed: () => {
-                    context.pushReplacementNamed(Homepage.namedRoute)
-                        
-                      },
-                  child: Text(AppLocalizations.of(context)!.signin))
+              TextButton(
+                
+                  onPressed: () =>
+                      {context.read<AppLangProvider>().changeLocaleToEng()},
+                  child: const Text("english")),
+              const Text(" . "),
+              TextButton(
+                  onPressed: () =>
+                      {context.read<AppLangProvider>().changeLocaleToBn()},
+                  child: const Text("বাংলা")),
             ],
           ),
+          leading: null,
         ),
-      ),
-    ));
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                _logo1(),
+                _signinText(),
+                const SizedBox(
+                  height: 19,
+                ),
+                _fieldBody(context),
+                const SizedBox(
+                  height: 235,
+                ),
+                ElevatedButton(
+                    onPressed: () => {
+                      context.pushReplacementNamed(Homepage.namedRoute)
+                          
+                        },
+                    child: Text(AppLocalizations.of(context)!.signin))
+              ],
+            ),
+          ),
+        ),
+      )),
+    );
   }
 
   Row _textFieldText(String text) {

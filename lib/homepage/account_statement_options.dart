@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
-import 'package:rupali_bank_demo/homepage/text_button_theme_homepage.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 
 class AccountStatementOptions extends StatefulWidget {
@@ -24,9 +23,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         height: 40,
-        child: Theme(
-          data: ThemeData(
-              textButtonTheme: TextButtonThemeHomepage().optionsTheme()),
+        
           child: ListView(scrollDirection: Axis.horizontal, children: [
             TextButton(
                 style: TextButton.styleFrom(
@@ -96,7 +93,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                     },
                 child: const Text("Cards")),
           ]),
-        ),
+        
       ),
     );
   }
