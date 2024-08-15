@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
-import 'package:rupali_bank_demo/signin/signin_page.dart';
+import 'package:rupali_bank_demo/signin/presentation/signin_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 

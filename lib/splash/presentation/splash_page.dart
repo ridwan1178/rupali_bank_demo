@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
-import 'package:rupali_bank_demo/onboarding/onboarding.dart';
+import 'package:rupali_bank_demo/onboarding/presentation/onboarding.dart';
 import 'package:go_router/go_router.dart';
 
 //import 'package:rupali_bank_demo/onboarding/onboarding_1.dart';

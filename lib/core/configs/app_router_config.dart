@@ -4,12 +4,12 @@ import 'package:rupali_bank_demo/cards_page/cards_routes.dart';
 import 'package:rupali_bank_demo/landing_page/configs/landing_page_routes.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 
-import 'package:rupali_bank_demo/onboarding/onboarding_routes.dart';
+import 'package:rupali_bank_demo/onboarding/configs/onboarding_routes.dart';
 import 'package:rupali_bank_demo/payments/payment_page_routes.dart';
 import 'package:rupali_bank_demo/services_page/services_page_routes.dart';
 
-import 'package:rupali_bank_demo/signin/signin_routes.dart';
-import 'package:rupali_bank_demo/splash/splash_page.dart';
+import 'package:rupali_bank_demo/signin/configs/signin_routes.dart';
+import 'package:rupali_bank_demo/splash/presentation/splash_page.dart';
 import 'package:rupali_bank_demo/transfers/transfer_page_routes.dart';
 
 class AppRouterConfig {

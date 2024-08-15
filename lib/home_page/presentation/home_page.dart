@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:rupali_bank_demo/home_page/home_components/account_statement_options.dart';
-import 'package:rupali_bank_demo/home_page/home_components/card/card_body.dart';
+import 'package:rupali_bank_demo/home_page/components/account_statement_options.dart';
+import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/home_page/presentation/account_details_page.dart';
 
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';

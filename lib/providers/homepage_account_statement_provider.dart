@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rupali_bank_demo/home_page/home_components/card/card_body.dart';
+import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/core/configs/app_attribute_constants.dart';
-import 'package:rupali_bank_demo/home_page/home_components/highlights/cards_highlights.dart';
-import 'package:rupali_bank_demo/home_page/home_components/highlights/dps_highlights.dart';
-import 'package:rupali_bank_demo/home_page/home_components/highlights/fixed_deposit_highlights.dart';
-import 'package:rupali_bank_demo/home_page/home_components/highlights/general_savings_highlights.dart';
-import 'package:rupali_bank_demo/home_page/home_components/highlights/loans_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/cards_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/dps_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/fixed_deposit_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/general_savings_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/loans_highlights.dart';
 
 
 class HomepageAccountStatementProvider extends ChangeNotifier {

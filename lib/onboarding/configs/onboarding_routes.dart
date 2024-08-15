@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:rupali_bank_demo/onboarding/onboarding.dart';
+import 'package:rupali_bank_demo/onboarding/presentation/onboarding.dart';
 
 
 class OnboardingRoutes {
