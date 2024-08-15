@@ -2,17 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rupali_bank_demo/cards_page/cards_page.dart';
-import 'package:rupali_bank_demo/homepage/home_components/account_statement_options.dart';
-import 'package:rupali_bank_demo/homepage/home_components/card/card_body.dart';
-import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
-import 'package:rupali_bank_demo/payments/payments_page.dart';
+
+import 'package:rupali_bank_demo/home_page/home_components/account_statement_options.dart';
+import 'package:rupali_bank_demo/home_page/home_components/card/card_body.dart';
+import 'package:rupali_bank_demo/home_page/presentation/account_details_page.dart';
+
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
-import 'package:rupali_bank_demo/services_page/services_page.dart';
-import 'package:rupali_bank_demo/transfers/transfers_page.dart';
+
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
-import 'package:rupali_bank_demo/utils/basic_bottom_navbar.dart';
+
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,8 +32,8 @@ class _HomepageState extends State<Homepage> {
     initialPage: 0,
     keepPage: false,
   );
-  final PageController homepageController = PageController(initialPage: 0);
-  int homepageIndex = 0;
+  // final PageController homepageController = PageController(initialPage: 0, keepPage: true);
+  // int homepageIndex = 0;
   int currentIndex = 0;
 
   static const _kDuration = Duration(milliseconds: 300);
@@ -76,11 +75,9 @@ class _HomepageState extends State<Homepage> {
     return SafeArea(
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
-        bottomNavigationBar: SizedBox(height: 68, child: BasicBottomNavbar(pageController: homepageController,)),
-        body: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: homepageController,
-          children: [home(context), PaymentsPage(), TransfersPage(), CardsPage(), ServicesPage()],),
+       
+        body: home(context)
+       
       ),
     );
   }

@@ -2,10 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/cards_page/cards_page.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
-import 'package:rupali_bank_demo/homepage/presentation/homepage.dart';
+import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 import 'package:rupali_bank_demo/payments/payments_page.dart';
 import 'package:rupali_bank_demo/services_page/services_page.dart';
 import 'package:rupali_bank_demo/transfers/transfers_page.dart';
@@ -15,8 +16,10 @@ class BasicBottomNavbar extends StatefulWidget {
   PageController? pageController;
   int? pageIndex;
   int _navBarIndex = 0;
+  Key? _refeshKey;
 
   int get navbarIndex => _navBarIndex;
+  Key? get refreshKey => _refeshKey;
 
   @override
   State<BasicBottomNavbar> createState() => _BasicBottomNavbarState();
@@ -70,8 +73,12 @@ class _BasicBottomNavbarState extends State<BasicBottomNavbar> {
       currentIndex: widget._navBarIndex,
       onTap: (currentIndex) {
         setState(() {
-          widget._navBarIndex = currentIndex;
-          widget.pageController!.jumpToPage(currentIndex);
+          if (currentIndex != widget._navBarIndex) {
+            widget._navBarIndex = currentIndex;
+            widget.pageController!.jumpToPage(currentIndex);
+            widget._refeshKey = UniqueKey();
+          }
+
           // _selectRoute(widget._navBarIndex);
         });
       },

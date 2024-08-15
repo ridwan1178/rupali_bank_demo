@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
-import 'package:rupali_bank_demo/homepage/home_components/card/bottom_left.dart';
-import 'package:rupali_bank_demo/homepage/home_components/card/bottom_right.dart';
-import 'package:rupali_bank_demo/homepage/home_components/card/top_left.dart';
-import 'package:rupali_bank_demo/homepage/home_components/card/top_right.dart';
+import 'package:rupali_bank_demo/home_page/home_components/card/bottom_left.dart';
+import 'package:rupali_bank_demo/home_page/home_components/card/bottom_right.dart';
+import 'package:rupali_bank_demo/home_page/home_components/card/top_left.dart';
+import 'package:rupali_bank_demo/home_page/home_components/card/top_right.dart';
 
 class CardBody extends StatelessWidget {
   final Color? color;

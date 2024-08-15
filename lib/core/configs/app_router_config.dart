@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/cards_page/cards_routes.dart';
-import 'package:rupali_bank_demo/homepage/homepage_routes.dart';
+import 'package:rupali_bank_demo/landing_page/configs/landing_page_routes.dart';
+import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 
 import 'package:rupali_bank_demo/onboarding/onboarding_routes.dart';
 import 'package:rupali_bank_demo/payments/payment_page_routes.dart';
@@ -35,7 +36,7 @@ class AppRouterConfig {
       ),
       OnboardingRoutes.onboardingPage,
       SigninRoutes.signinPage,
-      HomepageRoutes.homepage,
+      LandingPageRoutes.landingPage,
       PaymentRoutes.paymentPage,
       TransferRoutes.transfersPage,
       CardsRoutes.cardsPage,

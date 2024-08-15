@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_global_themes/app_input_decoration_theme.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
-import 'package:rupali_bank_demo/homepage/presentation/homepage.dart';
+import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
@@ -66,7 +66,7 @@ class SigninPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () => {
-                      context.pushReplacementNamed(Homepage.namedRoute)
+                      context.pushReplacementNamed(LandingPage.namedRoute)
                           
                         },
                     child: Text(AppLocalizations.of(context)!.signin))
