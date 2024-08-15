@@ -8,6 +8,6 @@ class CardsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: AppIcons.cards,);
+    return  Center(child: AppIcons.cardsActive,);
   }
 }

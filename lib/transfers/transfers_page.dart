@@ -8,6 +8,6 @@ class TransfersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: AppIcons.transfer,);
+    return Center(child: AppIcons.transferActive,);
   }
 }

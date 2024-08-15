@@ -9,6 +9,6 @@ class ServicesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: AppIcons.services,);
+    return  Center(child: AppIcons.servicesActive,);
   }
 }
