@@ -21,7 +21,7 @@ class SigninPage extends StatelessWidget {
     return Theme(
       data: ThemeData(
         //inputDecorationTheme: InputDecorationThemeSignin().inputDecoration(),
-        textButtonTheme:const  TextButtonThemeData(style: 
+        textButtonTheme: const TextButtonThemeData(style: 
            ButtonStyle(padding:  WidgetStatePropertyAll<EdgeInsetsGeometry>(
                   EdgeInsets.zero),
                   fixedSize: WidgetStatePropertyAll<Size>(Size(50,20)))

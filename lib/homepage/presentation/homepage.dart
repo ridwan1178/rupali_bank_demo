@@ -96,15 +96,9 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-           // GeneralSavingsHighlights(),
+           
            Flexible(child: context.watch<HomepageAccountStatementProvider>().highlights)
-            //highlights()
-            // Expanded(
-            //   child: SizedBox(
-            //     height: 305,
-            //     width: 333,
-            //     child:  gridView()),
-            // )
+           
           ],
         ),
       ),
