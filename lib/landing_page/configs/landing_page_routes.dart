@@ -4,6 +4,7 @@ import 'package:rupali_bank_demo/home_page/configs/home_page_routes.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
+import 'package:rupali_bank_demo/user_profile/configs/user_profile_routes.dart';
 
 class LandingPageRoutes {
   static final GoRoute landingPage = GoRoute(
@@ -16,7 +17,8 @@ class LandingPageRoutes {
           child: const LandingPage(),
         );
       },
-      routes: [HomePageRoutes.accountDetails]);
+      routes: [HomePageRoutes.accountDetails,
+      UserProfileRoutes.userProfilePageFromLandingPage]);
 
 
 }

@@ -8,7 +8,7 @@ import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/home_page/presentation/account_details_page.dart';
 
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
-import 'package:rupali_bank_demo/utils/appbar_widgets/user_profile.dart';
+import 'package:rupali_bank_demo/utils/appbar_widgets/user_profile_widget.dart';
 
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
@@ -75,8 +75,8 @@ class _HomepageState extends State<Homepage> {
       child: Scaffold(
           appBar: BasicAppbar(
             hideBackButton: true,
-            title: UserProfileButton().user,
-            profilePic: UserProfileButton().userProfileButton,
+            title: UserProfileButton(context).user,
+            profilePic: UserProfileButton(context).userProfileImage(),
           ),
           body: home(context)),
     );

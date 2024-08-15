@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/cards_page/cards_routes.dart';
 import 'package:rupali_bank_demo/landing_page/configs/landing_page_routes.dart';
-import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
+
 
 import 'package:rupali_bank_demo/onboarding/configs/onboarding_routes.dart';
 import 'package:rupali_bank_demo/payments/payment_page_routes.dart';
