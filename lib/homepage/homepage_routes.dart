@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
 import 'package:rupali_bank_demo/homepage/presentation/homepage.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,7 @@ class HomepageRoutes {
   static final GoRoute homepage = GoRoute(
       name: Homepage.namedRoute,
       path: Homepage.path,
+      //parentNavigatorKey: AppRouterConfig().shellNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
         return ChangeNotifierProvider(
           create: (context) => HomepageAccountStatementProvider(),
@@ -21,7 +23,7 @@ class HomepageRoutes {
       name: AccountDetailsPage.namedRoute,
       path: AccountDetailsPage.path,
       builder: (BuildContext context, GoRouterState state) {
-        return AccountDetailsPage();
+        return const AccountDetailsPage();
       },
       );
 }

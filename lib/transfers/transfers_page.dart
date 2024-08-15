@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 
 class TransfersPage extends StatelessWidget {
   const TransfersPage({super.key});
@@ -7,6 +8,6 @@ class TransfersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(child: AppIcons.transfer,);
   }
 }

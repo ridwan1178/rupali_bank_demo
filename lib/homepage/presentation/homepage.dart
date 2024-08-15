@@ -2,10 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rupali_bank_demo/cards_page/cards_page.dart';
 import 'package:rupali_bank_demo/homepage/home_components/account_statement_options.dart';
 import 'package:rupali_bank_demo/homepage/home_components/card/card_body.dart';
 import 'package:rupali_bank_demo/homepage/presentation/account_details_page.dart';
+import 'package:rupali_bank_demo/payments/payments_page.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
+import 'package:rupali_bank_demo/services_page/services_page.dart';
+import 'package:rupali_bank_demo/transfers/transfers_page.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/utils/basic_bottom_navbar.dart';
@@ -29,6 +33,8 @@ class _HomepageState extends State<Homepage> {
     initialPage: 0,
     keepPage: false,
   );
+  final PageController homepageController = PageController(initialPage: 0);
+  int homepageIndex = 0;
   int currentIndex = 0;
 
   static const _kDuration = Duration(milliseconds: 300);
@@ -52,8 +58,11 @@ class _HomepageState extends State<Homepage> {
     currentIndex = 0;
   }
 
+  
+
   nextFunction() {
     currentIndex++;
+    
     _pageController.nextPage(duration: _kDuration, curve: _kCurve);
   }
 
@@ -67,40 +76,47 @@ class _HomepageState extends State<Homepage> {
     return SafeArea(
       child: Scaffold(
         appBar: const BasicAppbar(hideBackButton: true),
-        bottomNavigationBar: const SizedBox(height: 68 ,child: BasicBottomNavbar()),
-        
-        body: Column(
-          children: [
-            _cards(
-                context,
-                context.watch<HomepageAccountStatementProvider>().cards,
-                context.watch<HomepageAccountStatementProvider>().refreshKey),
-            _dotsForCards(context,
-                context.watch<HomepageAccountStatementProvider>().cards.length),
-            const AccountStatementOptions(),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  const Text("Higlights"),
-                  const Spacer(),
-                  TextButton(
-                    style: const ButtonStyle(
-                      padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
-                      fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))),
-                      onPressed: () {
-                        context.goNamed(AccountDetailsPage.namedRoute);
-                      },
-                      child: const Text("View details",style: TextStyle(fontSize: 13),))
-                ],
-              ),
-            ),
-           
-           Flexible(child: context.watch<HomepageAccountStatementProvider>().highlights)
-           
-          ],
-        ),
+        bottomNavigationBar: SizedBox(height: 68, child: BasicBottomNavbar(pageController: homepageController,)),
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: homepageController,
+          children: [home(context), PaymentsPage(), TransfersPage(), CardsPage(), ServicesPage()],),
       ),
+    );
+  }
+
+  Column home(BuildContext context) {
+    return Column(
+      children: [
+        _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
+            context.watch<HomepageAccountStatementProvider>().refreshKey),
+        _dotsForCards(context,
+            context.watch<HomepageAccountStatementProvider>().cards.length),
+        const AccountStatementOptions(),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              const Text("Higlights"),
+              const Spacer(),
+              TextButton(
+                  style: const ButtonStyle(
+                      padding:
+                          WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+                      fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))),
+                  onPressed: () {
+                    context.goNamed(AccountDetailsPage.namedRoute);
+                  },
+                  child: const Text(
+                    "View details",
+                    style: TextStyle(fontSize: 13),
+                  ))
+            ],
+          ),
+        ),
+        Flexible(
+            child: context.watch<HomepageAccountStatementProvider>().highlights)
+      ],
     );
   }
 
@@ -142,90 +158,7 @@ class _HomepageState extends State<Homepage> {
     }
   }
 
-  Widget highlights() {
-    return Expanded(
-      child: SizedBox(
-        height: 305,
-        width: 333,
-        child: DefaultTabController(
-          length: 3,
-          child: Scaffold(
-            appBar: AppBar(
-              flexibleSpace: 
-                 const Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    TabBar(
-                      labelColor: Colors.green,
-                      unselectedLabelColor: Colors.grey,
-                     // padding: EdgeInsets.all(4),
-                      dividerColor: Colors.transparent,
-                      indicatorColor: Colors.transparent,
-                      indicatorSize: null,
-                      tabs: [
-                        Tab(text: "Year"),
-                        Tab(text: "Month"),
-                        Tab(text: "Week"),
-                      ],
-                    )
-                  ],
-                ),
-              
-            ),
-            body: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: TabBarView(
-                children: [gridView(), gridView(), gridView()],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-    
-  }
 
-  Widget gridView() {
-    return GridView.count(
-      childAspectRatio: 1.5,//1.81,
-      crossAxisCount: 2,
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      children: [
-        Container(
-          height: 45,
-          width: 75,
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(15, 46, 156, 220),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child:const  Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Total withdrawal"),
-              Text("420k")
-            ],
-          ),
-        ),
-       const SizedBox(
-          height: 45,
-          width: 90,
-          child: ColoredBox(color: Colors.blueGrey),
-        ),
-        Container(
-          height: 45,
-          width: 75,
-          color: Colors.blueGrey,
-        ),
-        Container(
-          color: Colors.blueGrey,
-        ),
-        Container(
-          height: 45,
-          width: 75,
-          color: Colors.blueGrey,
-        )
-      ],
-    );
-  }
+
+
 }

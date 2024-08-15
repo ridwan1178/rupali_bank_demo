@@ -9,26 +9,38 @@ import 'package:rupali_bank_demo/services_page/services_page.dart';
 import 'package:rupali_bank_demo/transfers/transfers_page.dart';
 
 class BasicBottomNavbar extends StatefulWidget {
-  const BasicBottomNavbar({super.key});
-  
+  BasicBottomNavbar(
+      {super.key, required this.pageController, this.pageIndex});
+  PageController? pageController;
+  int? pageIndex;
+  int _navBarIndex = 0;
+  // final GlobalKey<State<StatefulWidget>> widgetKey =
+  //     GlobalKey<State<StatefulWidget>>();
+  // static Widget? _build;
+
+  // static Widget get build{
+  //   return _build ??=
+  // }
+  int get navbarIndex => _navBarIndex;
 
   @override
   State<BasicBottomNavbar> createState() => _BasicBottomNavbarState();
 }
 
 class _BasicBottomNavbarState extends State<BasicBottomNavbar> {
-
-  
-  int _navBarIndex = 0;
-
-  void _selectRoute(int index){
+  void _selectRoute(int index) {
     switch (index) {
-      case 0: context.pushReplacementNamed(Homepage.namedRoute);
-      case 1: context.goNamed(PaymentsPage.namedRoute);
-      case 2: context.goNamed(TransfersPage.namedRoute);
-      case 3: context.goNamed(CardsPage.namedRoute);
-      case 4: context.goNamed(ServicesPage.namedRoute);
-        
+      case 0:
+        context.pushReplacementNamed(Homepage.namedRoute);
+      case 1:
+        context.goNamed(PaymentsPage.namedRoute);
+      case 2:
+        context.goNamed(TransfersPage.namedRoute);
+      case 3:
+        context.goNamed(CardsPage.namedRoute);
+      case 4:
+        context.goNamed(ServicesPage.namedRoute);
+
         break;
       default:
     }
@@ -45,13 +57,13 @@ class _BasicBottomNavbarState extends State<BasicBottomNavbar> {
         BottomNavigationBarItem(icon: AppIcons.cards, label: "Cards"),
         BottomNavigationBarItem(icon: AppIcons.services, label: "Services"),
       ],
-      currentIndex: _navBarIndex,
+      currentIndex: widget._navBarIndex,
       onTap: (currentIndex) {
         setState(() {
-          _navBarIndex = currentIndex;
-          _selectRoute(_navBarIndex);
+          widget._navBarIndex = currentIndex;
+          widget.pageController!.jumpToPage(currentIndex);
+          // _selectRoute(widget._navBarIndex);
         });
-        
       },
     );
   }
