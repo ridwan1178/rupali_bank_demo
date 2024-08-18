@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final dynamic route;
   final bool hideBackButton;
+  final bool? centerTitle;
   // final bool showProfilePic;
   final Widget? profilePic;
   const BasicAppbar(
-      {this.title, super.key, this.route, required this.hideBackButton,  this.profilePic});
+      {this.title, super.key, this.route, required this.hideBackButton, this.profilePic, this.centerTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
         toolbarHeight: 64,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        centerTitle: false,
+        centerTitle: centerTitle ?? false,
         title: title,
         leading:  profilePic ?? (hideBackButton
             ? null
@@ -24,7 +26,9 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
                 onPressed: () {
                   route ?? context.pop();
                 },
-                icon: const Icon(Icons.arrow_back))));
+                icon: AppIcons.backButton
+                // const Icon(Icons.arrow_back)
+                )));
   }
 
   @override

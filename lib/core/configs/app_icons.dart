@@ -15,7 +15,9 @@ class AppIcons {
   static const String _servicesSvg = "${_botNavbar}box$_format";
 
 //appbar
-  static const String _toolbar = "${_basepath}category-2$_format";
+static const String _appbar = "${_basepath}appbar/";
+static const String _toolbar = "${_appbar}category-2$_format";
+static const String _backButton = "${_appbar}arrow-left$_format";
 
   static const Icon tickMark = Icon(
     IconData(0xe1f6, fontFamily: 'MaterialIcons'),
@@ -73,4 +75,5 @@ class AppIcons {
 
   //toolbar
 static Widget toolBar = SvgPicture.asset(_toolbar, fit: BoxFit.none);
+static Widget backButton = SvgPicture.asset(_backButton, fit: BoxFit.none);
 }
