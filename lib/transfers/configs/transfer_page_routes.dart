@@ -42,7 +42,7 @@ class TransferRoutes {
     name: AddBeneficiaryDetailsPage.namedRoute,
     path: AddBeneficiaryDetailsPage.path,
     builder: (BuildContext context, GoRouterState state) {
-      return const AddBeneficiaryDetailsPage();
+      return  AddBeneficiaryDetailsPage();
     },
   );
 

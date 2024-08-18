@@ -14,13 +14,13 @@ class AppInputDecorationTheme{
         ),
         //labelText: hintText,
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(
               color: Colors.black,
               width: 0.4,
             )),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(
               color: Colors.black,
               width: 1,

@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/cards_page/cards_routes.dart';
 import 'package:rupali_bank_demo/landing_page/configs/landing_page_routes.dart';
 
-
 import 'package:rupali_bank_demo/onboarding/configs/onboarding_routes.dart';
 import 'package:rupali_bank_demo/payments/payment_page_routes.dart';
 import 'package:rupali_bank_demo/services_page/services_page_routes.dart';
@@ -11,6 +10,7 @@ import 'package:rupali_bank_demo/services_page/services_page_routes.dart';
 import 'package:rupali_bank_demo/signin/configs/signin_routes.dart';
 import 'package:rupali_bank_demo/splash/presentation/splash_page.dart';
 import 'package:rupali_bank_demo/transfers/configs/transfer_page_routes.dart';
+import 'package:rupali_bank_demo/utils/basic_success_page_0.dart';
 
 class AppRouterConfig {
   final GlobalKey<NavigatorState> rootNavigatorKey =
@@ -42,7 +42,15 @@ class AppRouterConfig {
       TransferRoutes.beneficiaryManagement,
       CardsRoutes.cardsPage,
       ServicesRoutes.servicesPage,
-      
     ]);
   }
+
+  // static GoRoute successPage = GoRoute(
+  //   name: BasicSuccessPage0.namedRoute,
+  //   path: BasicSuccessPage0.path,
+  //   builder: (context, state) {
+  //     BasicSuccessPage0(pageText: pageText)
+  //   },
+  // );
+
 }
