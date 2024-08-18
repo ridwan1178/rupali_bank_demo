@@ -66,7 +66,7 @@ class SigninPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () => {
-                      context.pushReplacementNamed(LandingPage.namedRoute)
+                      context.pushReplacementNamed(LandingPage.namedRoute, extra: 0)
                           
                         },
                     child: Text(AppLocalizations.of(context)!.signin))

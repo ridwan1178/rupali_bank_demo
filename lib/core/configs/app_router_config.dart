@@ -39,6 +39,7 @@ class AppRouterConfig {
       LandingPageRoutes.landingPage,
       PaymentRoutes.paymentPage,
       TransferRoutes.transfersPage,
+      TransferRoutes.beneficiaryManagement,
       CardsRoutes.cardsPage,
       ServicesRoutes.servicesPage,
       
