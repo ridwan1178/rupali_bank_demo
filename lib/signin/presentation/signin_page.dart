@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:rupali_bank_demo/core/configs/app_global_themes/app_input_decoration_theme.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
+import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/signin/configs/signin_theme.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({super.key});
@@ -19,14 +21,7 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(
-        
-        textButtonTheme: const TextButtonThemeData(style: 
-           ButtonStyle(padding:  WidgetStatePropertyAll<EdgeInsetsGeometry>(
-                  EdgeInsets.zero),
-                  fixedSize: WidgetStatePropertyAll<Size>(Size(50,20)))
-        )
-      ),
+      data: AppTheme.lightTheme.copyWith(textButtonTheme: SigninTheme.textButtonThemeData),
       child: SafeArea(
           child: Scaffold(
         appBar: AppBar(
@@ -41,8 +36,8 @@ class SigninPage extends StatelessWidget {
                 
                   onPressed: () =>
                       {context.read<AppLangProvider>().changeLocaleToEng()},
-                  child: const Text("english")),
-              const Text(" . "),
+                  child: const Text("English")),
+              const Text(" ."),
               TextButton(
                   onPressed: () =>
                       {context.read<AppLangProvider>().changeLocaleToBn()},
@@ -65,6 +60,7 @@ class SigninPage extends StatelessWidget {
                   height: 235,
                 ),
                 ElevatedButton(
+                  style: const ButtonStyle(fixedSize: WidgetStatePropertyAll<Size>(Size(140, 60))),
                     onPressed: () => {
                       context.pushReplacementNamed(LandingPage.namedRoute, extra: 0)
                           
@@ -97,7 +93,7 @@ class SigninPage extends StatelessWidget {
 
   Widget _signinText() {
     return const Text(
-      "sign in",
+      "Sign In",
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 30,

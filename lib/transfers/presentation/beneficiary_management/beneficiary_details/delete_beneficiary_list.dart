@@ -99,7 +99,10 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
       context: mainContext,
       builder: (context) => AlertDialog(
         content: Text("Are you sure your want to delete ${beneficiary.name}"),
-        actions: [yesDelete(mainContext, beneficiary), cancel(mainContext)],
+        actions: [
+          cancel(mainContext),
+          yesDelete(mainContext, beneficiary),
+        ],
       ),
     );
   }

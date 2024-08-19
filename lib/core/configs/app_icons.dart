@@ -28,6 +28,10 @@ class AppIcons {
     color: Colors.white,
   );
 
+  //onboarding icons
+  static const String _onboarding = "${_basepath}onboarding/";
+  static const String _onboardingNextButton= "${_onboarding}arrow-left$_format";
+
 //bottom nav bar icons
 
   //home
@@ -86,4 +90,8 @@ class AppIcons {
 
   //delete
   static Widget deleteTrash = SvgPicture.asset(_deleteTrash, fit: BoxFit.none);
+
+
+//onboarding
+  static Widget onboardingNextButton = SvgPicture.asset(_onboardingNextButton, fit: BoxFit.none);
 }

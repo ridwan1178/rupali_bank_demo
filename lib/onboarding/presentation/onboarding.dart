@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/signin/presentation/signin_page.dart';
 import 'package:go_router/go_router.dart';
@@ -88,7 +89,7 @@ class _OnboardingState extends State<Onboarding> {
                     onPressed: () {
                       previousFunction();
                     },
-                    icon: const Icon(Icons.arrow_back))),
+                    icon: AppIcons.backButton)),
         body: Stack(children: [
           IgnorePointer(
             child: PageView(
@@ -102,29 +103,46 @@ class _OnboardingState extends State<Onboarding> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 43,
-                horizontal: 18,
-              ),
-              child: Row(
-                children: [
-                  isLastPage
-                      ? const SizedBox()
-                      : ElevatedButton(
-                          onPressed: () => {setLastPage()},
-                          child: const Text("Skip")),
-                  const Expanded(child: SizedBox()),
-                  isLastPage
-                      ? ElevatedButton(
-                          onPressed: () => {
-                                context
-                                    .pushReplacementNamed(SigninPage.namedRoute)
-                              },
-                          child: const Text("sign in"))
-                      : ElevatedButton(
-                          onPressed: nextFunction, child: const Text("next")),
-                ],
+            child: SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 43,
+                  horizontal: 18,
+                ),
+                child: SizedBox(
+                  height: 60,
+                  width: 333,
+                  child: Row(
+                    children: [
+                      isLastPage
+                          ? const SizedBox()
+                          : ElevatedButton(
+                            style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
+                            foregroundColor: WidgetStatePropertyAll<Color>(Colors.black),
+                            elevation: WidgetStatePropertyAll<double>(0.0),
+                            fixedSize: WidgetStatePropertyAll<Size>(Size(80, 60))
+                            ),
+                              onPressed: () => {setLastPage()},
+                              child: const Text("Skip")),
+                      const Expanded(child: SizedBox()),
+                      isLastPage
+                          ? 
+                           
+                             ElevatedButton(
+                              
+                              style:const  ButtonStyle(fixedSize: WidgetStatePropertyAll<Size>(Size(80, 60))),
+                                onPressed: () => {
+                                      context
+                                          .pushReplacementNamed(SigninPage.namedRoute)
+                                    },
+                                child: AppIcons.onboardingNextButton)
+                          
+                          : ElevatedButton(
+                            style:const  ButtonStyle(fixedSize: WidgetStatePropertyAll<Size>(Size(80, 60))),
+                              onPressed: nextFunction, child: AppIcons.onboardingNextButton),
+                    ],
+                  ),
+                ),
               ),
             ),
           )
