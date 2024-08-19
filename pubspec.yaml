@@ -78,6 +78,7 @@ flutter:
     - assets/icons/bottom_navbar/
     - assets/icons/appbar/
     - assets/icons/fund_transfer/
+    - assets/icons/crud/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

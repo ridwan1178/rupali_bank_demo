@@ -6,6 +6,10 @@ class AppIcons {
   static const String _basepath = "assets/icons/";
   static const String _format = ".svg";
 
+//crud icons
+  static const String _crud = "${_basepath}crud/";
+  static const String _deleteTrash = "${_crud}delete_trash$_format";
+
 //bot navbar constants
   static const String _botNavbar = "${_basepath}bottom_navbar/";
   static const String _homeSvg = "${_botNavbar}home-2$_format";
@@ -15,9 +19,9 @@ class AppIcons {
   static const String _servicesSvg = "${_botNavbar}box$_format";
 
 //appbar
-static const String _appbar = "${_basepath}appbar/";
-static const String _toolbar = "${_appbar}category-2$_format";
-static const String _backButton = "${_appbar}arrow-left$_format";
+  static const String _appbar = "${_basepath}appbar/";
+  static const String _toolbar = "${_appbar}category-2$_format";
+  static const String _backButton = "${_appbar}arrow-left$_format";
 
   static const Icon tickMark = Icon(
     IconData(0xe1f6, fontFamily: 'MaterialIcons'),
@@ -74,6 +78,12 @@ static const String _backButton = "${_appbar}arrow-left$_format";
 //appbar icons
 
   //toolbar
-static Widget toolBar = SvgPicture.asset(_toolbar, fit: BoxFit.none);
-static Widget backButton = SvgPicture.asset(_backButton, fit: BoxFit.none);
+  static Widget toolBar = SvgPicture.asset(_toolbar, fit: BoxFit.none);
+
+  static Widget backButton = SvgPicture.asset(_backButton, fit: BoxFit.none);
+
+//crud icons
+
+  //delete
+  static Widget deleteTrash = SvgPicture.asset(_deleteTrash, fit: BoxFit.none);
 }

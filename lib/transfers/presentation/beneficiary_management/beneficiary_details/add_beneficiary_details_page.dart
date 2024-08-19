@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_global_themes/app_input_decoration_theme.dart';
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
+import 'package:rupali_bank_demo/providers/beneficiary_management_provider.dart';
+import 'package:rupali_bank_demo/transfers/models/beneficiary_model.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/add_beneficiary_page.dart';
-import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_management_page.dart';
+import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:rupali_bank_demo/utils/basic_success_page_0.dart';
@@ -23,6 +25,9 @@ class AddBeneficiaryDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pageTitle = PageTitleWiget("Add Beneficiary");
+    BeneficiaryModel beneficiary;
+    String name;
+    String accNum;
     return SafeArea(
         child: Scaffold(
       appBar: BasicAppbar(
@@ -50,16 +55,19 @@ class AddBeneficiaryDetailsPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                       onPressed: () => {
+                         name = _accountName.text.toString(),
+                         accNum= _accountNumber.text.toString(),
+                         print("Name: $name \n account Num:$accNum"),
+                        beneficiary = BeneficiaryModel(name: name, accNumber: accNum),
+                        context.read<BeneficiaryManagementProvider>().addBeneficiaryWithNotify(beneficiary),
+                        for(var ben in context.read<BeneficiaryManagementProvider>().beneficiaries){
+                          print("${ben.name}\n${ben.accNumber}")
+                        },
+                        //success page route
                             context.goNamed(BasicSuccessPage0.namedRoute,
                                 extra: SuccessPageTemplate0(image: Image.asset(AppImages.success0),
                                 namedRoute: LandingPage.namedRoute, extra: 2, buttonName: "Return to Transfer Page", text: successText(),))
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (BuildContext context) =>
-                            //             BasicSuccessPage0(
-                            //                 pageText: successText(), pageButton: returnButton(context),)),
-                            //     )
+
                           },
                       child: const Text("Submit")),
                 ],

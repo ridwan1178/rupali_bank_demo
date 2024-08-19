@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:rupali_bank_demo/providers/beneficiary_management_provider.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/add_beneficiary_page.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_details/add_beneficiary_details_page.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_details/delete_beneficiary_list.dart';
@@ -18,48 +20,48 @@ class TransferRoutes {
   );
 
   static final beneficiaryManagement = GoRoute(
-    path: BeneficiaryManagement.path,
-    name: BeneficiaryManagement.namedRoute,
-    builder: (context, state) {
-      return BeneficiaryManagement();
-    },
-    routes: [
-      addBeneficiaryPage,
-      deleteBeneficiaryPage
-    ]
-  );
+      path: BeneficiaryManagement.path,
+      name: BeneficiaryManagement.namedRoute,
+      builder: (context, state) {
+        return ChangeNotifierProvider(
+          create: (context) => BeneficiaryManagementProvider(),
+        child: BeneficiaryManagement());
+      },
+      routes: [addBeneficiaryPage, deleteBeneficiaryPage]);
 
-    static final GoRoute addBeneficiaryPage = GoRoute(
-    name: AddBeneficiaryPage.namedRoute,
-    path: AddBeneficiaryPage.path,
-    builder: (BuildContext context, GoRouterState state) {
-      return const AddBeneficiaryPage();
-    },
-    routes: [addBeneficiaryDetailsPage]
-  );
+  static final GoRoute addBeneficiaryPage = GoRoute(
+      name: AddBeneficiaryPage.namedRoute,
+      path: AddBeneficiaryPage.path,
+      builder: (BuildContext context, GoRouterState state) {
+        return const AddBeneficiaryPage();
+      },
+      routes: [addBeneficiaryDetailsPage]);
 
-      static final GoRoute addBeneficiaryDetailsPage = GoRoute(
+  static final GoRoute addBeneficiaryDetailsPage = GoRoute(
     name: AddBeneficiaryDetailsPage.namedRoute,
     path: AddBeneficiaryDetailsPage.path,
-    builder: (BuildContext context, GoRouterState state) {
-      return  AddBeneficiaryDetailsPage();
-    },
+      builder: (context, state) {
+        return ChangeNotifierProvider(
+          create: (context) => BeneficiaryManagementProvider(),
+        child: AddBeneficiaryDetailsPage());
+      },
   );
 
-    static final GoRoute deleteBeneficiaryPage = GoRoute(
-    name: DeleteBeneficiaryPage.namedRoute,
-    path: DeleteBeneficiaryPage.path,
-    builder: (BuildContext context, GoRouterState state) {
-      return const DeleteBeneficiaryPage();
-    },
-    routes: [deleteBeneficiaryList]
-  );
+  static final GoRoute deleteBeneficiaryPage = GoRoute(
+      name: DeleteBeneficiaryPage.namedRoute,
+      path: DeleteBeneficiaryPage.path,
+      builder: (BuildContext context, GoRouterState state) {
+        return const DeleteBeneficiaryPage();
+      },
+      routes: [deleteBeneficiaryList]);
 
-      static final GoRoute deleteBeneficiaryList = GoRoute(
+  static final GoRoute deleteBeneficiaryList = GoRoute(
     name: DeleteBeneficiaryList.namedRoute,
     path: DeleteBeneficiaryList.path,
-    builder: (BuildContext context, GoRouterState state) {
-      return const DeleteBeneficiaryList();
-    },
+      builder: (context, state) {
+        return ChangeNotifierProvider(
+          create: (context) => BeneficiaryManagementProvider(),
+        child: DeleteBeneficiaryList());
+      },
   );
 }
