@@ -40,9 +40,12 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
       ),
       body: Consumer<BeneficiaryManagementProvider>(
         builder: (BuildContext context, BeneficiaryManagementProvider value, Widget? child) { 
-          return ListView(
-          children: beneficiaries(context),
-        );
+          return Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: ListView(
+            children: beneficiaries(context),
+                    ),
+          );
          },
         
       ),
@@ -63,7 +66,7 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
               
               children: [Text("Name: ${beneficiary.name}", textAlign: TextAlign.left,), Text("Account Number: ${beneficiary.accNumber}")],
             ),
-            Spacer(),
+            Expanded(child: SizedBox()),
             IconButton(
                 onPressed: () {
                   context
