@@ -59,9 +59,7 @@ class TransferRoutes {
     name: DeleteBeneficiaryList.namedRoute,
     path: DeleteBeneficiaryList.path,
       builder: (context, state) {
-        return ChangeNotifierProvider(
-          create: (context) => BeneficiaryManagementProvider(),
-        child: DeleteBeneficiaryList());
+        return DeleteBeneficiaryList();
       },
   );
 }

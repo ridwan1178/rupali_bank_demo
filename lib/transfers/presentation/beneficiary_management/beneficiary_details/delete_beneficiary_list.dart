@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/providers/beneficiary_management_provider.dart';
@@ -6,6 +7,7 @@ import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/d
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
 class DeleteBeneficiaryList extends StatefulWidget {
   DeleteBeneficiaryList({super.key});
@@ -31,47 +33,55 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
     var pageTitle = PageTitleWiget("Delete Beneficiary");
     // List<BeneficiaryModel> beneficiaries =
     //     context.read<BeneficiaryManagementProvider>().beneficiaries;
-    return SafeArea(
-        child: Scaffold(
-      appBar: BasicAppbar(
-        hideBackButton: false,
-        title: pageTitle.pageTitle(),
-        centerTitle: pageTitle.centerTitle,
-      ),
-      body: Consumer<BeneficiaryManagementProvider>(
-        builder: (BuildContext context, BeneficiaryManagementProvider value, Widget? child) { 
-          return Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: ListView(
-            children: beneficiaries(context),
-                    ),
-          );
-         },
-        
-      ),
-    ));
+    return ChangeNotifierProvider(
+      create: (context) => BeneficiaryManagementProvider(),
+      builder: (mainContext, child) => SafeArea(
+          child: Scaffold(
+        appBar: BasicAppbar(
+          hideBackButton: false,
+          title: pageTitle.pageTitle(),
+          centerTitle: pageTitle.centerTitle,
+        ),
+        body: Consumer<BeneficiaryManagementProvider>(
+          builder: (BuildContext context, BeneficiaryManagementProvider value,
+              Widget? child) {
+            return Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: ListView(
+                children: beneficiaries(mainContext),
+              ),
+            );
+          },
+        ),
+      )),
+    );
   }
 
-  List<Widget> beneficiaries(BuildContext context, ) {
+  List<Widget> beneficiaries(
+    BuildContext mainContext,
+  ) {
     List<Widget> beneficiaries = [];
     Widget item;
 
     for (var beneficiary
-        in context.read<BeneficiaryManagementProvider>().beneficiaries) {
+        in mainContext.read<BeneficiaryManagementProvider>().beneficiaries) {
       item = Flexible(
         fit: FlexFit.loose,
         child: Row(
           children: [
             Column(
-              
-              children: [Text("Name: ${beneficiary.name}", textAlign: TextAlign.left,), Text("Account Number: ${beneficiary.accNumber}")],
+              children: [
+                Text(
+                  "Name: ${beneficiary.name}",
+                  textAlign: TextAlign.left,
+                ),
+                Text("Account Number: ${beneficiary.accNumber}")
+              ],
             ),
             Expanded(child: SizedBox()),
             IconButton(
                 onPressed: () {
-                  context
-                      .read<BeneficiaryManagementProvider>()
-                      .removeBeneficiaryWithNotify(beneficiary);
+                  confirmDialogue(mainContext, beneficiary);
                 },
                 icon: AppIcons.deleteTrash)
           ],
@@ -81,5 +91,36 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
     }
 
     return beneficiaries;
+  }
+
+  Future confirmDialogue(
+      BuildContext mainContext, BeneficiaryModel beneficiary) {
+    return showDialog(
+      context: mainContext,
+      builder: (context) => AlertDialog(
+        content: Text("Are you sure your want to delete ${beneficiary.name}"),
+        actions: [yesDelete(mainContext, beneficiary), cancel(mainContext)],
+      ),
+    );
+  }
+
+  TextButton yesDelete(BuildContext context, BeneficiaryModel beneficiary) {
+    return TextButton(
+        onPressed: () {
+          context
+              .read<BeneficiaryManagementProvider>()
+              .removeBeneficiaryWithNotify(beneficiary);
+
+          context.pop();
+        },
+        child: Text("Yes Delete"));
+  }
+
+  TextButton cancel(BuildContext context) {
+    return TextButton(
+        onPressed: () {
+          context.pop();
+        },
+        child: Text("cancel"));
   }
 }
