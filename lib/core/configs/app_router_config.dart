@@ -34,6 +34,7 @@ class AppRouterConfig {
           return const SplashPage();
         },
       ),
+      successPage0,
       OnboardingRoutes.onboardingPage,
       SigninRoutes.signinPage,
       LandingPageRoutes.landingPage,
@@ -45,12 +46,11 @@ class AppRouterConfig {
     ]);
   }
 
-  // static GoRoute successPage = GoRoute(
-  //   name: BasicSuccessPage0.namedRoute,
-  //   path: BasicSuccessPage0.path,
-  //   builder: (context, state) {
-  //     BasicSuccessPage0(pageText: pageText)
-  //   },
-  // );
-
+  static GoRoute successPage0 = GoRoute(
+    name: BasicSuccessPage0.namedRoute,
+    path: BasicSuccessPage0.path,
+    builder: (context, state) {
+      return BasicSuccessPage0();
+    },
+  );
 }

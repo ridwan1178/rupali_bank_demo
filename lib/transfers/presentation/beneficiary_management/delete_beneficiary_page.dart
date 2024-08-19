@@ -30,16 +30,16 @@ class DeleteBeneficiaryPage extends StatelessWidget {
                  padding: EdgeInsets.all(8.0),
                  child: Text("Select Transfer Type",),
                )),
-            options(silBanking, DeleteBeneficiaryList.namedRoute, context),
-            options(otherBanks, DeleteBeneficiaryList.namedRoute, context),
-            options(mfsTransfer, DeleteBeneficiaryList.namedRoute, context),
+            options(silBanking, DeleteBeneficiaryList.namedRoute, context, "SIL Banking"),
+            options(otherBanks, DeleteBeneficiaryList.namedRoute, context, "Other Banks"),
+            options(mfsTransfer, DeleteBeneficiaryList.namedRoute, context, "MFS Transfer"),
           ],
         ),
       ),
     ));
   }
 
-    Widget options(IconData icon, String namedRoute, BuildContext context) {
+    Widget options(IconData icon, String namedRoute, BuildContext context, String text) {
     return GestureDetector(
         onTap: () {
           context.pushNamed(namedRoute);
@@ -60,8 +60,8 @@ class DeleteBeneficiaryPage extends StatelessWidget {
                   icon,
                   color: AppColors.primary,
                 ),
-                const Text(
-                  "Sil Bank Account",
+                 Text(
+                  text,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 )
               ],

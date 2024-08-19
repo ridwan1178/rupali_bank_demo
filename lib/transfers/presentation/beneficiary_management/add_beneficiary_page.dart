@@ -35,16 +35,16 @@ class AddBeneficiaryPage extends StatelessWidget {
                  padding: EdgeInsets.all(8.0),
                  child: Text("Select Transfer Type",),
                )),
-            options(silBanking, AddBeneficiaryDetailsPage.namedRoute, context),
-            options(otherBanks, AddBeneficiaryDetailsPage.namedRoute, context),
-            options(mfsTransfer, AddBeneficiaryDetailsPage.namedRoute, context),
+            options(silBanking, AddBeneficiaryDetailsPage.namedRoute, context, "SIL Banking"),
+            options(otherBanks, AddBeneficiaryDetailsPage.namedRoute, context, "Other Banks"),
+            options(mfsTransfer, AddBeneficiaryDetailsPage.namedRoute, context, "MFS Transfer"),
           ],
         ),
       ),
     ));
   }
 
-  Widget options(IconData icon, String namedRoute, BuildContext context) {
+  Widget options(IconData icon, String namedRoute, BuildContext context, String text) {
     return GestureDetector(
         onTap: () {
           context.pushNamed(namedRoute);
@@ -65,8 +65,8 @@ class AddBeneficiaryPage extends StatelessWidget {
                   icon,
                   color: AppColors.primary,
                 ),
-                const Text(
-                  "Sil Bank Account",
+                 Text(
+                  text,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 )
               ],
