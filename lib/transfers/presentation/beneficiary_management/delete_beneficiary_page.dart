@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_details/delete_beneficiary_list.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_management_page.dart';
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
@@ -30,16 +31,16 @@ class DeleteBeneficiaryPage extends StatelessWidget {
                  padding: EdgeInsets.all(8.0),
                  child: Text("Select Transfer Type",),
                )),
-            options(silBanking, DeleteBeneficiaryList.namedRoute, context, "SIL Banking"),
-            options(otherBanks, DeleteBeneficiaryList.namedRoute, context, "Other Banks"),
-            options(mfsTransfer, DeleteBeneficiaryList.namedRoute, context, "MFS Transfer"),
+            options(AppIcons.ftSilBank, DeleteBeneficiaryList.namedRoute, context, "SIL Banking"),
+            options(AppIcons.ftOtherBanks, DeleteBeneficiaryList.namedRoute, context, "Other Banks"),
+            options(AppIcons.ftMfsTransfer, DeleteBeneficiaryList.namedRoute, context, "MFS Transfer"),
           ],
         ),
       ),
     ));
   }
 
-    Widget options(IconData icon, String namedRoute, BuildContext context, String text) {
+    Widget options(Widget icon, String namedRoute, BuildContext context, String text) {
     return GestureDetector(
         onTap: () {
           context.pushNamed(namedRoute);
@@ -56,14 +57,14 @@ class DeleteBeneficiaryPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  icon,
-                  color: AppColors.primary,
-                ),
-                 Text(
-                  text,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                )
+                icon,
+                 Padding(
+                   padding: const EdgeInsets.only(top: 8.0),
+                   child: Text(
+                    text,
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                                   ),
+                 )
               ],
             ),
           ),

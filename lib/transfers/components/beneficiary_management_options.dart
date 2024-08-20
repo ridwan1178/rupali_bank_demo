@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/add_beneficiary_page.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/delete_beneficiary_page.dart';
 
@@ -24,16 +25,16 @@ class BeneficiaryManagementOptions {
             color: const Color.fromARGB(15, 46, 156, 220),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.person_add,
-                color: AppColors.primary,
-              ),
-              const Text(
-                "Add beneficiary",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              AppIcons.ftAddBeneficiary,
+              const Padding(
+                padding:  EdgeInsets.only(top: 8.0),
+                child:  Text(
+                  "Add beneficiary",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
               )
             ],
           ),
@@ -51,19 +52,19 @@ class BeneficiaryManagementOptions {
           height: 97,
           width: 333,
           decoration: BoxDecoration(
-            color: Colors.red[100],
+            color: Color.fromARGB(255, 252, 232, 234),
             borderRadius: BorderRadius.circular(10),
           ),
-          child: const Column(
+          child:  Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.person_remove,
-                color: Colors.red,
-              ),
-              const Text(
-                "Delete beneficiary",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              AppIcons.ftDeleteBeneficiary,
+              const Padding(
+                padding:  EdgeInsets.only(top: 8.0),
+                child:  Text(
+                  "Delete beneficiary",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
               )
             ],
           ),

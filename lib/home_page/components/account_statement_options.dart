@@ -21,7 +21,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
   Widget build(BuildContext context) {
     
     return Theme(
-      data: AppTheme.lightTheme,
+      data: AppTheme.lightTheme.copyWith(textTheme: Theme.of(context).textTheme.apply(fontSizeFactor: 0.9)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(

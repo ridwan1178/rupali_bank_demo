@@ -28,9 +28,21 @@ class AppIcons {
     color: Colors.white,
   );
 
-  //onboarding icons
+//onboarding icons
   static const String _onboarding = "${_basepath}onboarding/";
-  static const String _onboardingNextButton= "${_onboarding}arrow-left$_format";
+  static const String _onboardingNextButton =
+      "${_onboarding}arrow-left$_format";
+
+//fund transfer icons
+  static const String _fundTransfer = "${_basepath}fund_transfer/";
+  static const String _ftFavourite = "${_fundTransfer}favourite$_format";
+  static const String _ftBenMgt = "${_fundTransfer}mgt$_format";
+  static const String _ftMfsTransfer = "${_fundTransfer}mfsTransfer$_format";
+  static const String _ftTransferHistory = "${_fundTransfer}history$_format";
+  static const String _ftOtherBanks = "${_fundTransfer}other$_format";
+  static const String _ftSilBank = "${_fundTransfer}sil$_format";
+  static const String _ftAddBen = "${_fundTransfer}add$_format";
+  static const String _ftDeleteBen = "${_fundTransfer}delete$_format";
 
 //bottom nav bar icons
 
@@ -91,7 +103,57 @@ class AppIcons {
   //delete
   static Widget deleteTrash = SvgPicture.asset(_deleteTrash, fit: BoxFit.none);
 
-
 //onboarding
-  static Widget onboardingNextButton = SvgPicture.asset(_onboardingNextButton, fit: BoxFit.none);
+  static Widget onboardingNextButton =
+      SvgPicture.asset(_onboardingNextButton, fit: BoxFit.none);
+
+//fund transfer icons
+  //fav
+  static Widget ftFavourite = SvgPicture.asset(
+    _ftFavourite,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //ben mgt
+  static Widget ftBeneficiaryManagement = SvgPicture.asset(
+    _ftBenMgt,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //mfst
+  static Widget ftMfsTransfer = SvgPicture.asset(
+    _ftMfsTransfer,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //history
+  static Widget ftTransferHistory = SvgPicture.asset(
+    _ftTransferHistory,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //other
+  static Widget ftOtherBanks = SvgPicture.asset(
+    _ftOtherBanks,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //sil
+  static Widget ftSilBank = SvgPicture.asset(
+    _ftSilBank,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //add
+  static Widget ftAddBeneficiary = SvgPicture.asset(
+    _ftAddBen,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  //del
+  static Widget ftDeleteBeneficiary = SvgPicture.asset(
+    _ftDeleteBen,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.redIcon, BlendMode.srcIn),
+  );
 }

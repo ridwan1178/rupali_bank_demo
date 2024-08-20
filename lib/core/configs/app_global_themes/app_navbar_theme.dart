@@ -10,8 +10,8 @@ class AppNavbarTheme {
     selectedItemColor: AppColors.primary,
     unselectedItemColor: Colors.blueGrey,
     type: BottomNavigationBarType.fixed,
-    selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)
+    selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),
+    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 10)
 
   );
 }

@@ -13,7 +13,7 @@ import 'package:rupali_bank_demo/home_page/components/highlights/loans_highlight
 
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
-  List<CardBody> _cards = [];
+  static List<CardBody> _cards = [];
   List<dynamic> _details = [];
   Widget _highlights = SizedBox.shrink();
   Key _refreshKey = UniqueKey();
@@ -87,7 +87,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
     _highlights = GeneralSavingsHighlights();
-    _addCard(1, Colors.red);
+    _addCard(3, Colors.red);
   }
 
 //listeners
@@ -96,7 +96,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
-    _addCard(1, Colors.red);
+    _addCard(3, Colors.red);
     _highlights = GeneralSavingsHighlights();
     notifyListeners();
   }

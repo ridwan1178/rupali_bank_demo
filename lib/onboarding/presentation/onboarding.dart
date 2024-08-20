@@ -105,17 +105,14 @@ class _OnboardingState extends State<Onboarding> {
             alignment: Alignment.bottomCenter,
             child: SizedBox(
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 43,
-                  horizontal: 18,
-                ),
+                padding: const EdgeInsets.only(bottom: 43, left: 18, right: 24, top: 42),
                 child: SizedBox(
                   height: 60,
                   width: 333,
                   child: Row(
                     children: [
                       isLastPage
-                          ? const SizedBox()
+                          ? const SizedBox.shrink()
                           : ElevatedButton(
                             style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll<Color>(Colors.white),
                             foregroundColor: WidgetStatePropertyAll<Color>(Colors.black),
@@ -152,74 +149,92 @@ class _OnboardingState extends State<Onboarding> {
   }
 
   Widget _page1() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 32,
-        vertical: 123,
-      ),
-      child: Column(
+    return Column(
         children: [
-          Image.asset(AppImages.onboarding1),
+          Padding(
+            padding: const EdgeInsets.only(top: 100, left: 32),
+            child: Image.asset(AppImages.onboarding1),
+          ),
           const SizedBox(
             height: 58,
           ),
-          const Text("Transfer"),
+          const Text("Transfer", style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, letterSpacing: -1),),
           const SizedBox(
             height: 10,
           ),
-          const Text(
-              "Transfer your money to anywhere you want. Be it our bank account, other bank account, wallet etc."),
-          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount)
+          const Padding(
+            padding: const EdgeInsets.only(left: 36, right: 46),
+            child: const Text(textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                "Transfer your money to anywhere you want. Be it our bank account, other bank account, wallet etc."),
+          ),
+              
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
+          )
         ],
-      ),
-    );
+      )
+    ;
+  }
+    Widget _page2() {
+    return Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 100, left: 32),
+            child: Image.asset(AppImages.onboarding1),
+          ),
+          const SizedBox(
+            height: 58,
+          ),
+          const Text("Payment", style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, letterSpacing: -1),),
+          const SizedBox(
+            height: 10,
+          ),
+          const Padding(
+            padding: const EdgeInsets.only(left: 36, right: 46),
+            child: const Text(textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                "Pay anything to anybody you want. We support from top-up to marchant payments."),
+          ),
+              
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
+          )
+        ],
+      )
+    ;
+  }
+    Widget _page3() {
+    return Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 100, left: 32),
+            child: Image.asset(AppImages.onboarding1),
+          ),
+          const SizedBox(
+            height: 58,
+          ),
+          const Text("Manage", style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, letterSpacing: -1),),
+          const SizedBox(
+            height: 10,
+          ),
+          const Padding(
+            padding: const EdgeInsets.only(left: 36, right: 46),
+            child: const Text(textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                "Manage your accounts including loans, RDs, checque books, cards everything from a signle point!"),
+          ),
+              
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
+          )
+        ],
+      )
+    ;
   }
 
-  Widget _page2() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 32,
-        vertical: 123,
-      ),
-      child: Column(
-        children: [
-          Image.asset(AppImages.onboarding2),
-          const SizedBox(
-            height: 58,
-          ),
-          const Text("Payment"),
-          const SizedBox(
-            height: 10,
-          ),
-          const Text(
-              "Pay anything to anybody you want. We support from top-up to marchant payments."),
-          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
-        ],
-      ),
-    );
-  }
-
-  Widget _page3() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 32,
-        vertical: 123,
-      ),
-      child: Column(
-        children: [
-          Image.asset(AppImages.onboarding3),
-          const SizedBox(
-            height: 58,
-          ),
-          const Text("Manage"),
-          const SizedBox(
-            height: 10,
-          ),
-          const Text(
-              "Manage your accounts including loans, RDs, checque books, cards everything from a signle point!"),
-          DotsIndicatorWidget(currentIndex: currentIndex, pageCount: pageCount),
-        ],
-      ),
-    );
-  }
+ 
 }

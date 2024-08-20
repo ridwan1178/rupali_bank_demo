@@ -6,6 +6,7 @@ class AppInputDecorationTheme{
 
   InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
         //hintText: hintText,
+        
         filled: true,
         fillColor: Colors.transparent,
         contentPadding: const EdgeInsets.all(20),

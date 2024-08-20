@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 
 import 'package:rupali_bank_demo/home_page/components/account_statement_options.dart';
 import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
@@ -94,20 +95,30 @@ class _HomepageState extends State<Homepage> {
           padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
-              const Text("Higlights"),
+             const Padding(
+                padding:  EdgeInsets.only(left: 19),
+                child:  Text("Higlights", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+              ),
               const Spacer(),
-              TextButton(
-                  style: const ButtonStyle(
-                      padding:
-                          WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
-                      fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))),
-                  onPressed: () {
-                    context.goNamed(AccountDetailsPage.namedRoute);
-                  },
-                  child: const Text(
-                    "View details",
-                    style: TextStyle(fontSize: 13),
-                  ))
+              Expanded(
+                child: SizedBox(
+                  height: 18,
+                  width: 73,
+                  child: TextButton(
+                      // style: const ButtonStyle(
+                      //     padding:
+                      //         WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+                      //     fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))
+                      //     ),
+                      onPressed: () {
+                        context.goNamed(AccountDetailsPage.namedRoute);
+                      },
+                      child: const Text(
+                        "View details",
+                        style: TextStyle(fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w400),
+                      )),
+                ),
+              )
             ],
           ),
         ),
