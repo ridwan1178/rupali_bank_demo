@@ -105,11 +105,7 @@ class _HomepageState extends State<Homepage> {
                   height: 18,
                   width: 73,
                   child: TextButton(
-                      // style: const ButtonStyle(
-                      //     padding:
-                      //         WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
-                      //     fixedSize: WidgetStatePropertyAll<Size>(Size(73, 18))
-                      //     ),
+                      
                       onPressed: () {
                         context.goNamed(AccountDetailsPage.namedRoute);
                       },

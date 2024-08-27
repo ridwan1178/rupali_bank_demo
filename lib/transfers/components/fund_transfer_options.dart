@@ -3,6 +3,7 @@ import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_management_page.dart';
+import 'package:rupali_bank_demo/transfers/presentation/sil_bank_account/sil_bank_account_page.dart';
 
 class FundTransferOptions {
   FundTransferOptions(this.context);
@@ -12,6 +13,7 @@ class FundTransferOptions {
 
   List<Widget> getOptions() {
     Widget silBankAccount = GestureDetector(
+      onTap: () => context.pushNamed(SilBankAccountPage.namedRoute),
       child: Container(
         decoration: BoxDecoration(
           color: const Color.fromARGB(15, 46, 156, 220),

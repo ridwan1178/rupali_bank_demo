@@ -41,6 +41,7 @@ class AppRouterConfig {
       PaymentRoutes.paymentPage,
       TransferRoutes.transfersPage,
       TransferRoutes.beneficiaryManagement,
+      TransferRoutes.silBankAccountPage,
       CardsRoutes.cardsPage,
       ServicesRoutes.servicesPage,
     ]);

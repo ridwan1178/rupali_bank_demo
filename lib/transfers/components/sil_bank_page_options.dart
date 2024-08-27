@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:rupali_bank_demo/core/configs/app_colors.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
-import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/add_beneficiary_page.dart';
+
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/delete_beneficiary_page.dart';
 
-class BeneficiaryManagementOptions {
-  BeneficiaryManagementOptions(this.context);
+class SilBankPageOptions {
+  SilBankPageOptions(this.context);
   final BuildContext context;
 
   late List<Widget> _options;
@@ -14,15 +14,17 @@ class BeneficiaryManagementOptions {
   List<Widget> get options => _getOptions();
 
   List<Widget> _getOptions() {
-    Widget addBeneficiary = GestureDetector(
+    double height = 160;
+    double width = 333;
+    Widget betweenOwnAccounts = GestureDetector(
       onTap: () {
-        pushNamed(AddBeneficiaryPage.namedRoute);
+        // pushNamed(AddBeneficiaryPage.namedRoute);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 97,
-          width: 333,
+          height: height,
+          width: width,
           decoration: BoxDecoration(
             color: const Color.fromARGB(15, 46, 156, 220),
             borderRadius: BorderRadius.circular(10),
@@ -30,11 +32,11 @@ class BeneficiaryManagementOptions {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppIcons.ftAddBeneficiary,
+              AppIcons.transferActive,
               const Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Text(
-                  "Add beneficiary",
+                  "Between own Accounts",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               )
@@ -44,27 +46,28 @@ class BeneficiaryManagementOptions {
       ),
     );
 
-    Widget deletebeneficiary = GestureDetector(
+    Widget otherSilAccounts = GestureDetector(
       onTap: () {
         pushNamed(DeleteBeneficiaryPage.namedRoute);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 97,
-          width: 333,
+          height: height,
+          width: width,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 252, 232, 234),
+            color: const Color.fromARGB(13, 155, 81, 224),
+            // Color.fromARGB(255, 225, 206, 243),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppIcons.ftDeleteBeneficiary,
+              AppIcons.ftSilBankToOtherSilAccount,
               const Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Text(
-                  "Delete beneficiary",
+                  "To Other SIL Accounts",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               )
@@ -74,7 +77,7 @@ class BeneficiaryManagementOptions {
       ),
     );
 
-    return _options = [addBeneficiary, deletebeneficiary];
+    return _options = [betweenOwnAccounts, otherSilAccounts];
   }
 
   void pushNamed(String namedRoute) {

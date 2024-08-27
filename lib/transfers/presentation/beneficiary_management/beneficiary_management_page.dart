@@ -5,7 +5,6 @@ import 'package:rupali_bank_demo/transfers/components/beneficiary_management_opt
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
 
-
 class BeneficiaryManagement extends StatelessWidget {
   const BeneficiaryManagement({super.key});
 
@@ -15,15 +14,21 @@ class BeneficiaryManagement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pageTitle = PageTitleWiget("Beneficiary Management");
-    return SafeArea(child: Scaffold(
-      
-      appBar: BasicAppbar(hideBackButton: false, title: pageTitle.pageTitle(), centerTitle: pageTitle.centerTitle, route: LandingPage.namedRoute, extra: 2,),
+    List<Widget> options = BeneficiaryManagementOptions(context).options;
+    return SafeArea(
+        child: Scaffold(
+      appBar: BasicAppbar(
+        hideBackButton: false,
+        title: pageTitle.pageTitle(),
+        centerTitle: pageTitle.centerTitle,
+        route: LandingPage.namedRoute,
+        extra: 2,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Center(
           child: Column(
-            
-            children: BeneficiaryManagementOptions(context).getOptions(),
+            children: [options[0], options[1]],
           ),
         ),
       ),

@@ -43,6 +43,7 @@ class AppIcons {
   static const String _ftSilBank = "${_fundTransfer}sil$_format";
   static const String _ftAddBen = "${_fundTransfer}add$_format";
   static const String _ftDeleteBen = "${_fundTransfer}delete$_format";
+  static const String _ftSilBankOtherSilAccount = "${_fundTransfer}group$_format";
 
 //bottom nav bar icons
 
@@ -144,6 +145,15 @@ class AppIcons {
     fit: BoxFit.none,
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );
+
+    //sil > to other sil
+  static Widget ftSilBankToOtherSilAccount = SvgPicture.asset(
+    _ftSilBankOtherSilAccount,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.purpleIcon, BlendMode.srcIn),
+  );
+
+
   //add
   static Widget ftAddBeneficiary = SvgPicture.asset(
     _ftAddBen,
