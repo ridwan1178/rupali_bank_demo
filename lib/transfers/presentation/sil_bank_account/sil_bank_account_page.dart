@@ -13,18 +13,55 @@ class SilBankAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pageTitle = PageTitleWiget("Fund Transfer");
-    return SafeArea(child: Scaffold(
-      
-      appBar: BasicAppbar(hideBackButton: false, title: pageTitle.pageTitle(), centerTitle: pageTitle.centerTitle, route: LandingPage.namedRoute, extra: 2,),
+    List<Widget> options = SilBankPageOptions(context).options;
+    return SafeArea(
+        child: Scaffold(
+      appBar: BasicAppbar(
+        hideBackButton: false,
+        title: pageTitle.pageTitle(),
+        centerTitle: pageTitle.centerTitle,
+        route: LandingPage.namedRoute,
+        extra: 2,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Center(
           child: Column(
-            
-            children: [SilBankPageOptions(context).options[0], SilBankPageOptions(context).options[1]],
+            children: [
+              options[0],
+              options[1],
+              const SizedBox(
+                height: 29,
+              ),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  child: const Text(
+                    "Notes",
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  )),
+              const SizedBox(
+                height: 8,
+              ),
+              notesText(),
+            ],
           ),
         ),
       ),
     ));
+  }
+
+  Widget notesText() {
+    List<String> bulletPoints = [
+      "There is no limit from fund transfer between own accounts",
+      "For fund transfer to limit from fund transfer between own accounts.  fund transfer between own accounts",
+      "There is no limit from fund transfer between own accounts",
+      "There is no limit from fund transfer between own accounts"
+    ];
+    return Container(
+        alignment: Alignment.centerLeft,
+        child:  Text(
+          "\u2022 ${bulletPoints[0]} \n\u2022 ${bulletPoints[1]} \n\u2022 ${bulletPoints[2]} \n\u2022 ${bulletPoints[3]}",
+          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w300, height: 2),
+        ));
   }
 }

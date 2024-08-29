@@ -32,6 +32,10 @@ class AppIcons {
   static const String _onboarding = "${_basepath}onboarding/";
   static const String _onboardingNextButton =
       "${_onboarding}arrow-left$_format";
+  static const String _onboardingSignin =
+      "${_onboarding}empty-wallet-tick$_format";
+  static const String _onboardingSignup =
+      "${_onboarding}empty-wallet-add$_format";
 
 //fund transfer icons
   static const String _fundTransfer = "${_basepath}fund_transfer/";
@@ -43,7 +47,8 @@ class AppIcons {
   static const String _ftSilBank = "${_fundTransfer}sil$_format";
   static const String _ftAddBen = "${_fundTransfer}add$_format";
   static const String _ftDeleteBen = "${_fundTransfer}delete$_format";
-  static const String _ftSilBankOtherSilAccount = "${_fundTransfer}group$_format";
+  static const String _ftSilBankOtherSilAccount =
+      "${_fundTransfer}group$_format";
 
 //bottom nav bar icons
 
@@ -107,6 +112,16 @@ class AppIcons {
 //onboarding
   static Widget onboardingNextButton =
       SvgPicture.asset(_onboardingNextButton, fit: BoxFit.none);
+  static Widget onboardingSignin = SvgPicture.asset(
+    _onboardingSignin,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget onboardingSignup = SvgPicture.asset(
+    _onboardingSignup,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
 
 //fund transfer icons
   //fav
@@ -146,13 +161,12 @@ class AppIcons {
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );
 
-    //sil > to other sil
+  //sil > to other sil
   static Widget ftSilBankToOtherSilAccount = SvgPicture.asset(
     _ftSilBankOtherSilAccount,
     fit: BoxFit.none,
     colorFilter: const ColorFilter.mode(AppColors.purpleIcon, BlendMode.srcIn),
   );
-
 
   //add
   static Widget ftAddBeneficiary = SvgPicture.asset(

@@ -86,8 +86,15 @@ class _HomepageState extends State<Homepage> {
   Column home(BuildContext context) {
     return Column(
       children: [
-        _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
-            context.watch<HomepageAccountStatementProvider>().refreshKey),
+        Flexible(
+          fit: FlexFit.loose,
+          child: SizedBox(
+            height: 180,
+            
+            child: _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
+                context.watch<HomepageAccountStatementProvider>().refreshKey),
+          ),
+        ),
         _dotsForCards(context,
             context.watch<HomepageAccountStatementProvider>().cards.length),
         const AccountStatementOptions(),

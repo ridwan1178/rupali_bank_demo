@@ -7,13 +7,24 @@ import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import 'package:rupali_bank_demo/utils/pixel_to_percentage_converter/pixel_to_percentage_converter.dart';
+
 void main() {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => AppLangProvider()),
-    ], child: const MyApp()),
+    ], child: MyApp()),
   );
 }
+
+//get global context
+final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
+//get global router for navigation
+final navigatorKey = AppRouterConfig.router.routerDelegate.navigatorKey;
+
+//responsive size
+final ppc = PixelToPercentageConverter();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,6 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       title: 'Localizations Sample App',
       localizationsDelegates: const [
         AppLocalizations.delegate,

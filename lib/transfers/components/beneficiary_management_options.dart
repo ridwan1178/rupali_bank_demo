@@ -24,7 +24,7 @@ class BeneficiaryManagementOptions {
           height: 97,
           width: 333,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(15, 46, 156, 220),
+            color: AppColors.fadedGreenbg,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -54,7 +54,7 @@ class BeneficiaryManagementOptions {
           height: 97,
           width: 333,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 252, 232, 234),
+            color: AppColors.fadedRedbg,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(

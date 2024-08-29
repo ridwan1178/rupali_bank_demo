@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/delete_beneficiary_page.dart';
@@ -26,7 +27,7 @@ class SilBankPageOptions {
           height: height,
           width: width,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(15, 46, 156, 220),
+            color: AppColors.fadedGreenbg,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -56,7 +57,7 @@ class SilBankPageOptions {
           height: height,
           width: width,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(13, 155, 81, 224),
+            color: AppColors.fadedPurplebg,
             // Color.fromARGB(255, 225, 206, 243),
             borderRadius: BorderRadius.circular(10),
           ),
