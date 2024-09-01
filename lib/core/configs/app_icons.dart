@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
+import 'package:rupali_bank_demo/main.dart';
 
 class AppIcons {
   static const String _basepath = "assets/icons/";
@@ -36,6 +37,10 @@ class AppIcons {
       "${_onboarding}empty-wallet-tick$_format";
   static const String _onboardingSignup =
       "${_onboarding}empty-wallet-add$_format";
+  static const String _onboardingUnselectedRadio =
+      "${_onboarding}unselected-radio$_format";
+  static const String _onboardingSelectedRadio =
+      "${_onboarding}selected-radio$_format";
 
 //fund transfer icons
   static const String _fundTransfer = "${_basepath}fund_transfer/";
@@ -120,6 +125,18 @@ class AppIcons {
   static Widget onboardingSignup = SvgPicture.asset(
     _onboardingSignup,
     fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget onboardingUnselected = SvgPicture.asset(
+    _onboardingUnselectedRadio,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget onboardingSelected = SvgPicture.asset(
+    _onboardingSelectedRadio,
+    fit: BoxFit.none,
+    height: ppc.cf(28),
+    width: ppc.cw(28),
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );
 

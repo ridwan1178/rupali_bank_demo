@@ -159,8 +159,9 @@ class _OnboardingState extends State<Onboarding> {
                                       Size(ppc.cw(80), ppc.ch(60)))),
                               onPressed: () => {
                                     context.pushReplacementNamed(
-                                        // SigninOrSingnup.namedRoute
-                                        SigninPage.namedRoute)
+                                         SigninOrSingnup.namedRoute
+                                        //SigninPage.namedRoute
+                                        )
                                   },
                               child: AppIcons.onboardingNextButton)
                           : ElevatedButton(

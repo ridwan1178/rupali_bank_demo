@@ -8,6 +8,7 @@ import 'package:rupali_bank_demo/payments/payment_page_routes.dart';
 import 'package:rupali_bank_demo/services_page/services_page_routes.dart';
 
 import 'package:rupali_bank_demo/signin/configs/signin_routes.dart';
+import 'package:rupali_bank_demo/signup/configs/signup_routes.dart';
 import 'package:rupali_bank_demo/splash/presentation/splash_page.dart';
 import 'package:rupali_bank_demo/transfers/configs/transfer_page_routes.dart';
 import 'package:rupali_bank_demo/utils/basic_success_page_0.dart';
@@ -43,6 +44,7 @@ class AppRouterConfig {
       OnboardingRoutes.onboardingPage,
       OnboardingRoutes.signinOrSignupPage,
       SigninRoutes.signinPage,
+      SignupRoutes.signupPage,
       LandingPageRoutes.landingPage,
       PaymentRoutes.paymentPage,
       TransferRoutes.transfersPage,
