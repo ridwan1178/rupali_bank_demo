@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/main.dart';
 
 class SigninTheme {
-  static const TextButtonThemeData textButtonThemeData = TextButtonThemeData(
+  static  TextButtonThemeData textButtonThemeData = TextButtonThemeData(
       style: ButtonStyle(
-          padding: WidgetStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
-          fixedSize: WidgetStatePropertyAll<Size>(Size(50, 20))));
+          padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.zero),
+          fixedSize: WidgetStatePropertyAll<Size>(Size(ppc.cw(50), ppc.ch(20)))));
 }

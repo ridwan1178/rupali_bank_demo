@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/cards_page/cards_page.dart';
 import 'package:rupali_bank_demo/home_page/presentation/home_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/payments/payments_page.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 import 'package:rupali_bank_demo/services_page/services_page.dart';
@@ -56,12 +57,14 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: SizedBox(
-            height: 68,
-            child: BasicBottomNavbar(
-              pageController: homepageController,
-              pageIndex: homepageIndex,
-            )),
+        bottomNavigationBar: Expanded(
+          child: SizedBox(
+              height: ppc.ch(68),
+              child: BasicBottomNavbar(
+                pageController: homepageController,
+                pageIndex: homepageIndex,
+              )),
+        ),
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: homepageController,

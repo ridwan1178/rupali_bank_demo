@@ -17,13 +17,20 @@ void main() {
   );
 }
 
+//GLOBAL OBJECTS [global context, global navigator, responsive ui sizer]
+
 //get global context
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
-//get global router for navigation
+//get global router for navigation navigatorKey.currentcontext.push/pop
 final navigatorKey = AppRouterConfig.router.routerDelegate.navigatorKey;
 
 //responsive size
+//ch = height/vertical unit
+//cw = width/horizontal
+//cf = font size
+//clh = font line height
+//use cw is unsure
 final ppc = PixelToPercentageConverter();
 
 class MyApp extends StatelessWidget {

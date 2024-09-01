@@ -4,6 +4,7 @@ import 'package:rupali_bank_demo/core/configs/app_global_themes/app_input_decora
 import 'package:rupali_bank_demo/core/configs/app_images.dart';
 import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
@@ -21,7 +22,8 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: AppTheme.lightTheme.copyWith(textButtonTheme: SigninTheme.textButtonThemeData),
+      data: AppTheme.lightTheme
+          .copyWith(textButtonTheme: SigninTheme.textButtonThemeData),
       child: SafeArea(
           child: Scaffold(
         appBar: AppBar(
@@ -33,7 +35,6 @@ class SigninPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               TextButton(
-                
                   onPressed: () =>
                       {context.read<AppLangProvider>().changeLocaleToEng()},
                   child: const Text("English")),
@@ -52,18 +53,20 @@ class SigninPage extends StatelessWidget {
               children: [
                 _logo1(),
                 _signinText(),
-                const SizedBox(
-                  height: 19,
+                 SizedBox(
+                  height: ppc.ch(19),
                 ),
                 _fieldBody(context),
-                const SizedBox(
-                  height: 235,
+                 SizedBox(
+                  height: ppc.ch(101),
                 ),
                 ElevatedButton(
-                  style: const ButtonStyle(fixedSize: WidgetStatePropertyAll<Size>(Size(140, 60))),
+                    style:  ButtonStyle(
+                        fixedSize: WidgetStatePropertyAll<Size>(Size(ppc.cw(140), ppc.ch(60)))),
                     onPressed: () => {
-                      context.pushReplacementNamed(LandingPage.namedRoute, extra: 0)
-                          
+                      //extra 0 is for home page, see basic bot nav for other indexes
+                          context.pushReplacementNamed(LandingPage.namedRoute,
+                              extra: 0)
                         },
                     child: Text(AppLocalizations.of(context)!.signin))
               ],
@@ -77,8 +80,12 @@ class SigninPage extends StatelessWidget {
   Row _textFieldText(String text) {
     return Row(
       children: [
-        Text(
-          text,
+        Padding(
+          padding: EdgeInsets.only(bottom: ppc.ch(8)),
+          child: Text(
+            text,
+            style: TextStyle(fontSize: ppc.cf(16), fontWeight: FontWeight.w500, height: ppc.clh(16, 24)),
+          ),
         ),
       ],
     );
@@ -86,48 +93,52 @@ class SigninPage extends StatelessWidget {
 
   Widget _logo1() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 53),
+      padding:  EdgeInsets.symmetric(vertical: ppc.ch(53)),
       child: Image.asset(AppImages.logo1),
     );
   }
 
   Widget _signinText() {
-    return const Text(
-      "Sign In",
+    return  Text(
+      "SIGN IN",
+    
       style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 30,
+        height: ppc.clh(24, 36),
+        fontWeight: FontWeight.w700,
+        fontSize: ppc.cf(24),
+        
       ),
     );
   }
 
   Widget _emailField(context) {
     return TextField(
-      controller: _email,
-      decoration: InputDecoration(hintText: AppLocalizations.of(context)!.email).applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
-      
-    );
+        controller: _email,
+        decoration:
+            InputDecoration(hintText: AppLocalizations.of(context)!.email)
+                .applyDefaults(AppInputDecorationTheme().inputDecorationTheme));
   }
 
   Widget _passField(context) {
     return TextField(
-      controller: _pass,
-      decoration: InputDecoration(hintText: AppLocalizations.of(context)!.pass).applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
-      // InputDecorationThemeSignin(
-      //         hintText: AppLocalizations.of(context)!.pass)
-      //     .inputDecoration(),
-    );
+        controller: _pass,
+        decoration:
+            InputDecoration(hintText: AppLocalizations.of(context)!.pass)
+                .applyDefaults(AppInputDecorationTheme().inputDecorationTheme)
+
+        );
   }
 
   Widget _fieldBody(context) {
     return SizedBox(
-      width: 330,
+      width: ppc.cw(330),
+      height: ppc.ch(342),
       child: Column(
         children: [
           _textFieldText(AppLocalizations.of(context)!.email),
           _emailField(context),
-          const SizedBox(
-            height: 20,
+           SizedBox(
+            height: ppc.ch(20),
           ),
           _textFieldText(AppLocalizations.of(context)!.pass),
           _passField(context),

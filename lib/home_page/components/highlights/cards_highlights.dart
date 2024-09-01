@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/main.dart';
 
 import 'package:rupali_bank_demo/utils/animations/container_cross_swap.dart';
 
@@ -32,10 +33,9 @@ class _CardsHighlightsState extends State<CardsHighlights> {
   }
 
   Widget highlights() {
-    return Expanded(
-      child: SizedBox(
-        height: 350,
-        width: 333,
+    return SizedBox(
+        height: ppc.ch(350),
+      width: ppc.cw(333),
         child: DefaultTabController(
           length: 2,
           child: Scaffold(
@@ -76,7 +76,7 @@ class _CardsHighlightsState extends State<CardsHighlights> {
               ),
             ),
             body: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
+              padding:  EdgeInsets.only(top: ppc.ch(13)),
               child: TabBarView(
                 children: [
                   ContainerCrossSwap(
@@ -92,31 +92,9 @@ class _CardsHighlightsState extends State<CardsHighlights> {
             ),
           ),
         ),
-      ),
+      
     );
   }
 
-  Widget gridView(int count) {
-    List<Widget> items = [];
-    for (var i = 0; i < count; i++) {
-      items.add(Container(
-        height: 45,
-        width: 75,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(15, 46, 156, 220),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("Total withdrawal"), Text("420k")],
-        ),
-      ));
-    }
-    return GridView.count(
-        childAspectRatio: 1.5, //1.81,
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        children: items);
-  }
+
 }

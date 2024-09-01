@@ -13,27 +13,29 @@ class CardBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 180,
-      width: 610,
-      child: Card(
-        color: color,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                const TopLeft(icon: AppIcons.tickMark),
-                const Expanded(child: SizedBox()),
-                TopRight(
-                  context: context,
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Row(
-              children: [BottomLeft(),  Expanded(child: SizedBox()), BottomRight()],
-            )
-          ],
+      width: 350,
+      child: Expanded(
+        child: Card(
+          color: color,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const TopLeft(icon: AppIcons.tickMark),
+                  const Expanded(child: SizedBox()),
+                  TopRight(
+                    context: context,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Row(
+                children: [BottomLeft(),  Expanded(child: SizedBox()), BottomRight()],
+              )
+            ],
+          ),
         ),
       ),
     );

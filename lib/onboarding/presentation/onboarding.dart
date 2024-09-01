@@ -6,6 +6,7 @@ import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/onboarding/presentation/signin_or_singnup.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:rupali_bank_demo/signin/presentation/signin_page.dart';
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 
 class Onboarding extends StatefulWidget {
@@ -134,7 +135,7 @@ class _OnboardingState extends State<Onboarding> {
                   width: ppc.cw(333),
                   child: Row(
                     children: [
-                      isLastPage
+                      (isLastPage
                           ? const SizedBox.shrink()
                           : ElevatedButton(
                               style: ButtonStyle(
@@ -149,18 +150,17 @@ class _OnboardingState extends State<Onboarding> {
                                   fixedSize: WidgetStatePropertyAll<Size>(
                                       Size(ppc.cw(80), ppc.ch(60)))),
                               onPressed: () => {setLastPage()},
-                              child: const Text("Skip")),
+                              child: const Text("Skip"))),
                       const Expanded(child: SizedBox()),
-                      isLastPage
+                      (isLastPage
                           ? ElevatedButton(
                               style: ButtonStyle(
                                   fixedSize: WidgetStatePropertyAll<Size>(
                                       Size(ppc.cw(80), ppc.ch(60)))),
                               onPressed: () => {
                                     context.pushReplacementNamed(
-                                        SigninOrSingnup.namedRoute
-                                        // SigninPage.namedRoute
-                                        )
+                                        // SigninOrSingnup.namedRoute
+                                        SigninPage.namedRoute)
                                   },
                               child: AppIcons.onboardingNextButton)
                           : ElevatedButton(
@@ -168,7 +168,7 @@ class _OnboardingState extends State<Onboarding> {
                                   fixedSize: WidgetStatePropertyAll<Size>(
                                       Size(ppc.cw(80), ppc.ch(60)))),
                               onPressed: nextFunction,
-                              child: AppIcons.onboardingNextButton),
+                              child: AppIcons.onboardingNextButton)),
                     ],
                   ),
                 ),

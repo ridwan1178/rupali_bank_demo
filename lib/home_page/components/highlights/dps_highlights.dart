@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:rupali_bank_demo/main.dart';
 
 class DpsHighlights extends StatefulWidget {
   //final  List<dynamic> data;
@@ -25,18 +25,18 @@ class _DpsHighlightsState extends State<DpsHighlights> {
 
   static const Duration duration = Duration(milliseconds: 700);
   static const Curve curve = Curves.fastOutSlowIn;
-  static const double height = 110;
-  static const double width = 162;
-  static const double top = 115;
-  static const double left = 170;
+  double height = ppc.ch(110);
+  double width = ppc.cw(162);
+  double top = ppc.ch(115);
+  double left = ppc.cw(170);
 
   bool selected = false;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
-      width: 333,
+      height: ppc.ch(350),
+      width: ppc.cw(333),
       child: Stack(
         children: <Widget>[
           fadetransitionContainer(0, left),
@@ -47,12 +47,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             height: height,
             top: selected ? top : top * 2,
             left: selected ? left : 0,
-            
             duration: duration,
             curve: curve,
-            child:item(),
-              
-            
+            child: item(),
           ),
           //2nd type
           AnimatedPositioned(
@@ -60,12 +57,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             height: height,
             top: selected ? top * 2 : top,
             left: selected ? left : 0,
-            
             duration: duration,
             curve: curve,
             child: item(),
-              
-            
           ),
           //1st type
           AnimatedPositioned(
@@ -77,8 +71,7 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             // left: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child:item(),
-              
+            child: item(),
           ),
           //2nd type
           AnimatedPositioned(
@@ -90,8 +83,6 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             duration: duration,
             curve: curve,
             child: item(),
-              
-            
           ),
         ],
       ),
@@ -104,8 +95,8 @@ class _DpsHighlightsState extends State<DpsHighlights> {
 
   Widget item() {
     return Container(
-      height: 45,
-      width: 75,
+      height: ppc.ch(88),
+      width: ppc.cw(162),
       decoration: BoxDecoration(
         color: const Color.fromARGB(15, 46, 156, 220),
         borderRadius: BorderRadius.circular(10),

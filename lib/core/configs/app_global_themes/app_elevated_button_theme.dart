@@ -10,8 +10,8 @@ class AppElevatedButtonTheme {
 
   ElevatedButtonThemeData elevatedButtonTheme = ElevatedButtonThemeData(
       style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll<Color>(AppColors.primary),
-          foregroundColor: WidgetStatePropertyAll<Color>(Colors.white),
+          backgroundColor: const WidgetStatePropertyAll<Color>(AppColors.primary),
+          foregroundColor: const WidgetStatePropertyAll<Color>(Colors.white),
           shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
               RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(ppc.cw(10))),

@@ -9,4 +9,7 @@ class AppColors {
   static const fadedRedbg = Color.fromARGB(13, 242, 46, 27);
   static const purpleIcon = Color(0xff9B51E0);
   static const fadedPurplebg = Color.fromARGB(13, 155, 81, 224);
+  static const inputBoxBorder = Color(0xffE0E0E0);
+  static const unSelected = Color(0xffBDBDBD);
+
 }
