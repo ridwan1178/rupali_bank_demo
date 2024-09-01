@@ -57,7 +57,7 @@ class _CardsHighlightsState extends State<CardsHighlights> {
                       });
                     },
                     labelColor: Colors.white,
-                    unselectedLabelColor: Colors.green,
+                    unselectedLabelColor: AppColors.primary,
                     indicator: const BoxDecoration(
                         color: AppColors.primary,
                         borderRadius: BorderRadius.all(Radius.circular(10))),

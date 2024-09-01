@@ -1,9 +1,9 @@
-import 'dart:ui';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
+
 
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 
@@ -26,23 +26,7 @@ class BasicBottomNavbar extends StatefulWidget {
 }
 
 class _BasicBottomNavbarState extends State<BasicBottomNavbar> {
-  // void _selectRoute(int index) {
-  //   switch (index) {
-  //     case 0:
-  //       context.pushReplacementNamed(Homepage.namedRoute);
-  //     case 1:
-  //       context.goNamed(PaymentsPage.namedRoute);
-  //     case 2:
-  //       context.goNamed(TransfersPage.namedRoute);
-  //     case 3:
-  //       context.goNamed(CardsPage.namedRoute);
-  //     case 4:
-  //       context.goNamed(ServicesPage.namedRoute);
 
-  //       break;
-  //     default:
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
