@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/providers/beneficiary_management_provider.dart';
-import 'package:rupali_bank_demo/transfers/models/beneficiary_model.dart';
+import 'package:rupali_bank_demo/models/beneficiary_model.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/delete_beneficiary_page.dart';
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';

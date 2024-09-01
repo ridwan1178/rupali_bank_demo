@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:rupali_bank_demo/transfers/models/beneficiary_model.dart';
+import 'package:rupali_bank_demo/models/beneficiary_model.dart';
 
 class BeneficiaryManagementProvider extends ChangeNotifier {
  

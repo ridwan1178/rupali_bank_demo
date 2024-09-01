@@ -65,7 +65,7 @@ class _SigninOrSingnupState extends State<SigninOrSingnup> {
         child: Column(
           children: [
             headingText(),
-            radioContainer(signin, "I already have an account", signinRadio),
+            radioContainer(signin, "I already have an account", signinRadio, AppIcons.onboardingSignin),
             optionDescriptor(optionDescription[0]),
             Padding(
               padding: EdgeInsets.only(top: ppc.ch(19), bottom: ppc.ch(5)),
@@ -75,7 +75,7 @@ class _SigninOrSingnupState extends State<SigninOrSingnup> {
                     fontWeight: FontWeight.w700, fontSize: ppc.cf(20)),
               ),
             ),
-            radioContainer(signup, "I want to open a new account", signupRadio),
+            radioContainer(signup, "I want to open a new account", signupRadio, AppIcons.onboardingSignup),
             optionDescriptor(optionDescription[1]),
               SizedBox(height: ppc.ch(23),),
             ElevatedButton(
@@ -105,7 +105,7 @@ class _SigninOrSingnupState extends State<SigninOrSingnup> {
         ));
   }
 
-  Padding radioContainer(String value, String text, Widget radio) {
+  Padding radioContainer(String value, String text, Widget radio, Widget icon) {
     return Padding(
       padding: EdgeInsets.only(
           left: ppc.cw(69),
@@ -137,18 +137,10 @@ class _SigninOrSingnupState extends State<SigninOrSingnup> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppIcons.onboardingSignin,
+              icon,
               containerText(text),
               radio
-              // Radio(
-              //   value: value,
-              //   groupValue: route,
-              //   activeColor: AppColors.primary,
-              //   fillColor: WidgetStatePropertyAll(AppColors.primary),
-              //   onChanged: (value) {
-              //     route = value!;
-              //   },
-              // )
+              
             ],
           ),
         ),
