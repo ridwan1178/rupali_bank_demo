@@ -88,13 +88,11 @@ class _HomepageState extends State<Homepage> {
     return Column(
       children: [
         Flexible(
-          fit: FlexFit.loose,
-          child: SizedBox(
-            height: ppc.ch(180),
-            
-            child: _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
+          fit: FlexFit.tight,
+          flex: 1,
+          child:  _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
                 context.watch<HomepageAccountStatementProvider>().refreshKey),
-          ),
+          
         ),
         _dotsForCards(context,
             context.watch<HomepageAccountStatementProvider>().cards.length),
@@ -130,7 +128,10 @@ class _HomepageState extends State<Homepage> {
             ),
          ),
         
-        context.watch<HomepageAccountStatementProvider>().highlights
+        Flexible(
+          fit: FlexFit.tight,
+          flex: 2,
+          child: context.watch<HomepageAccountStatementProvider>().highlights)
       ],
     );
   }

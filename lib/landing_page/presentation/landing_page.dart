@@ -57,14 +57,12 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Expanded(
-          child: SizedBox(
-              height: ppc.ch(68),
-              child: BasicBottomNavbar(
-                pageController: homepageController,
-                pageIndex: homepageIndex,
-              )),
-        ),
+        bottomNavigationBar: SizedBox(
+            height: ppc.ch(68),
+            child: BasicBottomNavbar(
+              pageController: homepageController,
+              pageIndex: homepageIndex,
+            )),
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: homepageController,

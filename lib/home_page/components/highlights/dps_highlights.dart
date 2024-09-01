@@ -94,16 +94,19 @@ class _DpsHighlightsState extends State<DpsHighlights> {
   }
 
   Widget item() {
-    return Container(
-      height: ppc.ch(88),
-      width: ppc.cw(162),
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(15, 46, 156, 220),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("Total withdrawal"), Text("420k")],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 0),
+      child: Container(
+        height: ppc.ch(88),
+        width: ppc.cw(162),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(15, 46, 156, 220),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("Total withdrawal"), Text("420k")],
+        ),
       ),
     );
   }

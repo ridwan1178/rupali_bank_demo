@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/core/configs/app_theme.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/providers/homepage_account_statement_provider.dart';
 
 class AccountStatementOptions extends StatefulWidget {
@@ -21,7 +22,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
   Widget build(BuildContext context) {
     
     return Theme(
-      data: AppTheme.lightTheme.copyWith(textTheme: Theme.of(context).textTheme.apply(fontSizeFactor: 0.9)),
+      data: AppTheme.lightTheme.copyWith(textTheme: Theme.of(context).textTheme.apply(fontSizeFactor: 1)),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -30,6 +31,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
             child: ListView(scrollDirection: Axis.horizontal, children: [
               TextButton(
                   style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(0),
                     backgroundColor: index == 0 ? enabled : disabled,
                     foregroundColor: index == 0 ? disabled : enabled,
                   ),
@@ -41,7 +43,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                             .read<HomepageAccountStatementProvider>()
                             .selectedSavings()
                       },
-                  child: const Text("Savings")),
+                  child:  Text("Savings", style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w500),)),
               TextButton(
                   style: TextButton.styleFrom(
                       backgroundColor: index == 1 ? enabled : disabled,
@@ -54,7 +56,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                             .read<HomepageAccountStatementProvider>()
                             .selectedLoan()
                       },
-                  child: const Text("Loans")),
+                  child: Text("Loans", style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w500),)),
               TextButton(
                   style: TextButton.styleFrom(
                       backgroundColor: index == 2 ? enabled : disabled,
@@ -67,7 +69,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                             .read<HomepageAccountStatementProvider>()
                             .selectedDPS()
                       },
-                  child: const Text("DPS")),
+                  child:  Text("DPS", style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w500),), ),
               TextButton(
                   style: TextButton.styleFrom(
                       backgroundColor: index == 3 ? enabled : disabled,
@@ -81,7 +83,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                             .selectedFD()
                         
                       },
-                  child: const Text("FD")),
+                  child:  Text("FD", style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w500),)),
               TextButton(
                   style: TextButton.styleFrom(
                       backgroundColor: index == 4 ? enabled : disabled,
@@ -94,7 +96,7 @@ class _AccountStatementOptionsState extends State<AccountStatementOptions> {
                             .read<HomepageAccountStatementProvider>()
                             .selectedCards()
                       },
-                  child: const Text("Cards")),
+                  child: Text("Cards", style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w500),)),
             ]),
           
         ),

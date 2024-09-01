@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/main.dart';
 
 class BottomRight extends StatelessWidget {
   const BottomRight({
@@ -7,11 +8,26 @@ class BottomRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding:  EdgeInsets.all(8.0),
-      child: Column(
-        children: [Text("Account Type"), Text("G.Savings")],
-      ),
+    return  Column(
+        children: [
+          Text(
+            "Account Type",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: ppc.cf(9),
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          Text(
+            "G.Savings",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: ppc.cf(14),
+              fontWeight: FontWeight.w500,
+            ),
+          )
+        ],
+      
     );
   }
 }

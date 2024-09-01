@@ -25,15 +25,12 @@ class _LoansHighlightsState extends State<LoansHighlights> {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      fit: FlexFit.tight,
-      flex: 2,
-      child: SizedBox(
+    return SizedBox(
             height: ppc.ch(305), width: ppc.cw(333), child: AnimatedOpacity(
               opacity: fade ? 0.0:1.0,
               duration: const  Duration(milliseconds: 500),
               child: gridView(6))
-      ),
+      
     );
   }
 

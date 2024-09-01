@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/utils/status_icon.dart';
 
 class TopLeft extends StatelessWidget {
@@ -11,10 +12,10 @@ class TopLeft extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(8.0),
       child: StatusIcon(
-          height: 30,
-          width: 30,
+          height: ppc.ch(30),
+          width: ppc.cw(30),
           icon: icon,
           containerColor: Colors.green,
           borderColor: Colors.white),
