@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/landing_page/presentation/landing_page.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/transfers/components/beneficiary_management_options.dart';
 import 'package:rupali_bank_demo/utils/appbar_widgets/page_title_wiget.dart';
 import 'package:rupali_bank_demo/utils/basic_appbar.dart';
@@ -25,10 +26,20 @@ class BeneficiaryManagement extends StatelessWidget {
         extra: 2,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Center(
+        padding:  EdgeInsets.all(ppc.cw(21)),
+        child: SizedBox(
+          height: ppc.ch(203),
+          width: ppc.cw(333),
           child: Column(
-            children: [options[0], options[1]],
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              options[0],
+              const Expanded(
+                  child: SizedBox(
+                height: 9,
+              )),
+              options[1]
+            ],
           ),
         ),
       ),

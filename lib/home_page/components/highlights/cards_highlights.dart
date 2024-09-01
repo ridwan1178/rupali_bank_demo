@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/main.dart';
 
 import 'package:rupali_bank_demo/utils/animations/container_cross_swap.dart';
@@ -58,7 +59,7 @@ class _CardsHighlightsState extends State<CardsHighlights> {
                     labelColor: Colors.white,
                     unselectedLabelColor: Colors.green,
                     indicator: const BoxDecoration(
-                        color: Colors.green,
+                        color: AppColors.primary,
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     indicatorSize: TabBarIndicatorSize.tab,
                     dividerColor: Colors.transparent,

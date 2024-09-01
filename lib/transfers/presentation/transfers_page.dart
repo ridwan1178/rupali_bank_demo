@@ -25,21 +25,7 @@ class TransfersPage extends StatelessWidget {
   }
 
     Widget gridView(BuildContext context) {
-    //List<Widget> items = [];
-    // for (var i = 0; i < count; i++) {
-    //   items.add(Container(
-    //     height: 45,
-    //     width: 75,
-    //     decoration: BoxDecoration(
-    //       color: const Color.fromARGB(15, 46, 156, 220),
-    //       borderRadius: BorderRadius.circular(10),
-    //     ),
-    //     child: const Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: [Text("Total withdrawal"), Text("420k")],
-    //     ),
-    //   ));
-    // }
+
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: GridView.count(

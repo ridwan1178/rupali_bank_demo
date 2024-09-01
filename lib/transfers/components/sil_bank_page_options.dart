@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
+import 'package:rupali_bank_demo/main.dart';
 
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/delete_beneficiary_page.dart';
 
@@ -15,8 +16,8 @@ class SilBankPageOptions {
   List<Widget> get options => _getOptions();
 
   List<Widget> _getOptions() {
-    double height = 160;
-    double width = 333;
+    double height = ppc.ch(160);
+    double width = ppc.cw(333);
     Widget betweenOwnAccounts = GestureDetector(
       onTap: () {
         // pushNamed(AddBeneficiaryPage.namedRoute);
@@ -34,11 +35,11 @@ class SilBankPageOptions {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppIcons.transferActive,
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Text(
                   "Between own Accounts",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
                 ),
               )
             ],
@@ -65,11 +66,11 @@ class SilBankPageOptions {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppIcons.ftSilBankToOtherSilAccount,
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 8.0),
                 child: Text(
                   "To Other SIL Accounts",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
                 ),
               )
             ],

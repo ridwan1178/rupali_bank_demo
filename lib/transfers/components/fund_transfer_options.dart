@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
+import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/transfers/presentation/beneficiary_management/beneficiary_management_page.dart';
 import 'package:rupali_bank_demo/transfers/presentation/sil_bank_account/sil_bank_account_page.dart';
 
@@ -23,11 +24,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftSilBank,
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "Sil Bank Account",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
@@ -45,11 +47,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftOtherBanks,
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "Other Bank Account",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
@@ -68,11 +71,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftMfsTransfer,
-            const Padding(
-              padding: EdgeInsets.only(top: 8),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
               child: Text(
                 "MFS Transfer",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
@@ -91,11 +95,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftTransferHistory,
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "Transfer History",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
@@ -113,11 +118,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftFavourite,
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 "Favourite Transfers",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
@@ -138,11 +144,12 @@ class FundTransferOptions {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcons.ftBeneficiaryManagement,
-            const Padding(
-              padding: EdgeInsets.only(top: 8),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
               child: Text(
                 "Beneficiary Mgt",
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    fontSize: ppc.cf(14), fontWeight: FontWeight.w600),
               ),
             )
           ],
