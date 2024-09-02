@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/core/configs/app_attribute_constants.dart';
+import 'package:rupali_bank_demo/home_page/components/highlights/abstract_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/cards_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/dps_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/fixed_deposit_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/general_savings_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/loans_highlights.dart';
 
-
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
   static List<CardBody> _cards = [];
   List<dynamic> _details = [];
-  Widget _highlights = SizedBox.shrink();
+  List<Widget> _highlights = [];
   Key _refreshKey = UniqueKey();
   bool _updateFlag = false;
   String _detailsFlag = "";
@@ -30,17 +30,21 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
   String get detailsFlag =>
       _detailsFlag; //how the account details page should look
   String get error => _error;
-  Widget get highlights => _highlights;
+  List<Widget> get highlights => _highlights;
 
 //internal methods
-  void _addCard(int pageCount, Color color) {
+//update pagecount to model obj when using api
+  void _addCard(int pageCount, Color color, List<Widget> highlights) {
     _cards.clear();
+    _highlights.clear();
+    _highlights = highlights;
     _refreshKey = UniqueKey();
 
     for (var i = 0; i < pageCount; i++) {
       cards.add(CardBody(
         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
       ));
+      // _highlights.add(highlightsType);
     }
   }
 
@@ -86,8 +90,12 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(false);
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
-    _highlights = GeneralSavingsHighlights();
-    _addCard(3, Colors.red);
+    List<GeneralSavingsHighlights> gs = [];
+    for (int i = 0; i < 3; i++) {
+      gs.add(GeneralSavingsHighlights(key: UniqueKey(),));
+    }
+    // _highlights = GeneralSavingsHighlights();
+    _addCard(3, Colors.red, gs);
   }
 
 //listeners
@@ -96,8 +104,12 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(0);
     setDetailsFlag(AppAttributeConstants.generalSavings);
-    _addCard(3, Colors.red);
-    _highlights = GeneralSavingsHighlights();
+    List<GeneralSavingsHighlights> gs = [];
+    for (int i = 0; i < 3; i++) {
+      gs.add(GeneralSavingsHighlights(key: UniqueKey(),));
+    }
+    _addCard(3, Colors.red, gs);
+    // _highlights = GeneralSavingsHighlights();
     notifyListeners();
   }
 
@@ -105,8 +117,12 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(1);
     setDetailsFlag(AppAttributeConstants.fixedDeposit);
-    _addCard(2, Colors.blue);
-    _highlights = FixedDepositHighlights();
+    List<FixedDepositHighlights> fd = [];
+    for (int i = 0; i < 2; i++) {
+      fd.add(FixedDepositHighlights(key: UniqueKey(),));
+    }
+    _addCard(2, Colors.blue, fd);
+    //_highlights = FixedDepositHighlights();
     notifyListeners();
   }
 
@@ -114,8 +130,12 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(2);
     setDetailsFlag(AppAttributeConstants.dps);
-    _addCard(3, Colors.yellow);
-    _highlights = DpsHighlights();
+    List<DpsHighlights> dps = [];
+    for (int i = 0; i < 3; i++) {
+      dps.add(DpsHighlights(key: UniqueKey(),));
+    }
+    _addCard(3, Colors.yellow, dps);
+    //_highlights = DpsHighlights();
     notifyListeners();
   }
 
@@ -123,8 +143,12 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(3);
     setDetailsFlag(AppAttributeConstants.loan);
-    _addCard(4, Colors.purple);
-    _highlights = LoansHighlights();
+    List<LoansHighlights> ln = [];
+    for (int i = 0; i < 4; i++) {
+      ln.add(LoansHighlights(key: UniqueKey(),));
+    }
+    _addCard(4, Colors.purple, ln);
+    //_highlights = LoansHighlights();
     notifyListeners();
   }
 
@@ -132,11 +156,16 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setUpdateFlag(true);
     setOptionsFlag(4);
     setDetailsFlag(AppAttributeConstants.cards);
-    _addCard(5, Colors.cyan);
-    _highlights = CardsHighlights();
+    List<CardsHighlights> cd = [];
+    for (int i = 0; i < 5; i++) {
+      cd.add(CardsHighlights(key: UniqueKey(),));
+    }
+    _addCard(5, Colors.cyan, cd);
+    //_highlights = CardsHighlights();
     notifyListeners();
   }
 
+//not being used
   void getDetails() {
     String? text;
     int? items;
