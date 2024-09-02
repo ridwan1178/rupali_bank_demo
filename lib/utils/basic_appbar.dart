@@ -23,8 +23,14 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     String routeNamed = route ?? "";
+    double padding;
+    if (profilePic == null) {
+      padding = 0;
+    } else {
+      padding = ppc.cw(19);
+    }
     return Padding(
-      padding: EdgeInsets.only(left: ppc.cw(19)),
+      padding: EdgeInsets.only(left: padding),
       child: AppBar(
           toolbarHeight: ppc.ch(64),
           backgroundColor: Colors.transparent,
@@ -34,19 +40,18 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
           leading: profilePic ??
               (hideBackButton
                   ? null
-                  : IconButton(
-                      onPressed: () {
+                  : GestureDetector(
+                      onTap: () {
                         (route != null)
                             ? context.goNamed(routeNamed, extra: extra)
                             : context.pop();
                       },
-                      icon: AppIcons.backButton
-                      // const Icon(Icons.arrow_back)
-                      ))),
+                      child: AppIcons.backButton,
+                    ))),
     );
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize =>  Size.fromHeight(ppc.ch(64));
+  Size get preferredSize => Size.fromHeight(ppc.ch(64));
 }

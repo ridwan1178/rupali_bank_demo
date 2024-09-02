@@ -6,7 +6,7 @@ import 'package:rupali_bank_demo/main.dart';
 import 'package:rupali_bank_demo/onboarding/presentation/signin_or_singnup.dart';
 
 import 'package:go_router/go_router.dart';
-import 'package:rupali_bank_demo/signin/presentation/signin_page.dart';
+
 import 'package:rupali_bank_demo/utils/dots_indicator_widget.dart';
 
 class Onboarding extends StatefulWidget {
