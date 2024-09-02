@@ -1,7 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_constants.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/abstract_highlights.dart';
+import 'package:rupali_bank_demo/home_page/components/items/item.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/icon_maps.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/title_maps.dart';
 import 'package:rupali_bank_demo/main.dart';
+import 'package:rupali_bank_demo/models/general_savings_model.dart';
 
 class GeneralSavingsHighlights
     extends StatefulWidget //implements AbstractHighlights
@@ -10,9 +16,9 @@ class GeneralSavingsHighlights
   final Key _refreshKey = UniqueKey();
   Key get refreshKey => _refreshKey;
 
-  final List<dynamic>? items;
+  final GeneralSavingsModel? gsData;
 
-  GeneralSavingsHighlights({super.key,  this.items});
+  GeneralSavingsHighlights({super.key, this.gsData});
 
   @override
   State<GeneralSavingsHighlights> createState() =>
@@ -21,6 +27,13 @@ class GeneralSavingsHighlights
 
 class _GeneralSavingsHighlightsState extends State<GeneralSavingsHighlights> {
   bool fade = true;
+
+  Map<int, String> dataMap = {
+    0: AppConstants.tDeposit,
+    1: AppConstants.tWithdraw,
+    2: AppConstants.tPay,
+    3: AppConstants.tTrans
+  };
 
   @override
   void initState() {
@@ -71,7 +84,7 @@ class _GeneralSavingsHighlightsState extends State<GeneralSavingsHighlights> {
             body: Padding(
               padding: EdgeInsets.only(top: ppc.ch(12)),
               child: TabBarView(
-                children: [gridView(4), gridView(5), gridView(3)],
+                children: [gridView(4), gridView(5), gridView(4)],
               ),
             ),
           ),
@@ -83,18 +96,23 @@ class _GeneralSavingsHighlightsState extends State<GeneralSavingsHighlights> {
   Widget gridView(int count) {
     List<Widget> items = [];
     for (var i = 0; i < count; i++) {
-      items.add(Container(
-        height: ppc.ch(88),
-        width: ppc.cw(162),
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(15, 46, 156, 220),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("Total withdrawal"), Text("420k")],
-        ),
-      ));
+      items.add(Item().itemGenerator(
+              TitleMaps.gsMap[dataMap[i]] ?? "Error",
+              IconMaps.gsIconMap[dataMap[i]] ?? AppIcons.cmnInfoError,
+              widget.gsData!.data[dataMap[i]] ?? "No data")
+          //   Container(
+          //   height: ppc.ch(88),
+          //   width: ppc.cw(162),
+          //   decoration: BoxDecoration(
+          //     color: const Color.fromARGB(15, 46, 156, 220),
+          //     borderRadius: BorderRadius.circular(10),
+          //   ),
+          //   child: const Column(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [Text("Total withdrawal"), Text("420k")],
+          //   ),
+          // )
+          );
     }
     return SizedBox(
       height: ppc.ch(305),

@@ -7,6 +7,9 @@ class AppIcons {
   static const String _basepath = "assets/icons/";
   static const String _format = ".svg";
 
+//common
+  static const String _info = "${_basepath}info-circle$_format";
+
 //crud icons
   static const String _crud = "${_basepath}crud/";
   static const String _deleteTrash = "${_crud}delete_trash$_format";
@@ -42,6 +45,13 @@ class AppIcons {
   static const String _onboardingSelectedRadio =
       "${_onboarding}selected-radio$_format";
 
+//homepage icons
+  static const String _homepage = "${_basepath}homepage/";
+  static const String _hpTotalDep = "${_homepage}money-recive$_format";
+  static const String _hpTotalWithdraw = "${_homepage}money-send$_format";
+  static const String _hpTotalPay = "${_homepage}wallet-check$_format";
+  static const String _hpTotalTrans = "${_homepage}empty-wallet-change$_format";
+
 //fund transfer icons
   static const String _fundTransfer = "${_basepath}fund_transfer/";
   static const String _ftFavourite = "${_fundTransfer}favourite$_format";
@@ -54,6 +64,13 @@ class AppIcons {
   static const String _ftDeleteBen = "${_fundTransfer}delete$_format";
   static const String _ftSilBankOtherSilAccount =
       "${_fundTransfer}group$_format";
+
+//common
+  static Widget cmnInfoError = SvgPicture.asset(
+    _info,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.redIcon, BlendMode.srcIn),
+  );
 
 //bottom nav bar icons
 
@@ -137,6 +154,30 @@ class AppIcons {
     fit: BoxFit.none,
     height: ppc.cf(28),
     width: ppc.cw(28),
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+
+//homepage
+
+  //general savings
+  static Widget hpTotalDep = SvgPicture.asset(
+    _hpTotalDep,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpTotalWithdraw = SvgPicture.asset(
+    _hpTotalWithdraw,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpTotalPay = SvgPicture.asset(
+    _hpTotalPay,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpTotalTrans = SvgPicture.asset(
+    _hpTotalTrans,
+    fit: BoxFit.none,
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );
 

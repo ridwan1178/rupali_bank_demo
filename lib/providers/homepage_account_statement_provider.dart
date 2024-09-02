@@ -10,6 +10,7 @@ import 'package:rupali_bank_demo/home_page/components/highlights/dps_highlights.
 import 'package:rupali_bank_demo/home_page/components/highlights/fixed_deposit_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/general_savings_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/loans_highlights.dart';
+import 'package:rupali_bank_demo/models/tests/homepage_test_models.dart';
 
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
@@ -92,7 +93,8 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.generalSavings);
     List<GeneralSavingsHighlights> gs = [];
     for (int i = 0; i < 3; i++) {
-      gs.add(GeneralSavingsHighlights(key: UniqueKey(),));
+      gs.add(GeneralSavingsHighlights(
+          key: UniqueKey(), gsData: GsTestModels.gsModelList[i]));
     }
     // _highlights = GeneralSavingsHighlights();
     _addCard(3, Colors.red, gs);
@@ -106,7 +108,8 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.generalSavings);
     List<GeneralSavingsHighlights> gs = [];
     for (int i = 0; i < 3; i++) {
-      gs.add(GeneralSavingsHighlights(key: UniqueKey(),));
+      gs.add(GeneralSavingsHighlights(
+          key: UniqueKey(), gsData: GsTestModels.gsModelList[i]));
     }
     _addCard(3, Colors.red, gs);
     // _highlights = GeneralSavingsHighlights();
@@ -119,7 +122,9 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.fixedDeposit);
     List<FixedDepositHighlights> fd = [];
     for (int i = 0; i < 2; i++) {
-      fd.add(FixedDepositHighlights(key: UniqueKey(),));
+      fd.add(FixedDepositHighlights(
+        key: UniqueKey(),
+      ));
     }
     _addCard(2, Colors.blue, fd);
     //_highlights = FixedDepositHighlights();
@@ -132,7 +137,9 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.dps);
     List<DpsHighlights> dps = [];
     for (int i = 0; i < 3; i++) {
-      dps.add(DpsHighlights(key: UniqueKey(),));
+      dps.add(DpsHighlights(
+        key: UniqueKey(),
+      ));
     }
     _addCard(3, Colors.yellow, dps);
     //_highlights = DpsHighlights();
@@ -145,7 +152,9 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.loan);
     List<LoansHighlights> ln = [];
     for (int i = 0; i < 4; i++) {
-      ln.add(LoansHighlights(key: UniqueKey(),));
+      ln.add(LoansHighlights(
+        key: UniqueKey(),
+      ));
     }
     _addCard(4, Colors.purple, ln);
     //_highlights = LoansHighlights();
@@ -158,7 +167,9 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     setDetailsFlag(AppAttributeConstants.cards);
     List<CardsHighlights> cd = [];
     for (int i = 0; i < 5; i++) {
-      cd.add(CardsHighlights(key: UniqueKey(),));
+      cd.add(CardsHighlights(
+        key: UniqueKey(),
+      ));
     }
     _addCard(5, Colors.cyan, cd);
     //_highlights = CardsHighlights();

@@ -81,6 +81,7 @@ flutter:
     - assets/icons/fund_transfer/
     - assets/icons/crud/
     - assets/icons/onboarding/
+    - assets/icons/homepage/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
