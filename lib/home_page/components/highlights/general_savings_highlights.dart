@@ -13,12 +13,12 @@ class GeneralSavingsHighlights
     extends StatefulWidget //implements AbstractHighlights
 {
   //final  List<dynamic> data;
-  final Key _refreshKey = UniqueKey();
-  Key get refreshKey => _refreshKey;
+  // final Key _refreshKey = UniqueKey();
+  // Key get refreshKey => _refreshKey;
 
-  final GeneralSavingsModel? gsData;
+  final GeneralSavingsModel gsData;
 
-  GeneralSavingsHighlights({super.key, this.gsData});
+  const GeneralSavingsHighlights({super.key, required this.gsData});
 
   @override
   State<GeneralSavingsHighlights> createState() =>

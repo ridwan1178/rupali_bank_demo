@@ -94,7 +94,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     List<GeneralSavingsHighlights> gs = [];
     for (int i = 0; i < 3; i++) {
       gs.add(GeneralSavingsHighlights(
-          key: UniqueKey(), gsData: GsTestModels.gsModelList[i]));
+          key: UniqueKey(), gsData: HomepageTestModels.gsModelList[i]));
     }
     // _highlights = GeneralSavingsHighlights();
     _addCard(3, Colors.red, gs);
@@ -109,7 +109,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     List<GeneralSavingsHighlights> gs = [];
     for (int i = 0; i < 3; i++) {
       gs.add(GeneralSavingsHighlights(
-          key: UniqueKey(), gsData: GsTestModels.gsModelList[i]));
+          key: UniqueKey(), gsData: HomepageTestModels.gsModelList[i]));
     }
     _addCard(3, Colors.red, gs);
     // _highlights = GeneralSavingsHighlights();
@@ -154,6 +154,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     for (int i = 0; i < 4; i++) {
       ln.add(LoansHighlights(
         key: UniqueKey(),
+        lnData: HomepageTestModels.lnModelList[i],
       ));
     }
     _addCard(4, Colors.purple, ln);

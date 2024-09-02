@@ -47,10 +47,25 @@ class AppIcons {
 
 //homepage icons
   static const String _homepage = "${_basepath}homepage/";
+  //gs
   static const String _hpTotalDep = "${_homepage}money-recive$_format";
   static const String _hpTotalWithdraw = "${_homepage}money-send$_format";
   static const String _hpTotalPay = "${_homepage}wallet-check$_format";
   static const String _hpTotalTrans = "${_homepage}empty-wallet-change$_format";
+  //loans
+  static const String _hpEmiAmnt = "${_homepage}empty-wallet-tick$_format";
+  static const String _hpPendingEmi = "${_homepage}chart$_format";
+  static const String _hpNextEmi = "${_homepage}calendar$_format";
+  static const String _hpExpDate = "${_homepage}calendar$_format";
+  static const String _hpIntRate = "${_homepage}discount-circle$_format";
+  static const String _hpStatus = "${_homepage}tick-square$_format";
+  //dps
+  static const String _hpinstAmnt = _hpEmiAmnt;
+  static const String _hpNextInst = _hpExpDate;
+  static const String _hpMatAmnt = _hpinstAmnt;
+  static const String _hpMatDate = _hpNextInst;
+  static const String _hpTotalInst = _hpPendingEmi;
+  static const String _hpInstPending = _hpTotalInst;
 
 //fund transfer icons
   static const String _fundTransfer = "${_basepath}fund_transfer/";
@@ -177,6 +192,70 @@ class AppIcons {
   );
   static Widget hpTotalTrans = SvgPicture.asset(
     _hpTotalTrans,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+
+  //loans
+  static Widget hpEmiAmnt = SvgPicture.asset(
+    _hpEmiAmnt,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpNextEmi = SvgPicture.asset(
+    _hpNextEmi,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpPendingEmi = SvgPicture.asset(
+    _hpPendingEmi,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpExpDate = SvgPicture.asset(
+    _hpExpDate,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpStatus = SvgPicture.asset(
+    _hpStatus,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpIntrate = SvgPicture.asset(
+    _hpIntRate,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+
+  //dps
+  static Widget hpInstAmnt = SvgPicture.asset(
+    _hpinstAmnt,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpNextInst = SvgPicture.asset(
+    _hpNextInst,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpMatDate = SvgPicture.asset(
+    _hpMatDate,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpMatAmnt = SvgPicture.asset(
+    _hpMatAmnt,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpTotalInst = SvgPicture.asset(
+    _hpTotalInst,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpInstPending = SvgPicture.asset(
+    _hpInstPending,
     fit: BoxFit.none,
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );
