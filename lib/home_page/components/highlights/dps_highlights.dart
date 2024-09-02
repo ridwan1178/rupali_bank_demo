@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_constants.dart';
 import 'package:rupali_bank_demo/main.dart';
 
 class DpsHighlights extends StatefulWidget {
@@ -22,6 +23,15 @@ class _DpsHighlightsState extends State<DpsHighlights> {
     });
     super.initState();
   }
+
+    Map<int, String> dataMap = {
+    0: AppConstants.instAmnt,
+    1: AppConstants.nextInst,
+    2: AppConstants.matAmnt,
+    3: AppConstants.matDate,
+    4: AppConstants.tInst,
+    5: AppConstants.instPending,
+  };
 
   static const Duration duration = Duration(milliseconds: 700);
   static const Curve curve = Curves.fastOutSlowIn;
