@@ -129,7 +129,7 @@ class _HomepageState extends State<Homepage> {
          ),
         
         Flexible(
-         // key: context.watch<HomepageAccountStatementProvider>().highlights[currentIndex].key,
+         
           fit: FlexFit.tight,
           flex: 2,
           child: context.watch<HomepageAccountStatementProvider>().highlights[currentIndex])
