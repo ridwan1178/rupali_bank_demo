@@ -1,4 +1,5 @@
 import 'package:rupali_bank_demo/models/dps_model.dart';
+import 'package:rupali_bank_demo/models/fd_model.dart';
 import 'package:rupali_bank_demo/models/general_savings_model.dart';
 import 'package:rupali_bank_demo/models/loan_model.dart';
 
@@ -25,5 +26,10 @@ class HomepageTestModels {
     DpsModel("BDT 42000", "6 Sep 2022", "6", "9 June 2023", "1800000", "50"),
     DpsModel("BDT 4200", "7 Jan 2022", "4", "9 July 2022", "1300000", "60"),
     DpsModel("BDT 420", "3 Feb 2022", "2", "5 Mar 2022", "1700000", "40"),
+  ];
+
+  static List<FdModel> fdModelList = [
+    FdModel("BDT 42000", "24 Sep 2020", "6", "2.3", "500%", "6 Sep 2022"),
+    FdModel("BDT 4200", "17 Jan 2020", "4", "5.5", "260%", "7 Jan 202"),
   ];
 }

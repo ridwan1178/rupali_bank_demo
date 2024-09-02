@@ -25,4 +25,13 @@ class TitleMaps {
     AppConstants.tInst: "Total Installment",
     AppConstants.instPending: "Installment Pending"
   };
+
+    static Map<String, String> fdMap = {
+    AppConstants.pAmnt: "Principal Amount",
+    AppConstants.tenor: "Tenor (Years)",
+    AppConstants.maturedIn: "Matured in (Years)",
+    AppConstants.matDate: "Maturity Date",
+    AppConstants.opDate: "Opening Date",
+    AppConstants.intRate: "Interest Rate",
+  };
 }

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rupali_bank_demo/core/configs/app_constants.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
+import 'package:rupali_bank_demo/home_page/components/items/item.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/icon_maps.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/title_maps.dart';
 import 'package:rupali_bank_demo/main.dart';
+import 'package:rupali_bank_demo/models/dps_model.dart';
 
 class DpsHighlights extends StatefulWidget {
-  //final  List<dynamic> data;
-  const DpsHighlights({super.key});
+  final DpsModel dpsData;
+  const DpsHighlights({super.key, required this.dpsData});
 
   @override
   State<DpsHighlights> createState() => _DpsHighlightsState();
@@ -24,7 +29,7 @@ class _DpsHighlightsState extends State<DpsHighlights> {
     super.initState();
   }
 
-    Map<int, String> dataMap = {
+  Map<int, String> dataMap = {
     0: AppConstants.instAmnt,
     1: AppConstants.nextInst,
     2: AppConstants.matAmnt,
@@ -49,9 +54,9 @@ class _DpsHighlightsState extends State<DpsHighlights> {
       width: ppc.cw(333),
       child: Stack(
         children: <Widget>[
-          fadetransitionContainer(0, left),
-          fadetransitionContainer(0, 0),
-          //1st type
+          fadetransitionContainer(0, left, 1),
+          fadetransitionContainer(0, 0, 0),
+          //3-1 > 2-2
           AnimatedPositioned(
             width: width,
             height: height,
@@ -59,9 +64,12 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             left: selected ? left : 0,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.dpsMap[dataMap[3]] ?? "Error",
+                IconMaps.dpsIconMap[dataMap[3]] ?? AppIcons.cmnInfoError,
+                widget.dpsData.data[dataMap[3]] ?? "No data"),
           ),
-          //2nd type
+          //2-1 > 3-2
           AnimatedPositioned(
             width: width,
             height: height,
@@ -69,9 +77,12 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             left: selected ? left : 0,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.dpsMap[dataMap[5]] ?? "Error",
+                IconMaps.dpsIconMap[dataMap[5]] ?? AppIcons.cmnInfoError,
+                widget.dpsData.data[dataMap[5]] ?? "No data"),
           ),
-          //1st type
+          //2-2 > 3-1
           AnimatedPositioned(
             width: width,
             height: height,
@@ -81,7 +92,10 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             // left: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.dpsMap[dataMap[4]] ?? "Error",
+                IconMaps.dpsIconMap[dataMap[4]] ?? AppIcons.cmnInfoError,
+                widget.dpsData.data[dataMap[4]] ?? "No data"),
           ),
           //2nd type
           AnimatedPositioned(
@@ -92,7 +106,10 @@ class _DpsHighlightsState extends State<DpsHighlights> {
             //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.dpsMap[dataMap[2]] ?? "Error",
+                IconMaps.dpsIconMap[dataMap[2]] ?? AppIcons.cmnInfoError,
+                widget.dpsData.data[dataMap[2]] ?? "No data"),
           ),
         ],
       ),
@@ -121,7 +138,7 @@ class _DpsHighlightsState extends State<DpsHighlights> {
     );
   }
 
-  Widget fadetransitionContainer(double top, double left) {
+  Widget fadetransitionContainer(double top, double left, int mapIndex) {
     return Positioned(
         height: height,
         width: width,
@@ -130,7 +147,10 @@ class _DpsHighlightsState extends State<DpsHighlights> {
         child: AnimatedOpacity(
           opacity: fade ? 0.0 : 1.0,
           duration: duration,
-          child: item(),
+          child: Item().itemGenerator(
+              TitleMaps.dpsMap[dataMap[mapIndex]] ?? "Error",
+              IconMaps.dpsIconMap[dataMap[mapIndex]] ?? AppIcons.cmnInfoError,
+              widget.dpsData.data[dataMap[mapIndex]] ?? "No data"),
         ));
   }
 }

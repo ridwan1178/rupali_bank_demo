@@ -66,6 +66,11 @@ class AppIcons {
   static const String _hpMatDate = _hpNextInst;
   static const String _hpTotalInst = _hpPendingEmi;
   static const String _hpInstPending = _hpTotalInst;
+  //fd
+  static const String _hpPrincipalAmnt = _hpEmiAmnt;
+  static const String _hpTenor = _hpPendingEmi;
+  static const String _hpMaturedIn = _hpTenor;
+  static const String _hpOpeningDate = _hpExpDate;
 
 //fund transfer icons
   static const String _fundTransfer = "${_basepath}fund_transfer/";
@@ -256,6 +261,28 @@ class AppIcons {
   );
   static Widget hpInstPending = SvgPicture.asset(
     _hpInstPending,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+
+  //fd
+  static Widget hpPrincipalAmnt = SvgPicture.asset(
+    _hpPrincipalAmnt,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpTenor = SvgPicture.asset(
+    _hpTenor,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpMaturedIn = SvgPicture.asset(
+    _hpMaturedIn,
+    fit: BoxFit.none,
+    colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
+  );
+  static Widget hpOpeningDate = SvgPicture.asset(
+    _hpOpeningDate,
     fit: BoxFit.none,
     colorFilter: const ColorFilter.mode(AppColors.primary, BlendMode.srcIn),
   );

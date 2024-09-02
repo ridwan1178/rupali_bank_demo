@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_constants.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
+import 'package:rupali_bank_demo/home_page/components/items/item.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/icon_maps.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/title_maps.dart';
 import 'package:rupali_bank_demo/main.dart';
+import 'package:rupali_bank_demo/models/fd_model.dart';
 
 class FixedDepositHighlights extends StatefulWidget {
-  //final  List<dynamic> data;
-  const FixedDepositHighlights({super.key});
+  final FdModel fdData;
+  const FixedDepositHighlights({super.key, required this.fdData});
 
   @override
   State<FixedDepositHighlights> createState() => _FixedDepositHighlightsState();
@@ -11,6 +17,15 @@ class FixedDepositHighlights extends StatefulWidget {
 
 class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
   bool fade = true;
+  Map<int, String> dataMap = {
+    0: AppConstants.pAmnt,
+    2: AppConstants.tenor,
+    3: AppConstants.maturedIn,
+    1: AppConstants.matDate,
+    5: AppConstants.opDate,
+    4: AppConstants.intRate
+  };
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -39,9 +54,9 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
       width: ppc.cw(333),
       child: Stack(
         children: <Widget>[
-          fadetransitionContainer(0, left),
-          fadetransitionContainer(0, 0),
-          //1st type
+          fadetransitionContainer(0, left, 1),
+          fadetransitionContainer(0, 0, 0),
+          //3-1 > 2-2
           AnimatedPositioned(
             width: width,
             height: height,
@@ -49,20 +64,25 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             left: selected ? left : 0,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.fdMap[dataMap[3]] ?? "Error",
+                IconMaps.fdIconMap[dataMap[3]] ?? AppIcons.cmnInfoError,
+                widget.fdData.data[dataMap[3]] ?? "No data"),
           ),
-          //2nd type
+          //2-1 > 3-2
           AnimatedPositioned(
             width: width,
             height: height,
             top: selected ? top * 2 : top,
             left: selected ? left : 0,
-            //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.fdMap[dataMap[5]] ?? "Error",
+                IconMaps.fdIconMap[dataMap[5]] ?? AppIcons.cmnInfoError,
+                widget.fdData.data[dataMap[5]] ?? "No data"),
           ),
-          //1st type
+          //2-2 > 3-1
           AnimatedPositioned(
             width: width,
             height: height,
@@ -72,11 +92,10 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             // left: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: item(),
-            // const ColoredBox(
-            //   color: Colors.blue,
-            //   child: Center(child: Text('Tap me')),
-            // ),
+            child: Item().itemGenerator(
+                TitleMaps.fdMap[dataMap[4]] ?? "Error",
+                IconMaps.fdIconMap[dataMap[4]] ?? AppIcons.cmnInfoError,
+                widget.fdData.data[dataMap[4]] ?? "No data"),
           ),
           //2nd type
           AnimatedPositioned(
@@ -87,14 +106,10 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
             //right: selected ? 0 : 100,
             duration: duration,
             curve: curve,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = !selected;
-                });
-              },
-              child: item(),
-            ),
+            child: Item().itemGenerator(
+                TitleMaps.fdMap[dataMap[2]] ?? "Error",
+                IconMaps.fdIconMap[dataMap[2]] ?? AppIcons.cmnInfoError,
+                widget.fdData.data[dataMap[2]] ?? "No data"),
           ),
         ],
       ),
@@ -120,7 +135,7 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
     );
   }
 
-  Widget fadetransitionContainer(double top, double left) {
+  Widget fadetransitionContainer(double top, double left, int mapIndex) {
     return Positioned(
         height: height,
         width: width,
@@ -129,7 +144,10 @@ class _FixedDepositHighlightsState extends State<FixedDepositHighlights> {
         child: AnimatedOpacity(
           opacity: fade ? 0.0 : 1.0,
           duration: duration,
-          child: item(),
+          child: Item().itemGenerator(
+              TitleMaps.fdMap[dataMap[mapIndex]] ?? "Error",
+              IconMaps.fdIconMap[dataMap[mapIndex]] ?? AppIcons.cmnInfoError,
+              widget.fdData.data[dataMap[mapIndex]] ?? "No data"),
         ));
   }
 }

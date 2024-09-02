@@ -27,4 +27,13 @@ class IconMaps {
     AppConstants.tInst: AppIcons.hpTotalInst,
     AppConstants.instPending: AppIcons.hpInstPending
   };
+
+  static Map<String, Widget> fdIconMap = {
+    AppConstants.pAmnt: AppIcons.hpPrincipalAmnt,
+    AppConstants.tenor: AppIcons.hpTenor,
+    AppConstants.maturedIn: AppIcons.hpMaturedIn,
+    AppConstants.matDate: AppIcons.hpMatDate,
+    AppConstants.opDate: AppIcons.hpOpeningDate,
+    AppConstants.intRate: AppIcons.hpIntrate,
+  };
 }

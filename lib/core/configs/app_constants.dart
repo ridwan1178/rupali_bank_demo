@@ -18,4 +18,9 @@ class AppConstants {
   static const String matAmnt = "matAmnt";
   static const String tInst = "tInst";
   static const String instPending = "instPending";
+  //fd
+  static const String pAmnt = "pAmnt";
+  static const String maturedIn = "nmaturedIn";
+  static const String tenor = "tenor";
+  static const String opDate = "opDate";
 }
