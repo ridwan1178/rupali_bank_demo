@@ -7,8 +7,9 @@ import 'package:rupali_bank_demo/home_page/components/card/top_right.dart';
 import 'package:rupali_bank_demo/main.dart';
 
 class CardBody extends StatelessWidget {
-  final Color? color;
-  const CardBody({super.key, this.color});
+  final Color? startColor;
+  final Color? endColor;
+  const CardBody({super.key, this.startColor, this.endColor});
 
   @override
   Widget build(BuildContext context) {
@@ -18,39 +19,45 @@ class CardBody extends StatelessWidget {
       child: Flexible(
         fit: FlexFit.tight,
         child: Card(
-          color: color,
-          child: Padding(
-            padding: EdgeInsets.only(right: ppc.cw(20)),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const Flexible(
-                        fit: FlexFit.tight,
-                        child: TopLeft(icon: AppIcons.tickMark)),
-                    const Expanded(child: SizedBox()),
-                    Padding(
-                      padding: EdgeInsets.only(top: ppc.ch(33)),
-                      child: TopRight(
-                        context: context,
-                      ),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding:  EdgeInsets.only(left: ppc.cw(47.93)),
-                  child: const Row(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                endColor ?? const Color(0xff2E9DDC),
+                startColor ?? const Color(0xff219653)
+              ]),
+              borderRadius: const BorderRadius.all(Radius.circular(
+                      10.0) //                 <--- border radius here
+                  ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(right: ppc.cw(20)),
+              child: Column(
+                children: [
+                  Row(
                     children: [
-                      BottomLeft(),
-                      
-                      BottomRight()
+                      const Flexible(
+                          fit: FlexFit.tight,
+                          child: TopLeft(icon: AppIcons.tickMark)),
+                      const Expanded(child: SizedBox()),
+                      Padding(
+                        padding: EdgeInsets.only(top: ppc.ch(33)),
+                        child: TopRight(
+                          context: context,
+                        ),
+                      )
                     ],
                   ),
-                )
-              ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: ppc.cw(47.93)),
+                    child: const Row(
+                      children: [BottomLeft(), BottomRight()],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

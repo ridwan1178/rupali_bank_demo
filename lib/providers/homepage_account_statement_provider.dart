@@ -43,7 +43,8 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
 
     for (var i = 0; i < pageCount; i++) {
       cards.add(CardBody(
-        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+        startColor: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+        endColor: Colors.primaries[Random().nextInt(Colors.primaries.length)],
       ));
       // _highlights.add(highlightsType);
     }
