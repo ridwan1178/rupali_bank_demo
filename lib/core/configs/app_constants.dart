@@ -23,4 +23,9 @@ class AppConstants {
   static const String maturedIn = "nmaturedIn";
   static const String tenor = "tenor";
   static const String opDate = "opDate";
+  //cd
+  static const String minPayDue = "minPayDue";
+  static const String payDueBy = "payDueBy";
+  static const String currLim = "currLim";
+  static const String availableBalance = "availableBalance";
 }

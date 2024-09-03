@@ -26,12 +26,19 @@ class TitleMaps {
     AppConstants.instPending: "Installment Pending"
   };
 
-    static Map<String, String> fdMap = {
+  static Map<String, String> fdMap = {
     AppConstants.pAmnt: "Principal Amount",
     AppConstants.tenor: "Tenor (Years)",
     AppConstants.maturedIn: "Matured in (Years)",
     AppConstants.matDate: "Maturity Date",
     AppConstants.opDate: "Opening Date",
     AppConstants.intRate: "Interest Rate",
+  };
+
+  static Map<String, String> cdMap = {
+    AppConstants.minPayDue: "Minimum Payment Due",
+    AppConstants.payDueBy: "Payment Due By",
+    AppConstants.currLim: "Current Limit",
+    AppConstants.availableBalance: "Available Balance"
   };
 }

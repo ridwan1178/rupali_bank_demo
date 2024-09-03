@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_icons.dart';
+import 'package:rupali_bank_demo/home_page/components/items/item.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/icon_maps.dart';
+import 'package:rupali_bank_demo/home_page/components/maps/title_maps.dart';
 import 'package:rupali_bank_demo/main.dart';
 
 class ContainerCrossSwap extends StatefulWidget {
   const ContainerCrossSwap({
     super.key,
-    this.selector,
+    required this.animate,
     required this.unFixPosition,
+    required this.dataMap,
+    required this.modelData,
   });
 
-  final bool? selector;
+  final bool animate;
   final bool unFixPosition;
+  final Map<int, String> dataMap;
+  final Map<String, String> modelData;
 
   @override
   State<ContainerCrossSwap> createState() => _ContainerCrossSwapState();
@@ -22,10 +30,10 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
-        selected = widget.selector ?? true;
+        animate = widget.animate;
         fade = true;
       });
-      print(' widget binding : $selected');
+      print(' widget binding : $animate');
     });
     super.initState();
   }
@@ -34,10 +42,10 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
   static const Curve curve = Curves.fastOutSlowIn;
   double height = ppc.ch(110);
   double width = ppc.cw(162);
-   double top = ppc.ch(115);
-   double left = ppc.cw(170);
+  double top = ppc.ch(115);
+  double left = ppc.cw(170);
 
-  bool selected = false;
+  bool animate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,19 +54,24 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
       width: ppc.cw(333),
       child: Stack(
         children: <Widget>[
-          fadetransitionContainer(top, left),
-          fadetransitionContainer(top, 0),
-          //1st type
+          //2-2 //fades on first build
+          fadetransitionContainer(top, left, 1),
+          //2-1 //fades on first build
+          fadetransitionContainer(top, 0, 0),
+          //3-1 > 2-2
           AnimatedPositioned(
             width: width,
             height: height,
-            top: widget.unFixPosition ? (selected ? top : top * 2) : top,
-            left: widget.unFixPosition ? (selected ? left : 0) : left,
+            top: widget.unFixPosition ? (animate ? top : top * 2) : top,
+            left: widget.unFixPosition ? (animate ? left : 0) : left,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.cdMap[widget.dataMap[3]] ?? "Error",
+                IconMaps.cdIconMap[widget.dataMap[3]] ?? AppIcons.cmnInfoError,
+                widget.modelData[widget.dataMap[3]] ?? "No data"),
           ),
-          //2nd type
+          //1-1
           AnimatedPositioned(
             width: width,
             height: height,
@@ -66,9 +79,12 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             left: 0,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.cdMap[widget.dataMap[0]] ?? "Error",
+                IconMaps.cdIconMap[widget.dataMap[0]] ?? AppIcons.cmnInfoError,
+                widget.modelData[widget.dataMap[0]] ?? "No data"),
           ),
-          //1st type
+          //1-2
           AnimatedPositioned(
             width: width,
             height: height,
@@ -76,18 +92,24 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
             left: left,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.cdMap[widget.dataMap[1]] ?? "Error",
+                IconMaps.cdIconMap[widget.dataMap[1]] ?? AppIcons.cmnInfoError,
+                widget.modelData[widget.dataMap[1]] ?? "No data"),
           ),
 
-          //2nd type
+          //3-2 > 2-1
           AnimatedPositioned(
             width: width,
             height: height,
-            top: widget.unFixPosition ? (selected ? top : top * 2) : top,
-            left: widget.unFixPosition ? (selected ? 0 : left) : 0,
+            top: widget.unFixPosition ? (animate ? top : top * 2) : top,
+            left: widget.unFixPosition ? (animate ? 0 : left) : 0,
             duration: duration,
             curve: curve,
-            child: item(),
+            child: Item().itemGenerator(
+                TitleMaps.cdMap[widget.dataMap[2]] ?? "Error",
+                IconMaps.cdIconMap[widget.dataMap[2]] ?? AppIcons.cmnInfoError,
+                widget.modelData[widget.dataMap[2]] ?? "No data"),
           ),
         ],
       ),
@@ -114,16 +136,20 @@ class _ContainerCrossSwapState extends State<ContainerCrossSwap> {
     );
   }
 
-  Widget fadetransitionContainer(double top, double left) {
+  Widget fadetransitionContainer(double top, double left, int mapIndex) {
     return Positioned(
         height: ppc.ch(88),
-      width: ppc.cw(162),
+        width: ppc.cw(162),
         top: top,
         left: left,
         child: AnimatedOpacity(
           opacity: widget.unFixPosition ? (fade ? 0.0 : 1.0) : 0,
           duration: duration,
-          child: item(),
+          child: Item().itemGenerator(
+              TitleMaps.cdMap[widget.dataMap[mapIndex]] ?? "Error",
+              IconMaps.cdIconMap[widget.dataMap[mapIndex]] ??
+                  AppIcons.cmnInfoError,
+              widget.modelData[widget.dataMap[mapIndex]] ?? "No data"),
         ));
   }
 }

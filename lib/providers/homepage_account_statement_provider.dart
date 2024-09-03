@@ -123,7 +123,8 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     List<FixedDepositHighlights> fd = [];
     for (int i = 0; i < 2; i++) {
       fd.add(FixedDepositHighlights(
-        key: UniqueKey(), fdData: HomepageTestModels.fdModelList[i],
+        key: UniqueKey(),
+        fdData: HomepageTestModels.fdModelList[i],
       ));
     }
     _addCard(2, Colors.blue, fd);
@@ -138,7 +139,8 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     List<DpsHighlights> dps = [];
     for (int i = 0; i < 3; i++) {
       dps.add(DpsHighlights(
-        key: UniqueKey(), dpsData: HomepageTestModels.dpsModelList[i],
+        key: UniqueKey(),
+        dpsData: HomepageTestModels.dpsModelList[i],
       ));
     }
     _addCard(3, Colors.yellow, dps);
@@ -170,6 +172,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     for (int i = 0; i < 5; i++) {
       cd.add(CardsHighlights(
         key: UniqueKey(),
+        cdData: HomepageTestModels.cdModelList[i],
       ));
     }
     _addCard(5, Colors.cyan, cd);

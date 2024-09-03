@@ -1,3 +1,4 @@
+import 'package:rupali_bank_demo/models/cards_model.dart';
 import 'package:rupali_bank_demo/models/dps_model.dart';
 import 'package:rupali_bank_demo/models/fd_model.dart';
 import 'package:rupali_bank_demo/models/general_savings_model.dart';
@@ -31,5 +32,13 @@ class HomepageTestModels {
   static List<FdModel> fdModelList = [
     FdModel("BDT 42000", "24 Sep 2020", "6", "2.3", "500%", "6 Sep 2022"),
     FdModel("BDT 4200", "17 Jan 2020", "4", "5.5", "260%", "7 Jan 202"),
+  ];
+
+  static List<CardsModel> cdModelList = [
+    CardsModel("BDT 64000", "6 Sep 2022", "BDT 16000", "BDT 8000"),
+    CardsModel("BDT 640000", "7 Jan 2022", "BDT 160000", "BDT 80000"),
+    CardsModel("BDT 6400000", "3 Feb 2022", "BDT 1600000", "BDT 800000"),
+    CardsModel("BDT 6400000", "24 Sep 2020", "BDT 1600000", "BDT 800000"),
+    CardsModel("BDT 6400000", "17 Jan 2020", "BDT 1600000", "BDT 800000")
   ];
 }

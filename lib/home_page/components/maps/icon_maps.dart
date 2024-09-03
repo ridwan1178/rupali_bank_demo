@@ -36,4 +36,11 @@ class IconMaps {
     AppConstants.opDate: AppIcons.hpOpeningDate,
     AppConstants.intRate: AppIcons.hpIntrate,
   };
+
+  static Map<String, Widget> cdIconMap = {
+    AppConstants.minPayDue: AppIcons.hpMinPayDue,
+    AppConstants.payDueBy: AppIcons.hpPayDueBy,
+    AppConstants.currLim: AppIcons.hpCurrLim,
+    AppConstants.availableBalance: AppIcons.hpAvailBal
+  };
 }
