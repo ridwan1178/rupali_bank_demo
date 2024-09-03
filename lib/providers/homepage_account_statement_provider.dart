@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:rupali_bank_demo/home_page/components/card/card_body.dart';
 import 'package:rupali_bank_demo/core/configs/app_attribute_constants.dart';
+import 'package:rupali_bank_demo/home_page/components/details/general_savings_details.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/abstract_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/cards_highlights.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/dps_highlights.dart';
@@ -15,7 +16,7 @@ import 'package:rupali_bank_demo/models/tests/homepage_test_models.dart';
 class HomepageAccountStatementProvider extends ChangeNotifier {
   //variables
   static List<CardBody> _cards = [];
-  List<dynamic> _details = [];
+  Widget _details = SizedBox.shrink();
   List<Widget> _highlights = [];
   Key _refreshKey = UniqueKey();
   bool _updateFlag = false;
@@ -26,6 +27,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
 
 //getters
   List<CardBody> get cards => _cards;
+  Widget get details => _details;
   Key get refreshKey => _refreshKey;
   bool get updateFlag => _updateFlag;
   String get detailsFlag =>
@@ -50,13 +52,13 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     }
   }
 
-  void _addDetails(String? text, int? items) {
-    if (items != null) {
-      for (var i = 0; i < items; i++) {
-        _details.add(text);
-      }
-    }
-  }
+  // void _addDetails(String? text, int? items) {
+  //   if (items != null) {
+  //     for (var i = 0; i < items; i++) {
+  //       _details.add(text);
+  //     }
+  //   }
+  // }
 
   void setDetailsFlag(String constant) {
     _detailsFlag = constant;
@@ -99,6 +101,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
     }
     // _highlights = GeneralSavingsHighlights();
     _addCard(3, Colors.red, gs);
+    _details = GeneralSavingsDetails();
   }
 
 //listeners
@@ -113,6 +116,7 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
           key: UniqueKey(), gsData: HomepageTestModels.gsModelList[i]));
     }
     _addCard(3, Colors.red, gs);
+    _details = GeneralSavingsDetails();
     // _highlights = GeneralSavingsHighlights();
     notifyListeners();
   }
@@ -182,28 +186,28 @@ class HomepageAccountStatementProvider extends ChangeNotifier {
   }
 
 //not being used
-  void getDetails() {
-    String? text;
-    int? items;
-    if (optionsFlagList[0] == _optionsFlag) {
-      text = "general savings ";
-      items = 10;
-    } else if (optionsFlagList[1] == _optionsFlag) {
-      text = "fixed deposit ";
-      items = 9;
-    } else if (optionsFlagList[2] == _optionsFlag) {
-      text = "DPS Dps dPS ";
-      items = 8;
-    } else if (optionsFlagList[3] == _optionsFlag) {
-      text = "loan LOAN lOAn ";
-      items = 7;
-    } else if (optionsFlagList[4] == _optionsFlag) {
-      text = "card CArd cARd ";
-      items = 10;
-    } else {
-      setError("Selected option not found");
-    }
+  // void getDetails() {
+  //   String? text;
+  //   int? items;
+  //   if (optionsFlagList[0] == _optionsFlag) {
+  //     text = "general savings ";
+  //     items = 10;
+  //   } else if (optionsFlagList[1] == _optionsFlag) {
+  //     text = "fixed deposit ";
+  //     items = 9;
+  //   } else if (optionsFlagList[2] == _optionsFlag) {
+  //     text = "DPS Dps dPS ";
+  //     items = 8;
+  //   } else if (optionsFlagList[3] == _optionsFlag) {
+  //     text = "loan LOAN lOAn ";
+  //     items = 7;
+  //   } else if (optionsFlagList[4] == _optionsFlag) {
+  //     text = "card CArd cARd ";
+  //     items = 10;
+  //   } else {
+  //     setError("Selected option not found");
+  //   }
 
-    _addDetails(text, items);
-  }
+  //   _addDetails(text, items);
+  // }
 }

@@ -9,7 +9,9 @@ class HomePageRoutes {
     name: AccountDetailsPage.namedRoute,
     path: AccountDetailsPage.path,
     builder: (BuildContext context, GoRouterState state) {
-      return ChangeNotifierProvider(
+      return 
+      const AccountDetailsPage();
+      ChangeNotifierProvider(
         create: (context) => HomepageAccountStatementProvider(),
         child: const AccountDetailsPage(),
       );

@@ -20,7 +20,7 @@ class DeleteBeneficiaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Delete Beneficiary");
+    var pageTitle = PageTitleWiget("Delete Beneficiary", false);
     return SafeArea(child: Scaffold(
       appBar: BasicAppbar(hideBackButton: false, title: pageTitle.pageTitle(), centerTitle: pageTitle.centerTitle,),
             body: Center(

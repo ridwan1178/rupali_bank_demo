@@ -24,7 +24,7 @@ class AddBeneficiaryDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Add Beneficiary");
+    var pageTitle = PageTitleWiget("Add Beneficiary", false);
     BeneficiaryModel beneficiary;
     String name;
     String accNum;

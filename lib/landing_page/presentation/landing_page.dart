@@ -35,7 +35,7 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   void initState() {
-    context.read<HomepageAccountStatementProvider>().selectedDefault();
+   // context.read<HomepageAccountStatementProvider>().selectedDefault();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         homepageIndex = GoRouterState.of(context).extra! as int;
@@ -71,8 +71,12 @@ class _LandingPageState extends State<LandingPage> {
               homepageIndex = index;
             });
           },
-          children: const [
-            Homepage(),
+          children:  [
+            ChangeNotifierProvider(
+          create: (context) => HomepageAccountStatementProvider(),
+          child: const Homepage(),
+        ),
+            
             PaymentsPage(),
             TransfersPage(),
             CardsPage(),

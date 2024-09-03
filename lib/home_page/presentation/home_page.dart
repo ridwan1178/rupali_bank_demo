@@ -25,10 +25,10 @@ class Homepage extends StatefulWidget {
   static const String namedRoute = 'homepage';
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<Homepage> createState() => HomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class HomepageState extends State<Homepage> {
   //variables and internal functions
   final PageController _pageController = PageController(
     viewportFraction: 0.9,
@@ -74,14 +74,12 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            appBar: BasicAppbar(
-              hideBackButton: true,
-              title: UserProfileButton(context).user,
-              profilePic: UserProfileButton(context).userProfileImage(),
-            ),
-            body: home(context)
-      
-    );
+        appBar: BasicAppbar(
+          hideBackButton: true,
+          title: UserProfileButton(context).user,
+          profilePic: UserProfileButton(context).userProfileImage(),
+        ),
+        body: home(context));
   }
 
   Column home(BuildContext context) {
@@ -89,50 +87,68 @@ class _HomepageState extends State<Homepage> {
       children: [
         Flexible(
           fit: FlexFit.tight,
-          flex: 1,
-          child:  _cards(context, context.watch<HomepageAccountStatementProvider>().cards,
-                context.watch<HomepageAccountStatementProvider>().refreshKey),
-          
+          flex: 0,
+          child: _cards(
+              context,
+              context.watch<HomepageAccountStatementProvider>().cards,
+              context.watch<HomepageAccountStatementProvider>().refreshKey),
         ),
         _dotsForCards(context,
             context.watch<HomepageAccountStatementProvider>().cards.length),
         const AccountStatementOptions(),
-         Padding(
-           padding:  EdgeInsets.only(left: ppc.cw(19), right:  ppc.cw(24)),
-           child: Row(
-              children: [
-                 Padding(
-                  padding:  EdgeInsets.only(top: ppc.ch(22), bottom: ppc.ch(19),),
-                  child: Text("Higlights", style: TextStyle(fontSize: ppc.cf(18), fontWeight: FontWeight.w700, height: ppc.clh(18, 27)),)),
-                
-                const Spacer(),
-                
-                   GestureDetector(
-                    onTap: () => 
-                            context.goNamed(AccountDetailsPage.namedRoute),
-                          
-                     child: SizedBox(
-                          
-                            child:  Text(
-                                  "View details",
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(fontSize: ppc.cf(12), color: AppColors.primary, fontWeight: FontWeight.w400, height: ppc.clh(12, 18,),),
-                                ),
-                              
-                            ),
-                   ),
-                   
-                  
-                
-              ],
-            ),
-         ),
-        
+        Padding(
+          padding: EdgeInsets.only(left: ppc.cw(19), right: ppc.cw(24)),
+          child: Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.only(
+                    top: ppc.ch(22),
+                    bottom: ppc.ch(19),
+                  ),
+                  child: Text(
+                    "Higlights",
+                    style: TextStyle(
+                        fontSize: ppc.cf(18),
+                        fontWeight: FontWeight.w700,
+                        height: ppc.clh(18, 27)),
+                  )),
+              const Spacer(),
+              GestureDetector(
+                onTap: () => context.pushNamed(AccountDetailsPage.namedRoute,
+                    extra:
+                      //  context.read<HomepageAccountStatementProvider>().cards
+                        {
+                      "cards":
+                          context.read<HomepageAccountStatementProvider>().cards,
+                      "details":
+                          context.read<HomepageAccountStatementProvider>().details
+                    }
+                    ),
+                child: SizedBox(
+                  child: Text(
+                    "View details",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      fontSize: ppc.cf(12),
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w400,
+                      height: ppc.clh(
+                        12,
+                        18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         Flexible(
-         
-          fit: FlexFit.tight,
-          flex: 2,
-          child: context.watch<HomepageAccountStatementProvider>().highlights[currentIndex])
+            fit: FlexFit.tight,
+            flex: 0,
+            child: context
+                .watch<HomepageAccountStatementProvider>()
+                .highlights[currentIndex])
       ],
     );
   }
@@ -146,19 +162,18 @@ class _HomepageState extends State<Homepage> {
       child: Padding(
         padding: EdgeInsets.only(left: ppc.cw(19)),
         child: PageView(
-              controller: _pageController,
-              onPageChanged: (index) => {
-                    setState(() {
-                      currentIndex = index;
-                      print("## CURRENT INDEX == $currentIndex ##");
-                    })
-                  },
-              pageSnapping: false,
-              padEnds: false,
-              scrollDirection: Axis.horizontal,
-              children: cards),
+            controller: _pageController,
+            onPageChanged: (index) => {
+                  setState(() {
+                    currentIndex = index;
+                    print("## CURRENT INDEX == $currentIndex ##");
+                  })
+                },
+            pageSnapping: false,
+            padEnds: false,
+            scrollDirection: Axis.horizontal,
+            children: cards),
       ),
-      
     );
   }
 

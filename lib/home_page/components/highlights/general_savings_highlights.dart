@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rupali_bank_demo/core/configs/app_colors.dart';
 import 'package:rupali_bank_demo/core/configs/app_constants.dart';
 import 'package:rupali_bank_demo/core/configs/app_icons.dart';
 import 'package:rupali_bank_demo/home_page/components/highlights/abstract_highlights.dart';
@@ -67,8 +68,8 @@ class _GeneralSavingsHighlightsState extends State<GeneralSavingsHighlights> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   TabBar(
-                    labelColor: Colors.green,
-                    unselectedLabelColor: Colors.grey,
+                    labelColor: AppColors.primary,
+                    unselectedLabelColor: AppColors.unSelected,
                     dividerColor: Colors.transparent,
                     indicatorColor: Colors.transparent,
                     indicatorSize: null,

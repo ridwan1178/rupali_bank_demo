@@ -12,13 +12,14 @@ class LandingPageRoutes {
       path: LandingPage.path,
       //parentNavigatorKey: AppRouterConfig().shellNavigatorKey,
       builder: (BuildContext context, GoRouterState state) {
-        return ChangeNotifierProvider(
-          create: (context) => HomepageAccountStatementProvider(),
-          child: const LandingPage(),
-        );
+        return LandingPage();
+        // ChangeNotifierProvider(
+        //   create: (context) => HomepageAccountStatementProvider(),
+        //   child: const LandingPage(),
+        // );
       },
-      routes: [HomePageRoutes.accountDetails,
-      UserProfileRoutes.userProfilePageFromLandingPage]);
-
-
+      routes: [
+       // HomePageRoutes.accountDetails,
+        UserProfileRoutes.userProfilePageFromLandingPage
+      ]);
 }

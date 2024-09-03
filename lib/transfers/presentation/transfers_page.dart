@@ -12,7 +12,7 @@ class TransfersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Fund Transfer");
+    var pageTitle = PageTitleWiget("Fund Transfer", false);
     return Scaffold(
         appBar: BasicAppbar(
           hideBackButton: false,

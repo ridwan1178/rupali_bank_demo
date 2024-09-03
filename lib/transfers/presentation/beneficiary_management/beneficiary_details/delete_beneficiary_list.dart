@@ -30,7 +30,7 @@ class _DeleteBeneficiaryListState extends State<DeleteBeneficiaryList> {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Delete Beneficiary");
+    var pageTitle = PageTitleWiget("Delete Beneficiary", false);
     // List<BeneficiaryModel> beneficiaries =
     //     context.read<BeneficiaryManagementProvider>().beneficiaries;
     return ChangeNotifierProvider(

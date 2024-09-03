@@ -13,7 +13,7 @@ class SilBankAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Fund Transfer");
+    var pageTitle = PageTitleWiget("Fund Transfer", false);
     List<Widget> options = SilBankPageOptions(context).options;
     return SafeArea(
         child: Scaffold(

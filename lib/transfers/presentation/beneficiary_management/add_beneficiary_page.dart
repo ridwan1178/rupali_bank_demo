@@ -20,7 +20,7 @@ class AddBeneficiaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Add Beneficiary");
+    var pageTitle = PageTitleWiget("Add Beneficiary", false);
     return SafeArea(
         child: Scaffold(
       appBar: BasicAppbar(

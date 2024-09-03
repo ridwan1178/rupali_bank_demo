@@ -14,7 +14,7 @@ class BeneficiaryManagement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pageTitle = PageTitleWiget("Beneficiary Management");
+    var pageTitle = PageTitleWiget("Beneficiary Management", false);
     List<Widget> options = BeneficiaryManagementOptions(context).options;
     return SafeArea(
         child: Scaffold(
