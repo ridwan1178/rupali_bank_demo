@@ -8,17 +8,18 @@ class PixelToPercentageConverter {
   static const double _figmaDeviceHeight = 812;
   static const double _figmaDeviceWidth = 375;
 
-
   double ch(double height) {
     double percantageHeight = (height / _figmaDeviceHeight) * 100;
-    double convertedHeightInPixels = _appSizeConfig.safeBlockVertical * percantageHeight;
+    double convertedHeightInPixels = height;
+    //_appSizeConfig.safeBlockVertical * percantageHeight;
 
     return convertedHeightInPixels;
   }
 
   double cw(double width) {
     double percantageWidth = (width / _figmaDeviceWidth) * 100;
-    double convertedWidthInPixels = _appSizeConfig.safeBlockHorizontal * percantageWidth;
+    double convertedWidthInPixels = width;
+    // _appSizeConfig.safeBlockHorizontal * percantageWidth;
 
     return convertedWidthInPixels;
   }
@@ -26,8 +27,8 @@ class PixelToPercentageConverter {
   double cf(double size) {
     //same implementation as width
     double percantageDensity = (size / _figmaDeviceWidth) * 100;
-    double convertedFontSizeInPixels =
-        _appSizeConfig.safeBlockHorizontal * percantageDensity;
+    double convertedFontSizeInPixels = size;
+    // _appSizeConfig.safeBlockHorizontal * percantageDensity;
 
     return convertedFontSizeInPixels;
   }

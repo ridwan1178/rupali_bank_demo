@@ -6,7 +6,7 @@ import 'package:rupali_bank_demo/core/configs/app_theme.dart';
 import 'package:rupali_bank_demo/providers/app_lang_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:rupali_bank_demo/utils/pixel_to_percentage_converter/pixel_to_percentage_converter.dart';
 
 void main() {
@@ -25,6 +25,7 @@ final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 //get global router for navigation navigatorKey.currentcontext.push/pop
 final navigatorKey = AppRouterConfig.router.routerDelegate.navigatorKey;
 
+//DO NOT USE ANYMORE, JUST USE NORMAL VALUES FROM FIGMA
 //responsive size
 //ch = height/vertical unit
 //cw = width/horizontal
@@ -56,7 +57,14 @@ class MyApp extends StatelessWidget {
       routerConfig: AppRouterConfig.router,
       locale: context.watch<AppLangProvider>().appLocale,
       debugShowCheckedModeBanner: false,
-      builder: EasyLoading.init(),
+      builder: (context, widget) => ResponsiveWrapper.builder(
+          ClampingScrollWrapper.builder(context, widget!),
+          breakpoints: const [
+            ResponsiveBreakpoint.autoScaleDown(411, name: "SMALL"),
+            ResponsiveBreakpoint.resize(519, name: "MEDIUM"),
+            ResponsiveBreakpoint.autoScale(520, name: "LARGE"),
+          ],
+          defaultScaleFactor: 0.85),
     );
   }
 }

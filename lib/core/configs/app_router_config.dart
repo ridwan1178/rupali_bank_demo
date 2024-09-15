@@ -13,6 +13,7 @@ import 'package:rupali_bank_demo/signup/configs/signup_routes.dart';
 import 'package:rupali_bank_demo/splash/presentation/splash_page.dart';
 import 'package:rupali_bank_demo/transfers/configs/transfer_page_routes.dart';
 import 'package:rupali_bank_demo/utils/basic_success_page_0.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AppRouterConfig {
   // final rootNavigatorKey =
@@ -28,16 +29,17 @@ class AppRouterConfig {
   }
 
   static GoRouter _createRouter() {
-    final rootNavigatorKey =
-      GlobalKey<NavigatorState>();
+
+   
+    
     return GoRouter(initialLocation: SplashPage.path, 
-    navigatorKey: rootNavigatorKey,
+    
     routes: <RouteBase>[
       
       GoRoute(
         name: SplashPage.namedRoute,
         path: SplashPage.path,
-        builder: (BuildContext context, GoRouterState state) {
+        builder:  (BuildContext context, GoRouterState state) {
           return const SplashPage();
         },
       ),

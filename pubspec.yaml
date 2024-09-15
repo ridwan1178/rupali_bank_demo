@@ -48,7 +48,7 @@ dev_dependencies:
   dots_indicator:
   flutter_easyloading:
   flutter_svg:
-
+  responsive_framework: 0.2.0 
 
   
 
